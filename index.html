@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Il Tuo Budget a Prova di Bomba — Maleducati Finanziari</title>
+  <meta name="description" content="Il sistema in 5 fasi per costruire la tua sicurezza economica. Iscrizioni aperte fino al 12 aprile alle 23:59.">
+  <meta property="og:title" content="Il Tuo Budget a Prova di Bomba — Maleducati Finanziari">
+  <meta property="og:description" content="Il sistema in 5 fasi per costruire la tua sicurezza economica, anche se parti da zero.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Antonio + DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- GSAP 3.12.5 + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* ============================================================
+       RESET + BASE
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --mf-navy:       #003a64;
+      --mf-blue:       #54a2d2;
+      --mf-light:      #a9cee8;
+      --mf-white:      #ffffff;
+      --mf-font-title: 'Antonio', sans-serif;
+      --mf-font-body:  'DM Sans', sans-serif;
+    }
+
+    body {
+      font-family: var(--mf-font-body);
+      color: var(--mf-navy);
+      background: var(--mf-white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .mf-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    a { text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ============================================================
+       URGENCY BAR FISSA
+       ============================================================ */
+    #mf-urgency-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      background: var(--mf-navy);
+      color: var(--mf-white);
+      text-align: center;
+      padding: 10px 20px;
+      font-family: var(--mf-font-body);
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid rgba(84, 162, 210, 0.3);
+    }
+
+    #mf-urgency-cta {
+      color: var(--mf-light);
+      font-weight: 600;
+      border-bottom: 1px solid rgba(169, 206, 232, 0.4);
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
+    #mf-urgency-cta:hover { color: var(--mf-white); border-bottom-color: var(--mf-white); }
+
+    /* ============================================================
+       COUNTDOWN
+       ============================================================ */
+    .mf-countdown {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--mf-font-title);
+      font-size: 15px;
+      font-weight: 700;
+    }
+    .mf-cd-unit {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1;
+    }
+    .mf-cd-unit small {
+      font-size: 9px;
+      font-family: var(--mf-font-body);
+      font-weight: 400;
+      opacity: 0.65;
+      text-transform: uppercase;
+    }
+    .mf-cd-sep { opacity: 0.4; font-weight: 700; margin-top: -4px; }
+
+    /* ============================================================
+       ANIMAZIONI SCROLL
+       ============================================================ */
+    .mf-animate {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .mf-animate.is-visible { opacity: 1; transform: translateY(0); }
+
+    /* ============================================================
+       BOTTONI CTA
+       ============================================================ */
+    .mf-btn {
+      display: inline-block;
+      background: var(--mf-blue);
+      color: var(--mf-white);
+      font-family: var(--mf-font-body);
+      font-size: 16px;
+      font-weight: 600;
+      padding: 16px 36px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      line-height: 1.2;
+    }
+    .mf-btn:hover {
+      background: #3d8ab8;
+      transform: scale(1.02);
+      box-shadow: 0 6px 24px rgba(84, 162, 210, 0.35);
+      color: var(--mf-white);
+    }
+    .mf-btn-large { font-size: 18px; padding: 20px 52px; }
+
+    .mf-btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--mf-white);
+      font-family: var(--mf-font-body);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 15px 28px;
+      border-radius: 6px;
+      border: 1px solid rgba(169, 206, 232, 0.4);
+      transition: all 0.3s ease;
+    }
+    .mf-btn-secondary:hover {
+      border-color: var(--mf-light);
+      background: rgba(169, 206, 232, 0.1);
+      transform: scale(1.02);
+      color: var(--mf-white);
+    }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .mf-hero {
+      background:
+        radial-gradient(ellipse at 15% 25%, rgba(84, 162, 210, 0.15) 0%, transparent 55%),
+        var(--mf-navy);
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 0 80px;
+    }
+    .mf-hero-label {
+      font-family: var(--mf-font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--mf-blue);
+      margin-bottom: 20px;
+      display: block;
+    }
+    .mf-hero h1 {
+      font-family: var(--mf-font-title);
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 700;
+      color: var(--mf-white);
+      line-height: 1.08;
+      letter-spacing: -0.5px;
+      max-width: 820px;
+      margin-bottom: 24px;
+    }
+    .mf-hero p {
+      font-family: var(--mf-font-body);
+      font-size: 19px;
+      color: var(--mf-light);
+      max-width: 600px;
+      line-height: 1.65;
+      margin-bottom: 36px;
+    }
+    .mf-hero-sub {
+      display: block;
+      font-family: var(--mf-font-body);
+      font-size: 13px;
+      color: rgba(169, 206, 232, 0.6);
+      margin-top: 14px;
+    }
+
+    /* ============================================================
+       PROBLEMA
+       ============================================================ */
+    .mf-problema {
+      background: var(--mf-white);
+      padding: 90px 0;
+    }
+    .mf-problema h2 {
+      font-family: var(--mf-font-title);
+      font-size: clamp(32px, 4.5vw, 52px);
+      font-weight: 700;
+      color: var(--mf-navy);
+      line-height: 1.1;
+      max-width: 700px;
+      margin-bottom: 28px;
+    }
+    .mf-problema p {
+      font-family: var(--mf-font-body);
+      font-size: 17px;
+      color: #1a3a52;
+      line-height: 1.75;
+      max-width: 680px;
+      margin-bottom: 16px;
+    }
+    .mf-problema .mf-headline2 {
+      font-family: var(--mf-font-title);
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 700;
+      color: var(--mf-navy);
+      margin-top: 48px;
+      line-height: 1.2;
+    }
+
+    /* ============================================================
+       STORIA
+       ============================================================ */
+    .mf-storia {
+      background:
+        radial-gradient(ellipse at 88% 12%, rgba(84, 162, 210, 0.12) 0%, transparent 50%),
+        var(--mf-light);
+      padding: 90px 0;
+    }
+    .mf-storia-inner {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 64px;
+      align-items: center;
+    }
+    .mf-storia h2 {
+      font-family: var(--mf-font-title);
+      font-size: clamp(30px, 4vw, 46px);
+      font-weight: 700;
+      color: var(--mf-navy);
+      line-height: 1.12;
+      margin-bottom: 24px;
+    }
+    .mf-storia p {
+      font-family: var(--mf-font-body);
+      font-size: 17px;
+      color: var(--mf-navy);
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+    .mf-storia .mf-quote {
+      font-style: italic;
+      font-weight: 600;
+      color: var(--mf-navy);
+      border-left: 3px solid var(--mf-blue);
+      padding-left: 16px;
+      margin-top: 24px;
+    }
+    .mf-foto-placeholder {
+      background:
+        radial-gradient(ellipse at 30% 40%, rgba(84, 162, 210, 0.2) 0%, transparent 60%),
+        var(--mf-navy);
+      border-radius: 20px;
+      aspect-ratio: 4/5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: rgba(169, 206, 232, 0.5);
+      font-family: var(--mf-font-body);
+      font-size: 13px;
+      text-align: center;
+      padding: 32px;
+      box-shadow: 0 16px 48px rgba(0, 58, 100, 0.18);
+    }
+    .mf-foto-placeholder svg { opacity: 0.4; }
+
+    /* ============================================================
+       RECENSIONI INTERMEDIE
+       ============================================================ */
+    .mf-recensioni-mid {
+      background:
+        radial-gradient(ellipse at 82% 78%, rgba(84, 162, 210, 0.13) 0%, transparent 48%),
+        var(--mf-navy);
+      padding: 90px 0;
+    }
+    .mf-recensioni-mid h2 {
+      font-family: var(--mf-font-title);
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 700;
+      color: var(--mf-white);
+      text-align: center;
+      margin-bottom: 52px;
+    }
+    .mf-recensioni-mid-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .mf-review-placeholder {
+      aspect-ratio: 4/3;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px dashed rgba(169, 206, 232, 0.25);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: rgba(169, 206, 232, 0.35);
+      font-family: var(--mf-font-body);
+      font-size: 13px;
+      text-align: center;
+      padding: 24px;
+      cursor: default;
+    }
+    .mf-review-placeholder-text {
+      font-family: var(--mf-font-body);
+      font-size: 12px;
+      color: rgba(169, 206, 232, 0.3);
+      max-width: 140px;
+      line-height: 1.4;
+    }
+
+    /* ============================================================
+       PROGRAMMA
+       ============================================================ */
+    .mf-programma {
+      background: var(--mf-white);
+      padding: 90px 0;
+    }
+    .mf-programma h2 {
+      font-family: var(--mf-font-title);
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 700;
+      color: var(--mf-navy);
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .mf-programma-intro {
+      font-family: var(--mf-font-body);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--mf-blue);
+      margin-bottom: 56px;
+    }
+    .mf-fasi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+    }
+    .mf-fase-item {
+      border-left: 3px solid var(--mf-light);
+      padding: 0 32px 36px 28px;
+      margin-bottom: 8px;
+      transition: border-color 0.3s ease;
+    }
+    .mf-fase-item:hover { border-left-color: var(--mf-blue); }
+    .mf-fase-numero {
+      font-family: var(--mf-font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--mf-blue);
+      margin-bottom: 6px;
+    }
+    .mf-fase-titolo {
+      font-family: var(--mf-font-title);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--mf-navy);
+      margin-bottom: 8px;
+    }
+    .mf-fase-desc {
+      font-family: var(--mf-font-body);
+      font-size: 15px;
+      color: #4a6578;
+      line-height: 1.6;
+    }
+    .mf-fase-desc ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 8px;
+    }
+    .mf-fase-desc ul li {
+      padding-left: 16px;
+      position: relative;
+      font-size: 14px;
+      color: #5a7080;
+      padding-bottom: 4px;
+    }
+    .mf-fase-desc ul li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--mf-blue);
+      font-weight: 700;
+    }
+    .mf-bonus-box {
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(84, 162, 210, 0.08) 0%, transparent 60%),
+        var(--mf-light);
+      border-radius: 16px;
+      padding: 40px;
+      margin-top: 56px;
+      border-left: 4px solid var(--mf-blue);
+    }
+    .mf-bonus-box h3 {
+      font-family: var(--mf-font-title);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--mf-navy);
+      margin-bottom: 24px;
+    }
+    .mf-bonus-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      list-style: none;
+      padding: 0;
+    }
+    .mf-bonus-list li {
+      font-family: var(--mf-font-body);
+      font-size: 15px;
+      color: var(--mf-navy);
+      padding: 12px 16px 12px 0;
+      border-bottom: 1px solid rgba(0, 58, 100, 0.1);
+      line-height: 1.5;
+    }
+    .mf-bonus-list li:nth-last-child(-n+2) { border-bottom: none; }
+    .mf-bonus-list li strong {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .mf-programma-cta {
+      text-align: center;
+      margin-top: 56px;
+    }
+
+    /* ============================================================
+       PRICING
+       ============================================================ */
+    .mf-pricing {
+      background:
+        radial-gradient(ellipse at 50% 100%, rgba(84, 162, 210, 0.05) 0%, transparent 55%),
+        var(--mf-white);
+      padding: 90px 0;
+    }
+    .mf-pricing-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .mf-pricing-header h2 {
+      font-family: var(--mf-font-title);
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 700;
+      color: var(--mf-navy);
+      margin-bottom: 8px;
+    }
+    .mf-pricing-subtitle {
+      font-family: var(--mf-font-body);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--mf-blue);
+    }
+    .mf-pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.08fr 1fr;
+      gap: 24px;
+      max-width: 1040px;
+      margin: 0 auto;
+      align-items: start;
+    }
+    .mf-card-plus, .mf-card-exclusive {
+      background: var(--mf-white);
+      border: 1px solid var(--mf-light);
+      border-radius: 16px;
+      padding: 36px 28px 40px;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-top: 16px;
+    }
+    .mf-card-plus:hover, .mf-card-exclusive:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 58, 100, 0.1);
+    }
+    .mf-card-premium {
+      background: var(--mf-navy);
+      border: 2px solid var(--mf-navy);
+      border-radius: 16px;
+      padding: 48px 36px;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 16px 52px rgba(0, 58, 100, 0.28);
+    }
+    .mf-card-premium:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 64px rgba(0, 58, 100, 0.38);
+    }
+    .mf-card-badge {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--mf-font-body);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 18px;
+      border-radius: 20px;
+      white-space: nowrap;
+      color: var(--mf-white);
+    }
+    .mf-card-badge--blue   { background: var(--mf-blue); }
+    .mf-card-badge--red    { background: #c0392b; font-size: 11px; }
+
+    .mf-card-label {
+      font-family: var(--mf-font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--mf-blue);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .mf-card-premium .mf-card-label { color: var(--mf-light); }
+
+    .mf-card-title {
+      font-family: var(--mf-font-title);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--mf-navy);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .mf-card-premium .mf-card-title { color: var(--mf-white); font-size: 22px; }
+
+    .mf-card-target {
+      font-family: var(--mf-font-body);
+      font-size: 13px;
+      line-height: 1.55;
+      color: #6b8296;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--mf-light);
+    }
+    .mf-card-premium .mf-card-target {
+      color: rgba(169, 206, 232, 0.75);
+      border-bottom-color: rgba(169, 206, 232, 0.2);
+    }
+
+    .mf-card-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px 0;
+    }
+    .mf-card-list li {
+      font-family: var(--mf-font-body);
+      font-size: 14px;
+      color: #2a4a60;
+      padding: 7px 0 7px 22px;
+      position: relative;
+      line-height: 1.45;
+      border-bottom: 1px solid rgba(169, 206, 232, 0.3);
+    }
+    .mf-card-list li:last-child { border-bottom: none; }
+    .mf-card-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--mf-blue);
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .mf-card-premium .mf-card-list li {
+      color: rgba(255,255,255,0.88);
+      border-bottom-color: rgba(169, 206, 232, 0.15);
+    }
+    .mf-card-premium .mf-card-list li::before { color: var(--mf-light); }
+
+    .mf-price-old {
+      font-family: var(--mf-font-body);
+      font-size: 15px;
+      color: #a0b4c0;
+      text-decoration: line-through;
+      margin-bottom: 2px;
+    }
+    .mf-card-premium .mf-price-old { color: rgba(169, 206, 232, 0.45); }
+
+    .mf-price {
+      font-family: var(--mf-font-title);
+      font-size: 52px;
+      font-weight: 700;
+      color: var(--mf-navy);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .mf-card-premium .mf-price { color: var(--mf-white); font-size: 60px; }
+
+    .mf-price-rate {
+      font-family: var(--mf-font-body);
+      font-size: 12px;
+      color: #8a9fac;
+      margin-bottom: 28px;
+      line-height: 1.4;
+    }
+    .mf-card-premium .mf-price-rate { color: rgba(169, 206, 232, 0.65); }
+
+    .mf-card-btn {
+      display: block;
+      background: var(--mf-blue);
+      color: var(--mf-white);
+      font-family: var(--mf-font-body);
+      font-size: 15px;
+      font-weight: 600;
+      text-align: center;
+      padding: 14px 24px;
+      border-radius: 6px;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .mf-card-btn:hover {
+      background: #3d8ab8;
+      transform: scale(1.02);
+      color: var(--mf-white);
+    }
+    .mf-card-premium .mf-card-btn { font-size: 16px; padding: 16px; }
+
+    /* ============================================================
+       CHI SIAMO
+       ============================================================ */
+    .mf-chisiamo {
+      background:
+        radial-gradient(ellipse at 8% 82%, rgba(84, 162, 210, 0.1) 0%, transparent 50%),
+        var(--mf-light);
+      padding: 90px 0;
+    }
+    .mf-chisiamo-inner {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 64px;
+      align-items: center;
+    }
+    .mf-chisiamo h2 {
+      font-family: var(--mf-font-title);
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      color: var(--mf-navy);
+      margin-bottom: 24px;
+    }
+    .mf-chisiamo p {
+      font-family: var(--mf-font-body);
+      font-size: 17px;
+      color: var(--mf-navy);
+      line-height: 1.75;
+      max-width: 580px;
+      margin-bottom: 14px;
+    }
+    .mf-chisiamo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--mf-navy);
+      color: var(--mf-light);
+      font-family: var(--mf-font-body);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 20px;
+      margin-top: 16px;
+    }
+
+    /* ============================================================
+       URGENZA FINALE
+       ============================================================ */
+    .mf-urgenza-finale {
+      background:
+        radial-gradient(ellipse at 72% 18%, rgba(84, 162, 210, 0.16) 0%, transparent 52%),
+        var(--mf-navy);
+      padding: 110px 0;
+      text-align: center;
+    }
+    .mf-urgenza-finale h2 {
+      font-family: var(--mf-font-title);
+      font-size: clamp(30px, 5vw, 58px);
+      font-weight: 700;
+      color: var(--mf-white);
+      line-height: 1.08;
+      max-width: 680px;
+      margin: 0 auto 24px;
+    }
+    .mf-urgenza-finale .mf-countdown {
+      font-size: 36px;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 28px auto;
+      color: var(--mf-white);
+      display: flex;
+    }
+    .mf-urgenza-finale .mf-cd-unit {
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 10px 16px;
+      min-width: 64px;
+      gap: 4px;
+    }
+    .mf-urgenza-finale .mf-cd-unit small { font-size: 11px; opacity: 0.6; }
+    .mf-urgenza-finale .mf-cd-sep { font-size: 32px; margin-top: 4px; opacity: 0.3; }
+    .mf-urgenza-finale p {
+      font-family: var(--mf-font-body);
+      font-size: 17px;
+      color: var(--mf-light);
+      max-width: 540px;
+      margin: 0 auto 40px;
+      line-height: 1.65;
+    }
+
+    /* ============================================================
+       RECENSIONI FINALI — griglia 3x3
+       ============================================================ */
+    .mf-recensioni-finali {
+      background: var(--mf-white);
+      padding: 90px 0;
+    }
+    .mf-recensioni-finali h2 {
+      font-family: var(--mf-font-title);
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 700;
+      color: var(--mf-navy);
+      text-align: center;
+      margin-bottom: 52px;
+    }
+    .mf-recensioni-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 1020px;
+      margin: 0 auto;
+    }
+    .mf-recensione-img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid var(--mf-light);
+      box-shadow: 0 2px 14px rgba(0, 58, 100, 0.07);
+      display: block;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      object-fit: cover;
+    }
+    .mf-recensione-img:hover {
+      box-shadow: 0 8px 28px rgba(0, 58, 100, 0.14);
+      transform: translateY(-2px);
+    }
+    .mf-review-placeholder-light {
+      aspect-ratio: 4/3;
+      background: rgba(0, 58, 100, 0.04);
+      border: 2px dashed rgba(0, 58, 100, 0.12);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: rgba(0, 58, 100, 0.25);
+      font-family: var(--mf-font-body);
+      font-size: 12px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* ============================================================
+       CTA FINALE
+       ============================================================ */
+    .mf-cta-finale {
+      background:
+        radial-gradient(ellipse at 18% 70%, rgba(84, 162, 210, 0.18) 0%, transparent 55%),
+        var(--mf-navy);
+      padding: 110px 0;
+      text-align: center;
+    }
+    .mf-cta-finale h2 {
+      font-family: var(--mf-font-title);
+      font-size: clamp(30px, 5vw, 58px);
+      font-weight: 700;
+      color: var(--mf-white);
+      line-height: 1.08;
+      max-width: 680px;
+      margin: 0 auto 16px;
+    }
+    .mf-cta-finale p {
+      font-family: var(--mf-font-body);
+      font-size: 16px;
+      color: var(--mf-light);
+      margin-bottom: 44px;
+    }
+    .mf-cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    /* ============================================================
+       DIVIDER
+       ============================================================ */
+    .mf-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(169,206,232,0.4), transparent);
+      margin: 0;
+    }
+
+    /* ============================================================
+       RESPONSIVE — MOBILE
+       ============================================================ */
+    @media (max-width: 900px) {
+      .mf-storia-inner,
+      .mf-chisiamo-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .mf-storia-inner .mf-foto-placeholder,
+      .mf-chisiamo-inner .mf-foto-placeholder {
+        max-width: 320px;
+        margin: 0 auto;
+      }
+      .mf-fasi-grid { grid-template-columns: 1fr; }
+      .mf-bonus-list { grid-template-columns: 1fr; }
+      .mf-bonus-list li:nth-last-child(-n+2) { border-bottom: 1px solid rgba(0,58,100,0.1); }
+      .mf-bonus-list li:last-child { border-bottom: none; }
+    }
+
+    @media (max-width: 768px) {
+      .mf-container { padding: 0 20px; }
+
+      .mf-hero { min-height: auto; padding: 80px 0 60px; }
+      .mf-hero h1 { font-size: 36px; }
+      .mf-hero p { font-size: 17px; }
+
+      .mf-problema, .mf-storia, .mf-programma, .mf-pricing,
+      .mf-chisiamo, .mf-urgenza-finale, .mf-cta-finale,
+      .mf-recensioni-finali, .mf-recensioni-mid { padding: 64px 0; }
+
+      .mf-pricing-grid { grid-template-columns: 1fr; gap: 32px; }
+      .mf-card-premium { order: -1; }
+      .mf-card-plus, .mf-card-exclusive { margin-top: 0; }
+
+      .mf-urgenza-finale .mf-countdown { font-size: 24px; }
+      .mf-urgenza-finale .mf-cd-unit { min-width: 48px; padding: 8px 10px; }
+
+      .mf-recensioni-grid { grid-template-columns: repeat(2, 1fr); }
+      .mf-recensioni-mid-grid { grid-template-columns: 1fr; }
+
+      .mf-cta-buttons { flex-direction: column; align-items: stretch; }
+      .mf-cta-buttons .mf-btn,
+      .mf-cta-buttons .mf-btn-secondary { text-align: center; }
+
+      #mf-urgency-bar { font-size: 11px; padding: 8px 12px; gap: 6px; }
+    }
+
+    @media (max-width: 480px) {
+      .mf-recensioni-grid { grid-template-columns: 1fr; }
+      .mf-btn, .mf-btn-large { padding: 16px 24px; font-size: 16px; }
+      .mf-bonus-box { padding: 28px 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       URGENCY BAR FISSA
+       ============================================================ -->
+  <div id="mf-urgency-bar">
+    ⏳ Le iscrizioni chiudono domenica 12 aprile alle 23:59
+    &mdash; <span class="mf-countdown"></span>
+    &mdash; <a href="https://esmerise.com/maleducatifinanziari/register?p=8274" id="mf-urgency-cta">Iscriviti ora &rarr;</a>
+  </div>
+
+  <!-- ============================================================
+       SEZIONE 1 — HERO (Rettiliano: minaccia + protezione)
+       ============================================================ -->
+  <section class="mf-hero">
+    <div class="mf-container">
+      <span class="mf-hero-label">I prezzi salgono. I guadagni no. L'instabilità cresce.</span>
+      <h1>Smetti di arrivare a fine mese con il fiato corto.</h1>
+      <p>Il sistema in 5 fasi per costruire la tua sicurezza economica — anche se parti da zero e non sai da dove cominciare.</p>
+      <a href="https://esmerise.com/maleducatifinanziari/register?p=8274" class="mf-btn mf-btn-large">
+        Sì, voglio iniziare &rarr;
+      </a>
+      <span class="mf-hero-sub">Iscrizioni aperte fino al 12 aprile alle 23:59. Poi si chiudono.</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEZIONE 2 — PROBLEMA (Limbico: amplifica il dolore)
+       ============================================================ -->
+  <section class="mf-problema mf-animate">
+    <div class="mf-container">
+      <h2>Quanto ti rimane davvero ogni mese?</h2>
+      <p>Pensa ai soldi che entrano. Adesso togli l'affitto o il mutuo. Togli le bollette. Togli la spesa. Togli le rate.</p>
+      <p>Quello che rimane — e solo quello — sono i soldi su cui hai davvero potere.</p>
+      <p>E ogni mese sono sempre meno.</p>
+      <p>Perché i prezzi salgono, i guadagni no. E se non hai un sistema, basta una spesa imprevista — l'auto che si rompe, il frigorifero, il dentista — per mandare tutto in crisi.</p>
+      <p>E si ricomincia da capo.</p>
+      <p><strong>Ogni. Singolo. Mese.</strong></p>
+      <div class="mf-headline2" style="font-family:var(--mf-font-title);font-size:clamp(24px,3vw,36px);font-weight:700;color:var(--mf-navy);margin-top:48px;line-height:1.2;">
+        Non è colpa tua.<br>Nessuno ti ha mai insegnato come farlo.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEZIONE 3 — STORIA (Rettiliano → Limbico: fiducia + emozione)
+       ============================================================ -->
+  <section class="mf-storia mf-animate">
+    <div class="mf-container">
+      <div class="mf-storia-inner">
+        <div>
+          <h2>Anche noi eravamo così.</h2>
+          <p>10 anni fa Dora e Davide erano dei veri maleducati finanziari.</p>
+          <p>Nessun piano. Nessun risparmio. Lo schema era sempre lo stesso: arrivava lo stipendio, si iniziava a spendere, si tirava il freno a mano quando i soldi stavano finendo, e si aspettava quello dopo.</p>
+          <p>Il momento di svolta è arrivato quando stavano per sposarsi. Data fissata, tutto organizzato. E da un giorno all'altro si rompe l'auto. Dovevano comprarla nuova.</p>
+          <p>Non avevano un euro da parte.</p>
+          <p><strong>Zero.</strong></p>
+          <p>Da quel momento hanno iniziato a studiare e costruire il sistema che li ha cambiati. Oggi lo insegnano a migliaia di persone. E hanno scritto un libro.</p>
+          <p class="mf-quote">"Quando tutto va bene, ti prepari. Quando qualcosa va storto, ti ringrazi di averlo fatto."</p>
+        </div>
+        <div class="mf-foto-placeholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 10-16 0"/>
+          </svg>
+          <span style="font-size:13px;line-height:1.4;max-width:160px;">Carica qui la vostra foto</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEZIONE 4 — 3 RECENSIONI (Limbico puro: emozione e identificazione)
+       ============================================================ -->
+  <section class="mf-recensioni-mid mf-animate">
+    <div class="mf-container">
+      <h2>Cosa dicono le persone che hanno già fatto il percorso</h2>
+      <div class="mf-recensioni-mid-grid">
+        <!-- Sostituisci questi placeholder con gli screenshot reali delle recensioni -->
+        <div class="mf-review-placeholder">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+          </svg>
+          <span class="mf-review-placeholder-text">Carica screenshot recensione Alexa</span>
+        </div>
+        <div class="mf-review-placeholder">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+          </svg>
+          <span class="mf-review-placeholder-text">Carica screenshot recensione Giulia</span>
+        </div>
+        <div class="mf-review-placeholder">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+          </svg>
+          <span class="mf-review-placeholder-text">Carica screenshot recensione 3</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEZIONE 5 — PROGRAMMA (Neocorteccia: logica e metodo)
+       ============================================================ -->
+  <section class="mf-programma mf-animate">
+    <div class="mf-container">
+      <h2>Cosa impari nel percorso</h2>
+      <p class="mf-programma-intro">14 video lezioni + 4 video bonus organizzati in 5 fasi</p>
+
+      <div class="mf-fasi-grid">
+        <div class="mf-fase-item">
+          <div class="mf-fase-numero">Fase 1</div>
+          <div class="mf-fase-titolo">Metti le basi</div>
+          <div class="mf-fase-desc">
+            La fondazione di tutto. Stabilisci i tuoi obiettivi di risparmio e scopri dove vanno davvero i tuoi soldi.
+            <ul>
+              <li>Stabilisci gli obiettivi di risparmio e raggiungli</li>
+              <li>Stana le spese e dividile in categorie</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mf-fase-item">
+          <div class="mf-fase-numero">Fase 2</div>
+          <div class="mf-fase-titolo">Organizza le spese</div>
+          <div class="mf-fase-desc">
+            Impara a vedere le spese prima che arrivino — non dopo. Scegli il metodo cartaceo o digitale.
+            <ul>
+              <li>Organizza le spese con calendario cartaceo</li>
+              <li>Organizza le spese con calendario digitale</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mf-fase-item">
+          <div class="mf-fase-numero">Fase 3</div>
+          <div class="mf-fase-titolo">Costruisci il tuo budget</div>
+          <div class="mf-fase-desc">
+            Il primo Rituale di Ricchezza. Il piano scritto prima che il mese inizi — con il file digitale o con carta e penna.
+            <ul>
+              <li>Primo Rituale — Il Budget</li>
+              <li>Crea il budget con il file digitale (tuo per sempre)</li>
+              <li>Crea il budget con carta e penna</li>
+              <li>Come gestire le carte di credito nel budget</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mf-fase-item">
+          <div class="mf-fase-numero">Fase 4</div>
+          <div class="mf-fase-titolo">Risparmio e serenità</div>
+          <div class="mf-fase-desc">
+            Traccia le spese in 15 minuti a settimana. Costruisci il risparmio per obiettivi. Ogni mese parti più avanti del precedente.
+            <ul>
+              <li>Secondo Rituale — Tracciare le spese</li>
+              <li>Il risparmio — costruire la serenità economica</li>
+              <li>Terzo Rituale — La Retrospettiva</li>
+              <li>Organizza il risparmio per obiettivi</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mf-fase-item" style="grid-column: 1 / -1; max-width: 560px;">
+          <div class="mf-fase-numero">Fase 5</div>
+          <div class="mf-fase-titolo">Soldi ed emozioni</div>
+          <div class="mf-fase-desc">
+            Capisci i meccanismi mentali che ti fanno spendere. Il lato psicologico del denaro.
+            <ul>
+              <li>Riconosci i pensieri che ti fanno spendere</li>
+              <li>Il primo ricordo legato ai soldi</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="mf-bonus-box">
+        <h3>🎁 4 Video Bonus inclusi in tutte le opzioni</h3>
+        <ul class="mf-bonus-list">
+          <li><strong>Fondo di Emergenza</strong>La strategia per costruirlo passo dopo passo e dire addio all'ansia da spese impreviste.</li>
+          <li><strong>Dove Tenere i Risparmi</strong>Conti deposito, salvadanai digitali, strumenti giusti per obiettivi a breve termine.</li>
+          <li><strong>Banca Non Ti Temo</strong>Come scegliere il conto e la carta giusta per la tua situazione.</li>
+          <li><strong>Budget delle Vacanze</strong>3 lezioni + file dedicato per calcolare i costi di ogni vacanza senza brutte sorprese.</li>
+        </ul>
+      </div>
+
+      <div class="mf-programma-cta">
+        <a href="https://esmerise.com/maleducatifinanziari/register?p=8274" class="mf-btn">
+          Voglio il percorso completo &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEZIONE 6 — PRICING (Neocorteccia: confronto opzioni)
+       ============================================================ -->
+  <section class="mf-pricing">
+    <div class="mf-container">
+      <div class="mf-pricing-header">
+        <h2>Scegli il percorso giusto per te</h2>
+        <p class="mf-pricing-subtitle">Iscrizioni aperte fino al 12 aprile alle 23:59</p>
+      </div>
+
+      <div class="mf-pricing-grid mf-animate-group">
+
+        <!-- CARD PLUS -->
+        <div class="mf-card-plus mf-animate-child">
+          <span class="mf-card-label">PLUS</span>
+          <div class="mf-card-title">Il Tuo Budget a Prova di Bomba</div>
+          <p class="mf-card-target">Per chi vuole partire in autonomia con metodo e strumenti giusti</p>
+          <ul class="mf-card-list">
+            <li>14 video lezioni</li>
+            <li>File Budget e Traccia Spese</li>
+            <li>File obiettivi di risparmio e salvadanai digitali</li>
+            <li>Fogli di lavoro stampabili</li>
+            <li>Strategia anti-acquisti impulsivi</li>
+            <li>4 Video Bonus inclusi</li>
+            <li>Assistenza email 3 mesi</li>
+          </ul>
+          <div class="mf-price-old">287&euro;</div>
+          <div class="mf-price">187&euro;</div>
+          <div class="mf-price-rate">Oppure 3 rate da 62,33&euro; &mdash; meno di 2&euro; al giorno</div>
+          <a href="https://esmerise.com/maleducatifinanziari/register?p=6185" class="mf-card-btn">Inizia con Plus &rarr;</a>
+        </div>
+
+        <!-- CARD PREMIUM — in evidenza -->
+        <div class="mf-card-premium mf-animate-child">
+          <span class="mf-card-badge mf-card-badge--blue">&#11088; Pi&ugrave; scelta</span>
+          <span class="mf-card-label">PREMIUM</span>
+          <div class="mf-card-title">Il Tuo Budget a Prova di Bomba</div>
+          <p class="mf-card-target">La scelta pi&ugrave; equilibrata tra autonomia e affiancamento</p>
+          <ul class="mf-card-list">
+            <li>2 incontri personalizzati di 1 ora con noi (online)</li>
+            <li>14 video lezioni</li>
+            <li>File Budget e Traccia Spese personalizzato</li>
+            <li>File obiettivi e salvadanai personalizzati</li>
+            <li>Fogli di lavoro stampabili</li>
+            <li>Strategia anti-acquisti impulsivi</li>
+            <li>4 Video Bonus inclusi</li>
+            <li>Assistenza WhatsApp + email 6 mesi</li>
+          </ul>
+          <div class="mf-price-old">497&euro;</div>
+          <div class="mf-price">337&euro;</div>
+          <div class="mf-price-rate">Oppure 3 rate da 112,33&euro; &mdash; meno di 4&euro; al giorno</div>
+          <a href="https://esmerise.com/maleducatifinanziari/register?p=8274" class="mf-card-btn">Scegli Premium &rarr;</a>
+        </div>
+
+        <!-- CARD EXCLUSIVE -->
+        <div class="mf-card-exclusive mf-animate-child">
+          <span class="mf-card-badge mf-card-badge--red">&#128308; Solo 8 posti disponibili</span>
+          <span class="mf-card-label">EXCLUSIVE</span>
+          <div class="mf-card-title">Il Tuo Budget a Prova di Bomba</div>
+          <p class="mf-card-target">Per chi vuole il nostro affiancamento in ogni singola fase</p>
+          <ul class="mf-card-list">
+            <li>6 incontri personalizzati di 1 ora con noi (online)</li>
+            <li>14 video lezioni</li>
+            <li>File Budget e Traccia Spese personalizzato</li>
+            <li>File obiettivi e salvadanai personalizzati</li>
+            <li>Fogli di lavoro stampabili</li>
+            <li>Strategia anti-acquisti impulsivi</li>
+            <li>4 Video Bonus inclusi</li>
+            <li>Assistenza WhatsApp + email 12 mesi</li>
+          </ul>
+          <div class="mf-price-old">1.297&euro;</div>
+          <div class="mf-price">947&euro;</div>
+          <div class="mf-price-rate">Oppure 3 rate da 315,66&euro; &mdash; 10,5&euro; al giorno</div>
+          <a href="https://esmerise.com/maleducatifinanziari/register?p=8275" class="mf-card-btn">Prenota Exclusive &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEZIONE 7 — CHI SIAMO (Rinforzo fiducia)
+       ============================================================ -->
+  <section class="mf-chisiamo mf-animate">
+    <div class="mf-container">
+      <div class="mf-chisiamo-inner">
+        <div>
+          <h2>Chi siamo</h2>
+          <p>Siamo Dora e Davide, educatori finanziari certificati AIEF e autori del libro <em>"Maleducati Finanziari"</em>.</p>
+          <p>Dieci anni fa eravamo esattamente dove sei tu ora — senza risparmi, senza metodo, senza sistema. Ogni mese era una battaglia che non riuscivamo a vincere.</p>
+          <p>Abbiamo studiato, sperimentato, sbagliato. E costruito qualcosa che funzionasse davvero nella vita reale — non sui libri di testo.</p>
+          <p>Poi abbiamo deciso di insegnarlo.</p>
+          <p>Oggi migliaia di persone hanno già usato questo sistema per costruire la loro serenità economica. Siamo qui per fare lo stesso con te.</p>
+          <span class="mf-chisiamo-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Educatori Finanziari Certificati AIEF
+          </span>
+        </div>
+        <div class="mf-foto-placeholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="9" cy="7" r="3"/><circle cx="15" cy="7" r="3"/>
+            <path d="M3 21v-2a6 6 0 0112 0v2M15 11a6 6 0 016 6v2"/>
+          </svg>
+          <span style="font-size:13px;line-height:1.4;max-width:160px;">Carica qui la vostra foto insieme</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEZIONE 8 — URGENZA FINALE (Rettiliano + countdown)
+       ============================================================ -->
+  <section class="mf-urgenza-finale">
+    <div class="mf-container">
+      <h2>Le iscrizioni chiudono domenica 12 aprile alle 23:59</h2>
+      <div class="mf-countdown"></div>
+      <p>
+        Dopo quella data le iscrizioni si chiudono e non riapriremo presto.<br>
+        Se stai aspettando il momento giusto, <strong style="color:#fff;">questo è il momento giusto.</strong>
+      </p>
+      <a href="https://esmerise.com/maleducatifinanziari/register?p=8274" class="mf-btn mf-btn-large">
+        Iscriviti adesso &rarr;
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEZIONE 9 — 9 RECENSIONI (Prova sociale massiva)
+       ============================================================ -->
+  <section class="mf-recensioni-finali mf-animate">
+    <div class="mf-container">
+      <h2>Quello che dicono le persone che hanno già fatto il percorso</h2>
+      <div class="mf-recensioni-grid">
+        <!-- Sostituisci questi 9 placeholder con gli screenshot reali delle recensioni -->
+        <div class="mf-review-placeholder-light">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.4">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+          </svg>
+          <span>Recensione 1</span>
+        </div>
+        <div class="mf-review-placeholder-light">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.4">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+          </svg>
+          <span>Recensione 2</span>
+        </div>
+        <div class="mf-review-placeholder-light">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.4">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+          </svg>
+          <span>Recensione 3</span>
+        </div>
+        <div class="mf-review-placeholder-light">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.4">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+          </svg>
+          <span>Recensione 4</span>
+        </div>
+        <div class="mf-review-placeholder-light">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.4">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+          </svg>
+          <span>Recensione 5</span>
+        </div>
+        <div class="mf-review-placeholder-light">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.4">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+          </svg>
+          <span>Recensione 6</span>
+        </div>
+        <div class="mf-review-placeholder-light">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.4">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+          </svg>
+          <span>Recensione 7</span>
+        </div>
+        <div class="mf-review-placeholder-light">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.4">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+          </svg>
+          <span>Recensione 8</span>
+        </div>
+        <div class="mf-review-placeholder-light">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.4">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+          </svg>
+          <span>Recensione 9</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEZIONE 10 — CTA FINALE (Chiusura con urgenza)
+       ============================================================ -->
+  <section class="mf-cta-finale">
+    <div class="mf-container">
+      <h2>Inizia oggi a costruire la tua sicurezza economica.</h2>
+      <p>Chiude domenica 12 aprile alle 23:59. Poi si chiude.</p>
+      <div class="mf-cta-buttons">
+        <a href="https://esmerise.com/maleducatifinanziari/register?p=6185" class="mf-btn-secondary">
+          Plus &mdash; 187&euro;
+        </a>
+        <a href="https://esmerise.com/maleducatifinanziari/register?p=8274" class="mf-btn mf-btn-large">
+          Premium &mdash; 337&euro; &nbsp;&#11088;
+        </a>
+        <a href="https://esmerise.com/maleducatifinanziari/register?p=8275" class="mf-btn-secondary">
+          Exclusive &mdash; 947&euro;
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       JAVASCRIPT: Countdown + Body Padding + GSAP
+       ============================================================ -->
+  <script>
+    /* --- Aggiusta il padding-top del body per la urgency bar fissa --- */
+    function adjustBodyPadding() {
+      var bar = document.getElementById('mf-urgency-bar');
+      if (bar) document.body.style.paddingTop = bar.offsetHeight + 'px';
+    }
+    adjustBodyPadding();
+    window.addEventListener('resize', adjustBodyPadding);
+
+    /* --- Countdown Timer — scadenza 12 aprile 2026 ore 23:59 --- */
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function updateCountdown() {
+      var deadline = new Date('2026-04-12T23:59:00');
+      var now      = new Date();
+      var diff     = deadline - now;
+      var els      = document.querySelectorAll('.mf-countdown');
+
+      if (diff <= 0) {
+        els.forEach(function(el) { el.textContent = 'Le iscrizioni sono chiuse'; });
+        var cta = document.getElementById('mf-urgency-cta');
+        if (cta) cta.style.display = 'none';
+        return;
+      }
+
+      var days    = Math.floor(diff / (1000 * 60 * 60 * 24));
+      var hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      var html =
+        '<span class="mf-cd-unit">' + days + '<small>g</small></span>' +
+        '<span class="mf-cd-sep">:</span>' +
+        '<span class="mf-cd-unit">' + pad(hours) + '<small>h</small></span>' +
+        '<span class="mf-cd-sep">:</span>' +
+        '<span class="mf-cd-unit">' + pad(minutes) + '<small>m</small></span>' +
+        '<span class="mf-cd-sep">:</span>' +
+        '<span class="mf-cd-unit">' + pad(seconds) + '<small>s</small></span>';
+
+      els.forEach(function(el) { el.innerHTML = html; });
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    /* --- GSAP ScrollTrigger animations --- */
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+
+      /* Elementi singoli .mf-animate */
+      document.querySelectorAll('.mf-animate').forEach(function(el) {
+        gsap.fromTo(el,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1, y: 0,
+            duration: 0.7,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 88%',
+              once: true,
+              onEnter: function() { el.classList.add('is-visible'); }
+            }
+          }
+        );
+      });
+
+      /* Gruppi con stagger — le 3 card pricing */
+      document.querySelectorAll('.mf-animate-group').forEach(function(group) {
+        var children = group.querySelectorAll('.mf-animate-child');
+        gsap.fromTo(children,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1, y: 0,
+            duration: 0.6,
+            ease: 'power2.out',
+            stagger: 0.15,
+            scrollTrigger: {
+              trigger: group,
+              start: 'top 88%',
+              once: true
+            }
+          }
+        );
+      });
+    }
+  </script>
+
+</body>
+</html>

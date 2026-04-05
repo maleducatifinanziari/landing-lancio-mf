@@ -1,0 +1,944 @@
+/*
+  ============================================================
+  MALEDUCATI FINANZIARI — Custom CSS Landing Page
+  Dove incollare: Squarespace > Design > Custom CSS
+  ============================================================
+*/
+
+/* Variabili brand (ridondanti rispetto al header-injection
+   per sicurezza — Squarespace a volte carica il CSS prima
+   degli script) */
+:root {
+  --mf-navy:       #003a64;
+  --mf-blue:       #54a2d2;
+  --mf-light:      #a9cee8;
+  --mf-white:      #ffffff;
+  --mf-font-title: 'Antonio', sans-serif;
+  --mf-font-body:  'DM Sans', sans-serif;
+}
+
+
+/* ============================================================
+   URGENCY BAR FISSA
+   ============================================================ */
+#mf-urgency-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: var(--mf-navy);
+  color: var(--mf-white);
+  text-align: center;
+  padding: 10px 20px;
+  font-family: var(--mf-font-body);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(84, 162, 210, 0.3);
+}
+
+#mf-urgency-cta {
+  color: var(--mf-light) !important;
+  font-weight: 600;
+  text-decoration: none !important;
+  border-bottom: 1px solid rgba(169, 206, 232, 0.4);
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+#mf-urgency-cta:hover {
+  color: var(--mf-white) !important;
+  border-bottom-color: var(--mf-white);
+}
+
+
+/* ============================================================
+   COUNTDOWN — usato sia nella urgency bar che nella
+   sezione urgenza finale
+   ============================================================ */
+.mf-countdown {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mf-font-title);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.mf-cd-unit {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+
+.mf-cd-unit small {
+  font-size: 9px;
+  font-family: var(--mf-font-body);
+  font-weight: 400;
+  opacity: 0.65;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.mf-cd-sep {
+  opacity: 0.4;
+  font-weight: 700;
+  margin-top: -4px;
+}
+
+
+/* ============================================================
+   ANIMAZIONI SCROLL
+   .mf-animate: stato iniziale (nascosto)
+   .is-visible: aggiunto da GSAP all'entrata nel viewport
+   ============================================================ */
+.mf-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.mf-animate.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ============================================================
+   BOTTONI CTA
+   ============================================================ */
+.mf-btn,
+a.mf-btn {
+  display: inline-block;
+  background: var(--mf-blue);
+  color: var(--mf-white) !important;
+  font-family: var(--mf-font-body);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none !important;
+  padding: 16px 36px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  line-height: 1.2;
+  letter-spacing: 0.2px;
+}
+
+.mf-btn:hover,
+a.mf-btn:hover {
+  background: #3d8ab8;
+  transform: scale(1.02);
+  box-shadow: 0 6px 24px rgba(84, 162, 210, 0.35);
+  color: var(--mf-white) !important;
+}
+
+.mf-btn-large,
+a.mf-btn-large {
+  font-size: 18px;
+  padding: 20px 52px;
+}
+
+/* Bottone secondario (outline su navy) */
+.mf-btn-secondary,
+a.mf-btn-secondary {
+  display: inline-block;
+  background: transparent;
+  color: var(--mf-white) !important;
+  font-family: var(--mf-font-body);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none !important;
+  padding: 15px 28px;
+  border-radius: 6px;
+  border: 1px solid rgba(169, 206, 232, 0.4);
+  transition: all 0.3s ease;
+}
+
+.mf-btn-secondary:hover,
+a.mf-btn-secondary:hover {
+  border-color: var(--mf-light);
+  background: rgba(169, 206, 232, 0.1);
+  transform: scale(1.02);
+}
+
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.mf-hero {
+  background:
+    radial-gradient(ellipse at 15% 25%, rgba(84, 162, 210, 0.15) 0%, transparent 55%),
+    var(--mf-navy) !important;
+  min-height: 88vh;
+  display: flex !important;
+  align-items: center;
+  padding: 100px 40px 80px !important;
+}
+
+.mf-hero h1,
+.mf-hero [data-field="heading"] {
+  font-family: var(--mf-font-title) !important;
+  font-size: clamp(40px, 6vw, 72px) !important;
+  font-weight: 700 !important;
+  color: var(--mf-white) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.5px;
+  max-width: 820px;
+}
+
+.mf-hero p,
+.mf-hero [data-field="body"] {
+  font-family: var(--mf-font-body) !important;
+  font-size: 19px !important;
+  color: var(--mf-light) !important;
+  max-width: 620px;
+  line-height: 1.65;
+  margin-top: 20px !important;
+}
+
+.mf-hero-label {
+  font-family: var(--mf-font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--mf-blue);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.mf-hero-sub {
+  font-family: var(--mf-font-body);
+  font-size: 13px;
+  color: rgba(169, 206, 232, 0.6);
+  margin-top: 14px;
+  display: block;
+}
+
+
+/* ============================================================
+   PROBLEMA
+   ============================================================ */
+.mf-problema {
+  background: var(--mf-white);
+  padding: 90px 40px !important;
+}
+
+.mf-problema h2 {
+  font-family: var(--mf-font-title) !important;
+  font-size: clamp(32px, 4.5vw, 52px) !important;
+  font-weight: 700 !important;
+  color: var(--mf-navy) !important;
+  line-height: 1.1;
+  max-width: 700px;
+}
+
+.mf-problema p {
+  font-family: var(--mf-font-body) !important;
+  font-size: 17px !important;
+  color: #1a3a52 !important;
+  line-height: 1.75;
+  max-width: 680px;
+}
+
+.mf-problema strong {
+  color: var(--mf-navy);
+}
+
+.mf-problema-headline2 {
+  font-family: var(--mf-font-title);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 700;
+  color: var(--mf-navy);
+  margin-top: 48px;
+  line-height: 1.2;
+}
+
+
+/* ============================================================
+   STORIA
+   ============================================================ */
+.mf-storia {
+  background:
+    radial-gradient(ellipse at 88% 12%, rgba(84, 162, 210, 0.12) 0%, transparent 50%),
+    var(--mf-light) !important;
+  padding: 90px 40px !important;
+}
+
+.mf-storia h2 {
+  font-family: var(--mf-font-title) !important;
+  font-size: clamp(30px, 4vw, 46px) !important;
+  font-weight: 700 !important;
+  color: var(--mf-navy) !important;
+  line-height: 1.12;
+}
+
+.mf-storia p {
+  font-family: var(--mf-font-body) !important;
+  font-size: 17px !important;
+  color: var(--mf-navy) !important;
+  line-height: 1.75;
+  max-width: 720px;
+}
+
+
+/* ============================================================
+   RECENSIONI INTERMEDIE (3 spazi)
+   ============================================================ */
+.mf-recensioni-mid {
+  background:
+    radial-gradient(ellipse at 82% 78%, rgba(84, 162, 210, 0.13) 0%, transparent 48%),
+    var(--mf-navy) !important;
+  padding: 90px 40px !important;
+}
+
+.mf-recensioni-mid h2 {
+  font-family: var(--mf-font-title) !important;
+  font-size: clamp(28px, 3.5vw, 44px) !important;
+  font-weight: 700 !important;
+  color: var(--mf-white) !important;
+  text-align: center;
+  margin-bottom: 52px !important;
+}
+
+/* Griglia 3 colonne per le immagini recensioni intermedie */
+.mf-recensioni-mid-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+
+/* ============================================================
+   PROGRAMMA (5 fasi + bonus)
+   ============================================================ */
+.mf-programma {
+  background: var(--mf-white);
+  padding: 90px 40px !important;
+}
+
+.mf-programma h2 {
+  font-family: var(--mf-font-title) !important;
+  font-size: clamp(30px, 4vw, 48px) !important;
+  font-weight: 700 !important;
+  color: var(--mf-navy) !important;
+  line-height: 1.1;
+}
+
+.mf-programma-intro {
+  font-family: var(--mf-font-body);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--mf-blue);
+  letter-spacing: 0.3px;
+  margin-bottom: 48px;
+}
+
+.mf-fase-item {
+  border-left: 3px solid var(--mf-light);
+  padding-left: 24px;
+  margin-bottom: 32px;
+  transition: border-color 0.3s ease;
+}
+
+.mf-fase-item:hover {
+  border-left-color: var(--mf-blue);
+}
+
+.mf-fase-numero {
+  font-family: var(--mf-font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--mf-blue);
+  margin-bottom: 4px;
+}
+
+.mf-fase-titolo {
+  font-family: var(--mf-font-title) !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  color: var(--mf-navy) !important;
+  margin-bottom: 6px;
+}
+
+.mf-fase-desc {
+  font-family: var(--mf-font-body);
+  font-size: 15px;
+  color: #4a6578;
+  line-height: 1.6;
+}
+
+/* Box bonus */
+.mf-bonus-box {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(84, 162, 210, 0.08) 0%, transparent 60%),
+    var(--mf-light);
+  border-radius: 16px;
+  padding: 40px;
+  margin-top: 56px;
+  border-left: 4px solid var(--mf-blue);
+}
+
+.mf-bonus-box h3 {
+  font-family: var(--mf-font-title) !important;
+  font-size: 26px !important;
+  font-weight: 700 !important;
+  color: var(--mf-navy) !important;
+  margin-bottom: 20px;
+}
+
+.mf-bonus-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mf-bonus-list li {
+  font-family: var(--mf-font-body);
+  font-size: 15px;
+  color: var(--mf-navy);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0, 58, 100, 0.1);
+  line-height: 1.5;
+}
+
+.mf-bonus-list li:last-child {
+  border-bottom: none;
+}
+
+
+/* ============================================================
+   PRICING — 3 card con gerarchia visiva
+   ============================================================ */
+.mf-pricing {
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(84, 162, 210, 0.05) 0%, transparent 55%),
+    var(--mf-white) !important;
+  padding: 90px 40px !important;
+}
+
+.mf-pricing > h2,
+.mf-pricing h2 {
+  font-family: var(--mf-font-title) !important;
+  font-size: clamp(30px, 4vw, 48px) !important;
+  font-weight: 700 !important;
+  color: var(--mf-navy) !important;
+  text-align: center;
+  margin-bottom: 8px !important;
+}
+
+.mf-pricing-subtitle {
+  font-family: var(--mf-font-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--mf-blue);
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+/* Griglia pricing: Premium leggermente più larga */
+.mf-pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.08fr 1fr;
+  gap: 24px;
+  max-width: 1040px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* Card base (Plus e Exclusive) */
+.mf-card-plus,
+.mf-card-exclusive {
+  background: var(--mf-white);
+  border: 1px solid var(--mf-light);
+  border-radius: 16px;
+  padding: 36px 28px 40px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mf-card-plus:hover,
+.mf-card-exclusive:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 58, 100, 0.1);
+}
+
+/* Card Premium — in evidenza */
+.mf-card-premium {
+  background: var(--mf-navy);
+  border: 2px solid var(--mf-navy);
+  border-radius: 16px;
+  padding: 48px 36px 48px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 16px 52px rgba(0, 58, 100, 0.28);
+  margin-top: -16px; /* sporgente rispetto alle altre */
+}
+
+.mf-card-premium:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 64px rgba(0, 58, 100, 0.38);
+}
+
+/* Badge "Più scelta" sopra la card Premium */
+.mf-card-premium::before {
+  content: '\2B50 Pi\F9 scelta';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--mf-blue);
+  color: var(--mf-white);
+  font-family: var(--mf-font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 5px 18px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* Badge urgenza sulla card Exclusive */
+.mf-card-exclusive::before {
+  content: '\1F534 Solo 8 posti disponibili';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #c0392b;
+  color: var(--mf-white);
+  font-family: var(--mf-font-body);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* Label opzione (PLUS / PREMIUM / EXCLUSIVE) */
+.mf-card-label {
+  font-family: var(--mf-font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--mf-blue);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.mf-card-premium .mf-card-label {
+  color: var(--mf-light);
+}
+
+/* Titolo card */
+.mf-card-title {
+  font-family: var(--mf-font-title) !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: var(--mf-navy) !important;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.mf-card-premium .mf-card-title {
+  color: var(--mf-white) !important;
+  font-size: 22px !important;
+}
+
+/* Target descrizione */
+.mf-card-target {
+  font-family: var(--mf-font-body);
+  font-size: 13px;
+  line-height: 1.55;
+  color: #6b8296;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--mf-light);
+}
+
+.mf-card-premium .mf-card-target {
+  color: rgba(169, 206, 232, 0.75);
+  border-bottom-color: rgba(169, 206, 232, 0.2);
+}
+
+/* Lista inclusi */
+.mf-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px 0;
+}
+
+.mf-card-list li {
+  font-family: var(--mf-font-body);
+  font-size: 14px;
+  color: #2a4a60;
+  padding: 7px 0 7px 24px;
+  position: relative;
+  line-height: 1.45;
+  border-bottom: 1px solid rgba(169, 206, 232, 0.3);
+}
+
+.mf-card-list li:last-child {
+  border-bottom: none;
+}
+
+.mf-card-list li::before {
+  content: '\2713';
+  position: absolute;
+  left: 0;
+  color: var(--mf-blue);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.mf-card-premium .mf-card-list li {
+  color: rgba(255, 255, 255, 0.88);
+  border-bottom-color: rgba(169, 206, 232, 0.15);
+}
+
+.mf-card-premium .mf-card-list li::before {
+  color: var(--mf-light);
+}
+
+/* Prezzi */
+.mf-price-old {
+  font-family: var(--mf-font-body);
+  font-size: 15px;
+  color: #a0b4c0;
+  text-decoration: line-through;
+  margin-bottom: 2px;
+}
+
+.mf-card-premium .mf-price-old {
+  color: rgba(169, 206, 232, 0.45);
+}
+
+.mf-price {
+  font-family: var(--mf-font-title);
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--mf-navy);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.mf-card-premium .mf-price {
+  color: var(--mf-white);
+  font-size: 60px;
+}
+
+.mf-price-rate {
+  font-family: var(--mf-font-body);
+  font-size: 12px;
+  color: #8a9fac;
+  margin-bottom: 28px;
+  line-height: 1.4;
+}
+
+.mf-card-premium .mf-price-rate {
+  color: rgba(169, 206, 232, 0.65);
+}
+
+/* Bottone nella card Premium — più visibile */
+.mf-card-premium .mf-btn {
+  background: var(--mf-blue);
+  width: 100%;
+  text-align: center;
+}
+
+.mf-card-premium .mf-btn:hover {
+  background: #4d9bc9;
+}
+
+.mf-card-plus .mf-btn,
+.mf-card-exclusive .mf-btn {
+  background: var(--mf-blue);
+  width: 100%;
+  text-align: center;
+  font-size: 15px;
+  padding: 14px 24px;
+}
+
+
+/* ============================================================
+   CHI SIAMO
+   ============================================================ */
+.mf-chisiamo {
+  background:
+    radial-gradient(ellipse at 8% 82%, rgba(84, 162, 210, 0.1) 0%, transparent 50%),
+    var(--mf-light) !important;
+  padding: 90px 40px !important;
+}
+
+.mf-chisiamo h2 {
+  font-family: var(--mf-font-title) !important;
+  font-size: clamp(28px, 4vw, 44px) !important;
+  font-weight: 700 !important;
+  color: var(--mf-navy) !important;
+}
+
+.mf-chisiamo p {
+  font-family: var(--mf-font-body) !important;
+  font-size: 17px !important;
+  color: var(--mf-navy) !important;
+  line-height: 1.75;
+  max-width: 680px;
+}
+
+.mf-foto-autori img,
+img.mf-foto-autori {
+  border-radius: 20px !important;
+  box-shadow: 0 16px 48px rgba(0, 58, 100, 0.18) !important;
+}
+
+
+/* ============================================================
+   URGENZA FINALE
+   ============================================================ */
+.mf-urgenza-finale {
+  background:
+    radial-gradient(ellipse at 72% 18%, rgba(84, 162, 210, 0.16) 0%, transparent 52%),
+    var(--mf-navy) !important;
+  padding: 110px 40px !important;
+  text-align: center;
+}
+
+.mf-urgenza-finale h2 {
+  font-family: var(--mf-font-title) !important;
+  font-size: clamp(30px, 5vw, 58px) !important;
+  font-weight: 700 !important;
+  color: var(--mf-white) !important;
+  line-height: 1.08;
+  max-width: 680px;
+  margin: 0 auto 24px !important;
+}
+
+/* Countdown grande nella sezione urgenza */
+.mf-urgenza-finale .mf-countdown {
+  font-size: 36px;
+  gap: 10px;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 28px auto;
+  color: var(--mf-white);
+}
+
+.mf-urgenza-finale .mf-cd-unit {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 10px 16px;
+  min-width: 64px;
+  gap: 2px;
+}
+
+.mf-urgenza-finale .mf-cd-unit small {
+  font-size: 11px;
+  opacity: 0.6;
+}
+
+.mf-urgenza-finale .mf-cd-sep {
+  font-size: 32px;
+  margin-top: 4px;
+  opacity: 0.35;
+}
+
+.mf-urgenza-finale p {
+  font-family: var(--mf-font-body) !important;
+  font-size: 17px !important;
+  color: var(--mf-light) !important;
+  max-width: 540px;
+  margin: 0 auto 40px !important;
+  line-height: 1.65;
+}
+
+
+/* ============================================================
+   RECENSIONI FINALI — griglia 3x3
+   ============================================================ */
+.mf-recensioni-finali {
+  background: var(--mf-white);
+  padding: 90px 40px !important;
+}
+
+.mf-recensioni-finali h2 {
+  font-family: var(--mf-font-title) !important;
+  font-size: clamp(28px, 3.5vw, 44px) !important;
+  font-weight: 700 !important;
+  color: var(--mf-navy) !important;
+  text-align: center;
+  margin-bottom: 52px !important;
+}
+
+.mf-recensioni-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 1020px;
+  margin: 0 auto;
+}
+
+/* Immagine recensione — usata in entrambe le griglie */
+.mf-recensione-img,
+img.mf-recensione-img {
+  width: 100% !important;
+  height: auto !important;
+  border-radius: 10px !important;
+  border: 1px solid var(--mf-light) !important;
+  box-shadow: 0 2px 14px rgba(0, 58, 100, 0.07) !important;
+  display: block;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  object-fit: cover;
+}
+
+.mf-recensione-img:hover,
+img.mf-recensione-img:hover {
+  box-shadow: 0 8px 28px rgba(0, 58, 100, 0.14) !important;
+  transform: translateY(-2px);
+}
+
+
+/* ============================================================
+   CTA FINALE
+   ============================================================ */
+.mf-cta-finale {
+  background:
+    radial-gradient(ellipse at 18% 70%, rgba(84, 162, 210, 0.18) 0%, transparent 55%),
+    var(--mf-navy) !important;
+  padding: 110px 40px !important;
+  text-align: center;
+}
+
+.mf-cta-finale h2 {
+  font-family: var(--mf-font-title) !important;
+  font-size: clamp(30px, 5vw, 58px) !important;
+  font-weight: 700 !important;
+  color: var(--mf-white) !important;
+  line-height: 1.08;
+  max-width: 680px;
+  margin: 0 auto 16px !important;
+}
+
+.mf-cta-finale p {
+  font-family: var(--mf-font-body) !important;
+  font-size: 16px !important;
+  color: var(--mf-light) !important;
+  margin-bottom: 44px !important;
+}
+
+.mf-cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+
+/* ============================================================
+   RESPONSIVE — MOBILE
+   ============================================================ */
+@media (max-width: 768px) {
+
+  .mf-hero {
+    min-height: auto;
+    padding: 80px 20px 60px !important;
+  }
+
+  .mf-hero h1 { font-size: 36px !important; }
+  .mf-hero p  { font-size: 17px !important; }
+
+  .mf-problema,
+  .mf-storia,
+  .mf-programma,
+  .mf-pricing,
+  .mf-chisiamo,
+  .mf-urgenza-finale,
+  .mf-cta-finale,
+  .mf-recensioni-finali,
+  .mf-recensioni-mid {
+    padding: 64px 20px !important;
+  }
+
+  /* Pricing → stack verticale, Premium sale in cima */
+  .mf-pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .mf-card-premium {
+    order: -1;
+    margin-top: 16px;
+  }
+
+  /* Countdown urgenza → numeri più piccoli */
+  .mf-urgenza-finale .mf-countdown {
+    font-size: 24px;
+  }
+
+  .mf-urgenza-finale .mf-cd-unit {
+    min-width: 48px;
+    padding: 8px 10px;
+  }
+
+  /* Recensioni → 2 colonne su tablet */
+  .mf-recensioni-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mf-recensioni-mid-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Bottoni CTA finale → stack verticale */
+  .mf-cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .mf-cta-buttons .mf-btn,
+  .mf-cta-buttons .mf-btn-secondary {
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Urgency bar più compatta */
+  #mf-urgency-bar {
+    font-size: 11px;
+    padding: 8px 12px;
+    gap: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* Recensioni → 1 colonna su telefono piccolo */
+  .mf-recensioni-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mf-btn,
+  a.mf-btn {
+    width: 100%;
+    text-align: center;
+    padding: 16px 20px;
+  }
+
+  .mf-bonus-box {
+    padding: 28px 20px;
+  }
+}
