@@ -353,11 +353,58 @@
     }
 
     /* ============================================================
+       FA PER TE SE
+       ============================================================ */
+    .mf-pertete {
+      background: var(--mf-white);
+      padding: 80px 0;
+    }
+    .mf-pertete h2 {
+      font-family: var(--mf-font-title);
+      font-size: clamp(26px, 3.5vw, 40px);
+      font-weight: 700;
+      color: var(--mf-navy);
+      margin-bottom: 32px;
+    }
+    .mf-pertete-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 680px;
+    }
+    .mf-pertete-list li {
+      font-family: var(--mf-font-body);
+      font-size: 18px;
+      color: var(--mf-navy);
+      line-height: 1.5;
+      padding-left: 32px;
+      position: relative;
+    }
+    .mf-pertete-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--mf-blue);
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    /* ============================================================
        PROGRAMMA
        ============================================================ */
     .mf-programma {
       background: var(--mf-white);
       padding: 90px 0;
+    }
+    .mf-section-label {
+      font-family: var(--mf-font-body);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mf-blue);
+      margin-bottom: 12px;
     }
     .mf-programma h2 {
       font-family: var(--mf-font-title);
@@ -365,6 +412,14 @@
       font-weight: 700;
       color: var(--mf-navy);
       line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .mf-programma-bridge {
+      font-family: var(--mf-font-body);
+      font-size: 18px;
+      color: var(--mf-navy);
+      line-height: 1.6;
+      max-width: 620px;
       margin-bottom: 8px;
     }
     .mf-programma-intro {
@@ -834,6 +889,68 @@
     }
 
     /* ============================================================
+       FAQ
+       ============================================================ */
+    .mf-faq {
+      background: var(--mf-white);
+      padding: 90px 0;
+    }
+    .mf-faq h2 {
+      font-family: var(--mf-font-title);
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 700;
+      color: var(--mf-navy);
+      text-align: center;
+      margin-bottom: 52px;
+    }
+    .mf-faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .mf-faq-item {
+      border-bottom: 1px solid var(--mf-light);
+    }
+    .mf-faq-item:first-child {
+      border-top: 1px solid var(--mf-light);
+    }
+    .mf-faq-item summary {
+      font-family: var(--mf-font-body);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--mf-navy);
+      padding: 22px 40px 22px 0;
+      cursor: pointer;
+      list-style: none;
+      position: relative;
+      line-height: 1.4;
+    }
+    .mf-faq-item summary::-webkit-details-marker { display: none; }
+    .mf-faq-item summary::after {
+      content: '+';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--mf-blue);
+      transition: transform 0.25s ease;
+      line-height: 1;
+    }
+    .mf-faq-item[open] summary::after {
+      content: '−';
+    }
+    .mf-faq-item summary:hover { color: var(--mf-blue); }
+    .mf-faq-answer {
+      font-family: var(--mf-font-body);
+      font-size: 16px;
+      color: #3a5a72;
+      line-height: 1.75;
+      padding: 0 40px 24px 0;
+      max-width: 680px;
+    }
+
+    /* ============================================================
        DIVIDER
        ============================================================ */
     .mf-divider {
@@ -914,10 +1031,10 @@
        ============================================================ -->
   <section class="mf-hero">
     <div class="mf-container">
-      <span class="mf-hero-label">I prezzi salgono. I guadagni no. L'instabilità cresce.</span>
-      <h1>Smetti di arrivare a fine mese con il fiato corto.</h1>
-      <p>Il sistema in 5 fasi per costruire la tua sicurezza economica — anche se parti da zero e non sai da dove cominciare.</p>
-      <a href="https://esmerise.com/maleducatifinanziari/register?p=8274" class="mf-btn mf-btn-large">
+      <p class="mf-hero-label">I prezzi aumentano. I guadagni no. E l'instabilità cresce.</p>
+      <h1>La situazione economica è fonte di ansia per oggi e domani</h1>
+      <p>La soluzione? Il tuo budget a prova di bomba, il percorso che ti porta a creare il tuo sistema in 5 fasi per costruire sicurezza economica anche quando intorno a te tutto è incerto.</p>
+      <a href="#mf-pricing" class="mf-btn mf-btn-large">
         Sì, voglio iniziare &rarr;
       </a>
       <span class="mf-hero-sub">Iscrizioni aperte fino al 12 aprile alle 23:59. Poi si chiudono.</span>
@@ -929,15 +1046,12 @@
        ============================================================ -->
   <section class="mf-problema mf-animate">
     <div class="mf-container">
-      <h2>Quanto ti rimane davvero ogni mese?</h2>
-      <p>Pensa ai soldi che entrano. Adesso togli l'affitto o il mutuo. Togli le bollette. Togli la spesa. Togli le rate.</p>
-      <p>Quello che rimane — e solo quello — sono i soldi su cui hai davvero potere.</p>
-      <p>E ogni mese sono sempre meno.</p>
-      <p>Perché i prezzi salgono, i guadagni no. E se non hai un sistema, basta una spesa imprevista — l'auto che si rompe, il frigorifero, il dentista — per mandare tutto in crisi.</p>
-      <p>E si ricomincia da capo.</p>
-      <p><strong>Ogni. Singolo. Mese.</strong></p>
+      <h2>Quanti sono i soldi su cui hai davvero potere ogni mese?</h2>
+      <p>Pensa a quanti ne entrano. Poi togli tutte le spese che devi pagare per forza.</p>
+      <p>Quanto rimane? Quelli e solo quelli sono i soldi su cui hai davvero potere.</p>
+      <p>E ogni mese, tra guerre, rincari e imprevisti sono sempre meno. Anche perché i guadagni restano sempre uguali.</p>
       <div class="mf-headline2" style="font-family:var(--mf-font-title);font-size:clamp(24px,3vw,36px);font-weight:700;color:var(--mf-navy);margin-top:48px;line-height:1.2;">
-        Non è colpa tua.<br>Nessuno ti ha mai insegnato come farlo.
+        Non è colpa tua.<br>Nessuno ti ha mai insegnato a gestire i soldi, né a scuola né in famiglia.
       </div>
     </div>
   </section>
@@ -950,13 +1064,7 @@
       <div class="mf-storia-inner">
         <div>
           <h2>Anche noi eravamo così.</h2>
-          <p>10 anni fa Dora e Davide erano dei veri maleducati finanziari.</p>
-          <p>Nessun piano. Nessun risparmio. Lo schema era sempre lo stesso: arrivava lo stipendio, si iniziava a spendere, si tirava il freno a mano quando i soldi stavano finendo, e si aspettava quello dopo.</p>
-          <p>Il momento di svolta è arrivato quando stavano per sposarsi. Data fissata, tutto organizzato. E da un giorno all'altro si rompe l'auto. Dovevano comprarla nuova.</p>
-          <p>Non avevano un euro da parte.</p>
-          <p><strong>Zero.</strong></p>
-          <p>Da quel momento hanno iniziato a studiare e costruire il sistema che li ha cambiati. Oggi lo insegnano a migliaia di persone. E hanno scritto un libro.</p>
-          <p class="mf-quote">"Quando tutto va bene, ti prepari. Quando qualcosa va storto, ti ringrazi di averlo fatto."</p>
+          <p>Ci siamo passati anche noi tanti anni fa. Poi abbiamo capito che quello che succede intorno a noi non possiamo controllarlo, ma il modo in cui gestiamo i soldi sì. E con il sistema giusto la sicurezza economica si può costruire.</p>
         </div>
         <div class="mf-foto-placeholder">
           <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -973,7 +1081,7 @@
        ============================================================ -->
   <section class="mf-recensioni-mid mf-animate">
     <div class="mf-container">
-      <h2>Cosa dicono le persone che hanno già fatto il percorso</h2>
+      <h2>Noi ci siamo riusciti e oltre a noi tante altre persone.</h2>
       <div class="mf-recensioni-mid-grid">
         <!-- Sostituisci questi placeholder con gli screenshot reali delle recensioni -->
         <div class="mf-review-placeholder">
@@ -999,11 +1107,28 @@
   </section>
 
   <!-- ============================================================
+       SEZIONE 4b — FA PER TE SE (Transizione limbico → neocorteccia)
+       ============================================================ -->
+  <section class="mf-pertete mf-animate">
+    <div class="mf-container">
+      <h2>Questo percorso fa per te se:</h2>
+      <ul class="mf-pertete-list">
+        <li>Fai fatica a risparmiare o vorresti risparmiare di più</li>
+        <li>Senti di non avere controllo sulle tue spese o vorresti controllarle ancora meglio</li>
+        <li>Vuoi costruire un fondo di emergenza o rinforzare quello che hai</li>
+        <li>Vuoi vivere con più tranquillità economica e soprattutto mentale</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================
        SEZIONE 5 — PROGRAMMA (Neocorteccia: logica e metodo)
        ============================================================ -->
   <section class="mf-programma mf-animate">
     <div class="mf-container">
-      <h2>Cosa impari nel percorso</h2>
+      <p class="mf-section-label">LA SOLUZIONE</p>
+      <h2>Il Tuo Budget a Prova di Bomba</h2>
+      <p class="mf-programma-bridge">Il percorso che ti porta a costruire il tuo sistema in 5 fasi per risparmiare tutti i mesi e costruire la tua sicurezza economica senza rinunciare alle cose che ti piacciono.</p>
       <p class="mf-programma-intro">14 video lezioni + 4 video bonus organizzati in 5 fasi</p>
 
       <div class="mf-fasi-grid">
@@ -1011,7 +1136,7 @@
           <div class="mf-fase-numero">Fase 1</div>
           <div class="mf-fase-titolo">Metti le basi</div>
           <div class="mf-fase-desc">
-            La fondazione di tutto. Stabilisci i tuoi obiettivi di risparmio e scopri dove vanno davvero i tuoi soldi.
+            Stabilisci i tuoi obiettivi di risparmio e scopri dove vanno davvero i tuoi soldi.
             <ul>
               <li>Stabilisci gli obiettivi di risparmio e raggiungli</li>
               <li>Stana le spese e dividile in categorie</li>
@@ -1022,7 +1147,7 @@
           <div class="mf-fase-numero">Fase 2</div>
           <div class="mf-fase-titolo">Organizza le spese</div>
           <div class="mf-fase-desc">
-            Impara a vedere le spese prima che arrivino — non dopo. Scegli il metodo cartaceo o digitale.
+            Impara a pianificare le spese prima che arrivino.
             <ul>
               <li>Organizza le spese con calendario cartaceo</li>
               <li>Organizza le spese con calendario digitale</li>
@@ -1033,7 +1158,7 @@
           <div class="mf-fase-numero">Fase 3</div>
           <div class="mf-fase-titolo">Costruisci il tuo budget</div>
           <div class="mf-fase-desc">
-            Il primo Rituale di Ricchezza. Il piano scritto prima che il mese inizi — con il file digitale o con carta e penna.
+            Il piano d'azione per i tuoi soldi che ti fa risparmiare. Versione con file digitale e con carta e penna (se non ami la tecnologia.)
             <ul>
               <li>Primo Rituale — Il Budget</li>
               <li>Crea il budget con il file digitale (tuo per sempre)</li>
@@ -1046,7 +1171,7 @@
           <div class="mf-fase-numero">Fase 4</div>
           <div class="mf-fase-titolo">Risparmio e serenità</div>
           <div class="mf-fase-desc">
-            Traccia le spese in 15 minuti a settimana. Costruisci il risparmio per obiettivi. Ogni mese parti più avanti del precedente.
+            Traccia le spese in 15 minuti a settimana. Dai una direzione ai tuoi risparmi. Ogni mese parti più avanti del precedente.
             <ul>
               <li>Secondo Rituale — Tracciare le spese</li>
               <li>Il risparmio — costruire la serenità economica</li>
@@ -1059,7 +1184,7 @@
           <div class="mf-fase-numero">Fase 5</div>
           <div class="mf-fase-titolo">Soldi ed emozioni</div>
           <div class="mf-fase-desc">
-            Capisci i meccanismi mentali che ti fanno spendere. Il lato psicologico del denaro.
+            Comprendi i meccanismi mentali che ti fanno spendere. Il lato psicologico del denaro.
             <ul>
               <li>Riconosci i pensieri che ti fanno spendere</li>
               <li>Il primo ricordo legato ai soldi</li>
@@ -1078,18 +1203,13 @@
         </ul>
       </div>
 
-      <div class="mf-programma-cta">
-        <a href="https://esmerise.com/maleducatifinanziari/register?p=8274" class="mf-btn">
-          Voglio il percorso completo &rarr;
-        </a>
-      </div>
     </div>
   </section>
 
   <!-- ============================================================
        SEZIONE 6 — PRICING (Neocorteccia: confronto opzioni)
        ============================================================ -->
-  <section class="mf-pricing">
+  <section class="mf-pricing" id="mf-pricing">
     <div class="mf-container">
       <div class="mf-pricing-header">
         <h2>Scegli il percorso giusto per te</h2>
@@ -1175,10 +1295,10 @@
         <div>
           <h2>Chi siamo</h2>
           <p>Siamo Dora e Davide, educatori finanziari certificati AIEF e autori del libro <em>"Maleducati Finanziari"</em>.</p>
-          <p>Dieci anni fa eravamo esattamente dove sei tu ora — senza risparmi, senza metodo, senza sistema. Ogni mese era una battaglia che non riuscivamo a vincere.</p>
-          <p>Abbiamo studiato, sperimentato, sbagliato. E costruito qualcosa che funzionasse davvero nella vita reale — non sui libri di testo.</p>
-          <p>Poi abbiamo deciso di insegnarlo.</p>
-          <p>Oggi migliaia di persone hanno già usato questo sistema per costruire la loro serenità economica. Siamo qui per fare lo stesso con te.</p>
+          <p>Dieci anni fa eravamo esattamente dove sei tu ora. Senza un sistema per gestire i nostri soldi.</p>
+          <p>Abbiamo studiato, sperimentato, sbagliato. E alla fine costruito un sistema che funziona davvero nella vita reale.</p>
+          <p>Poi abbiamo deciso di insegnarlo a chi ne aveva bisogno, perché purtroppo in Italia nessuno insegna educazione finanziaria davvero.</p>
+          <p>Oggi centinaia di persone stanno già usando questo sistema per costruire la loro serenità economica e vogliamo che anche tu abbia questa possibilità.</p>
           <span class="mf-chisiamo-badge">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             Educatori Finanziari Certificati AIEF
@@ -1196,11 +1316,73 @@
   </section>
 
   <!-- ============================================================
+       SEZIONE FAQ
+       ============================================================ -->
+  <section class="mf-faq mf-animate">
+    <div class="mf-container">
+      <h2>Domande frequenti</h2>
+      <div class="mf-faq-list">
+
+        <details class="mf-faq-item">
+          <summary>E se ho uno stipendio basso oppure ho troppe spese?</summary>
+          <p class="mf-faq-answer">Il nostro metodo ti permette di ottimizzare i soldi che hai a disposizione e risparmiare indipendentemente da quanto guadagni e dalle spese che hai.</p>
+        </details>
+
+        <details class="mf-faq-item">
+          <summary>Funziona anche per chi parte da zero?</summary>
+          <p class="mf-faq-answer">Sì, perché "Il Tuo Budget a Prova di Bomba" è un percorso che parte dalle basi e ti guida passo passo finché il metodo non diventa parte di te.</p>
+        </details>
+
+        <details class="mf-faq-item">
+          <summary>E se già traccio le mie spese e/o faccio il budget ma cerco un metodo per migliorare?</summary>
+          <p class="mf-faq-answer">Gli strumenti e il metodo che mettiamo a tua disposizione non si trovano gratis online e ti aiutano a fare quel salto di qualità che stai cercando.</p>
+        </details>
+
+        <details class="mf-faq-item">
+          <summary>Quanto tempo ho per concludere il percorso?</summary>
+          <p class="mf-faq-answer">Hai a disposizione un intero anno.</p>
+        </details>
+
+        <details class="mf-faq-item">
+          <summary>Come posso pagare?</summary>
+          <p class="mf-faq-answer">Puoi pagare con bancomat (carta di debito), carta di credito o carta prepagata.</p>
+        </details>
+
+        <details class="mf-faq-item">
+          <summary>Posso pagare a rate?</summary>
+          <p class="mf-faq-answer">Sì, puoi farlo selezionando l'opzione di pagamento KLARNA. Anche in questo caso puoi pagare con carta, ma NON con carta prepagata.</p>
+        </details>
+
+        <details class="mf-faq-item">
+          <summary>Faccio mille cose e non so se riesco a seguire il percorso adesso.</summary>
+          <p class="mf-faq-answer">Allora è perfetto per te, perché le video lezioni sono di soli 10/15 minuti, quindi anche con poco tempo puoi mettere in pratica subito quello che impari. Il file per fare il budget e tracciare le spese è già pronto all'uso. Lo stesso vale per il manuale e i fogli di lavoro, qualora preferissi fare il budget con carta e penna. E se scegli la formula Premium o Exclusive puoi fissare gli incontri con noi in base alle tue disponibilità.</p>
+        </details>
+
+        <details class="mf-faq-item">
+          <summary>Non sono amante della tecnologia, posso partecipare lo stesso senza perdermi?</summary>
+          <p class="mf-faq-answer">Il percorso è pensato per tutti. Il nostro file è molto facile da usare, ma se proprio non ti senti a tuo agio trovi anche le istruzioni e i fogli di lavoro da stampare per fare tutto con carta e penna.</p>
+        </details>
+
+        <details class="mf-faq-item">
+          <summary>E se ho già fatto una consulenza a pagamento con voi?</summary>
+          <p class="mf-faq-answer">Puoi iscriverti al percorso pagando solo la differenza. Contattaci e ti spieghiamo come fare.</p>
+        </details>
+
+        <details class="mf-faq-item">
+          <summary>Dopo il percorso che succede?</summary>
+          <p class="mf-faq-answer">Ti porti a casa il metodo per risparmiare tutti i mesi, controllare le spese e realizzare i tuoi progetti. Mese dopo mese puoi continuare a usare il metodo in autonomia perché avrai imparato tutto quello che serve per gestire le tue finanze. E se hai domande puoi scriverci quando vuoi per avere le risposte che ti servono.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
        SEZIONE 8 — URGENZA FINALE (Rettiliano + countdown)
        ============================================================ -->
   <section class="mf-urgenza-finale">
     <div class="mf-container">
-      <h2>Le iscrizioni chiudono domenica 12 aprile alle 23:59</h2>
+      <h2>Hai tempo fino a domenica 12 aprile alle 23:59</h2>
       <div class="mf-countdown"></div>
       <p>
         Dopo quella data le iscrizioni si chiudono e non riapriremo presto.<br>
@@ -1284,7 +1466,7 @@
   <section class="mf-cta-finale">
     <div class="mf-container">
       <h2>Inizia oggi a costruire la tua sicurezza economica.</h2>
-      <p>Chiude domenica 12 aprile alle 23:59. Poi si chiude.</p>
+      <p>Hai tempo fino a domenica 12 aprile alle 23:59. Poi si chiude.</p>
       <div class="mf-cta-buttons">
         <a href="https://esmerise.com/maleducatifinanziari/register?p=6185" class="mf-btn-secondary">
           Plus &mdash; 187&euro;
