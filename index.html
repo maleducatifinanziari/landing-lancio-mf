@@ -327,6 +327,50 @@
       max-width: 960px;
       margin: 0 auto;
     }
+    .mf-review-card {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(169, 206, 232, 0.15);
+      border-radius: 16px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .mf-review-quote {
+      font-family: Georgia, serif;
+      font-size: 56px;
+      line-height: 1;
+      color: var(--mf-blue);
+      opacity: 0.6;
+      margin-bottom: -12px;
+    }
+    .mf-review-text {
+      font-family: var(--mf-font-body);
+      font-size: 15px;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.7;
+      flex: 1;
+    }
+    .mf-review-author {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(169, 206, 232, 0.15);
+    }
+    .mf-review-author strong {
+      font-family: var(--mf-font-body);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--mf-white);
+    }
+    .mf-review-author span {
+      font-family: var(--mf-font-body);
+      font-size: 13px;
+      color: rgba(169, 206, 232, 0.7);
+    }
+
     .mf-review-placeholder {
       aspect-ratio: 4/3;
       background: rgba(255, 255, 255, 0.05);
@@ -1079,23 +1123,29 @@
       <h2>Noi ci siamo riusciti e oltre a noi tante altre persone.</h2>
       <div class="mf-recensioni-mid-grid">
         <!-- Sostituisci questi placeholder con gli screenshot reali delle recensioni -->
-        <div class="mf-review-placeholder">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
-          </svg>
-          <span class="mf-review-placeholder-text">Carica screenshot recensione Alexa</span>
+        <div class="mf-review-card">
+          <div class="mf-review-quote">&ldquo;</div>
+          <p class="mf-review-text">Dora e Davide hanno creato un percorso utile, divertente e pratico. Ho aspettato a lasciare la recensione per dare un'opinione più affidabile e confermo quanto avevo pensato fin dall'inizio: tutti dovrebbero farlo!<br><br>Sono finalmente consapevole di entrate e spese, risparmio come mai avrei sperato e nemmeno le bollette killer mi hanno spaventato.</p>
+          <div class="mf-review-author">
+            <strong>Federica</strong>
+            <span>48 anni · lavoratrice dipendente e mamma di 3 bambini</span>
+          </div>
         </div>
-        <div class="mf-review-placeholder">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
-          </svg>
-          <span class="mf-review-placeholder-text">Carica screenshot recensione Giulia</span>
+        <div class="mf-review-card">
+          <div class="mf-review-quote">&ldquo;</div>
+          <p class="mf-review-text">Ho seguito un percorso individuale con Davide e Dora per imparare a gestire al meglio la mia finanza personale e quella del mio business. Sono sempre stati presenti, disponibili.<br><br>L'investimento è valso ogni centesimo: grazie ai loro insegnamenti riesco a risparmiare ogni mese somme significative, sia a livello personale che nella gestione del mio business.</p>
+          <div class="mf-review-author">
+            <strong>Veronica</strong>
+            <span>32 anni · Partita IVA</span>
+          </div>
         </div>
-        <div class="mf-review-placeholder">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
-          </svg>
-          <span class="mf-review-placeholder-text">Carica screenshot recensione 3</span>
+        <div class="mf-review-card">
+          <div class="mf-review-quote">&ldquo;</div>
+          <p class="mf-review-text">Il metodo di Dora e Davide è stato la mia salvezza finanziaria. Per anni ho vissuto il paradosso di viaggiare e tornare con il conto prosciugato. Quest'anno, grazie al loro file di budget per le vacanze, tutto è cambiato: ho creato un piano dettagliato e, per la prima volta, non ho sforato di un centesimo.<br><br>In pochi mesi grazie al budget mensile ho eliminato lo stress da stipendio: prima prosciugavo il conto entro la seconda settimana, ora arrivo al mese successivo con serenità.</p>
+          <div class="mf-review-author">
+            <strong>Chiara</strong>
+            <span>45 anni · lavoratrice dipendente</span>
+          </div>
         </div>
       </div>
     </div>
