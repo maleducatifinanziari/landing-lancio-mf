@@ -861,6 +861,39 @@
       text-align: center;
       margin-bottom: 52px;
     }
+    .mf-review-card-light {
+      background: var(--mf-white);
+      border: 1px solid rgba(0, 58, 100, 0.1);
+      border-radius: 16px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: 0 2px 12px rgba(0, 58, 100, 0.06);
+    }
+    .mf-review-stars {
+      color: #f5a623;
+      font-size: 16px;
+      letter-spacing: 2px;
+    }
+    .mf-review-text-light {
+      font-family: var(--mf-font-body);
+      font-size: 14px;
+      color: #334e68;
+      line-height: 1.7;
+      flex: 1;
+    }
+    .mf-review-name-light {
+      padding-top: 12px;
+      border-top: 1px solid rgba(0, 58, 100, 0.08);
+    }
+    .mf-review-name-light strong {
+      font-family: var(--mf-font-body);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--mf-navy);
+    }
+
     .mf-recensioni-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -1438,63 +1471,117 @@
        ============================================================ -->
   <section class="mf-recensioni-finali mf-animate">
     <div class="mf-container">
-      <h2>Quello che dicono le persone che hanno già fatto il percorso</h2>
+      <h2>Ecco quello che dicono le persone di noi e del percorso</h2>
       <div class="mf-recensioni-grid">
-        <!-- Sostituisci questi 9 placeholder con gli screenshot reali delle recensioni -->
-        <div class="mf-review-placeholder-light">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.4">
-            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
-          </svg>
-          <span>Recensione 1</span>
+
+        <div class="mf-review-card-light">
+          <div class="mf-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="mf-review-text-light"><em>Ho deciso di iscrivermi al percorso perché volevo imparare a gestire le mie finanze. Sono sempre stata una con "le mani bucate", pensavo che fosse inutile mettere da parte i soldi. Arrivavo a fine mese con il collo tirato, con 10€ sul conto. Ora faccio il budget tutti i mesi, lo rispetto e riesco a mettere nel mio salvadanaio tanti soldi, soldi che non credevo nemmeno di avere.<br><br>Consiglio vivamente questo percorso, vi farà diventare più organizzati e sparirà anche l'ansia. Non penserete più a quanti giorni mancano alla paga. Vivrete molto più tranquilli.</em></p>
+          <div class="mf-review-name-light"><strong>Alexa</strong></div>
         </div>
-        <div class="mf-review-placeholder-light">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.4">
-            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
-          </svg>
-          <span>Recensione 2</span>
+
+        <div class="mf-review-card-light">
+          <div class="mf-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="mf-review-text-light"><em>Ho acquistato il percorso e volevo complimentarmi con voi per l'utilità dei contenuti e la vostra chiarezza nelle spiegazioni. In famiglia siamo 4. Io e mio marito abbiamo due stipendi nella media. Oggi abbiamo fatto il budget con le vostre indicazioni e ci siamo resi conto di quanti soldi sfuggivano al nostro controllo. Abbiamo pianificato il nostro risparmio e sono sicura che riusciremo a rispettare il budget. Grazie davvero, con spiegazioni chiare e strumenti facili da usare ci avete regalato una nuova prospettiva!</em></p>
+          <div class="mf-review-name-light"><strong>Elisa</strong></div>
         </div>
-        <div class="mf-review-placeholder-light">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.4">
-            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
-          </svg>
-          <span>Recensione 3</span>
+
+        <div class="mf-review-card-light">
+          <div class="mf-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="mf-review-text-light"><em>Mi sono iscritto perché non riuscivo mai a mettere da parte niente. Con il metodo che ho imparato riesco a risparmiare più di quello che mi sembrava possibile. I video sono facili da seguire e hanno un sacco di informazioni utili. Il materiale è utilissimo perché aiuta a mettere subito in pratica il metodo. Consiglio il percorso a chi vuole migliorare la propria gestione dei soldi e risparmiare.</em></p>
+          <div class="mf-review-name-light"><strong>Matteo</strong></div>
         </div>
-        <div class="mf-review-placeholder-light">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.4">
-            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
-          </svg>
-          <span>Recensione 4</span>
+
+        <div class="mf-review-card-light">
+          <div class="mf-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="mf-review-text-light"><em>Ho iniziato questo percorso per tenere d'occhio le mie spese visto che vivo sola con due figlie e ho uno stipendio nella media. Ho imparato molto bene a capire dove vanno i soldi, finalmente riesco a risparmiare e a rimanere in carreggiata. Dora e Davide sono stati davvero preziosi e mi hanno dato un metodo chiaro per gestire le mie finanze.<br><br>Ritrovarmi a gestire da sola una casa, anche se ho 47 anni, mi spaventava. Ora sono molto più tranquilla grazie ai loro consigli e a quello che ho imparato.</em></p>
+          <div class="mf-review-name-light"><strong>Lorena</strong></div>
         </div>
-        <div class="mf-review-placeholder-light">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.4">
-            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
-          </svg>
-          <span>Recensione 5</span>
+
+        <div class="mf-review-card-light">
+          <div class="mf-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="mf-review-text-light"><em>Ho scelto di partecipare per vedere se sarei riuscita a gestire meglio i miei soldi. In particolare non riuscivo a dire no a certe piccole spese, che a fine mese mi mettevano in seria difficoltà. Mi è piaciuto che potevo pagare in tre rate senza interessi, poi il modo di comunicare di Dora e Davide, sempre chiari nelle spiegazioni. Molto utili i file per la gestione di entrate e spese. Mi è piaciuta anche la parte sul rapporto emotivo che abbiamo coi soldi.</em></p>
+          <div class="mf-review-name-light"><strong>Silvia</strong></div>
         </div>
-        <div class="mf-review-placeholder-light">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.4">
-            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
-          </svg>
-          <span>Recensione 6</span>
+
+        <div class="mf-review-card-light">
+          <div class="mf-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="mf-review-text-light"><em>Dora e Davide mi hanno fornito strumenti e consigli per gestire al meglio i miei soldi. Alla fine del percorso ho raggiunto i risultati che speravo: ho imparato a gestire i miei soldi e finalmente riesco a risparmiare. Consiglio il loro percorso a chiunque vuole migliorare la propria situazione economica.</em></p>
+          <div class="mf-review-name-light"><strong>Vanessa</strong></div>
         </div>
-        <div class="mf-review-placeholder-light">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.4">
-            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
-          </svg>
-          <span>Recensione 7</span>
+
+        <div class="mf-review-card-light">
+          <div class="mf-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="mf-review-text-light"><em>Mi è piaciuto moltissimo il vostro percorso, poiché spiegate concetti a volte difficili in maniera chiara ed esaustiva. Grazie per tutto quello che fate.</em></p>
+          <div class="mf-review-name-light"><strong>Emanuele</strong></div>
         </div>
-        <div class="mf-review-placeholder-light">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.4">
-            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
-          </svg>
-          <span>Recensione 8</span>
+
+        <div class="mf-review-card-light">
+          <div class="mf-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="mf-review-text-light"><em>È un percorso che si riesce ad applicare benissimo perché ti impegna in piccoli step che messi insieme ti creano un sistema che funziona e te ne accorgi quando l'hai montato. Sono materiali davvero utili! Poi essendo in video scorrono molto bene.</em></p>
+          <div class="mf-review-name-light"><strong>Enrico</strong></div>
         </div>
-        <div class="mf-review-placeholder-light">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.4">
-            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
-          </svg>
-          <span>Recensione 9</span>
+
+        <div class="mf-review-card-light">
+          <div class="mf-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="mf-review-text-light"><em>Ho iniziato questo percorso senza grandi aspettative. Invece, si è rivelato per me rivoluzionario. Dora e Davide mi hanno ascoltato, accompagnato e insegnato a dare un nome alle cose, ma soprattutto mi hanno fatto capire quanto sia importante tracciare le proprie spese. Per questo consiglio vivamente questo percorso a tutti.</em></p>
+          <div class="mf-review-name-light"><strong>Giordana</strong></div>
         </div>
+
+        <div class="mf-review-card-light">
+          <div class="mf-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="mf-review-text-light"><em>Ho deciso di partecipare a questo percorso con mio marito perché il denaro è sempre stato per noi fonte di frequenti discussioni. Questo percorso è stato un vero e proprio lavoro sulla coppia permettendoci di avere una visione comune sulla gestione delle finanze. Consiglio questo percorso a tutti coloro che hanno un rapporto complicato con il denaro e vogliono migliorare le proprie competenze.</em></p>
+          <div class="mf-review-name-light"><strong>Rossana</strong></div>
+        </div>
+
+        <div class="mf-review-card-light">
+          <div class="mf-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="mf-review-text-light"><em>Erano anni che cercavo un metodo valido per gestire le entrate e le spese. Avevo provato tante app, il Kakebo, ma alla fine mi perdevo sempre qualcosa. Adesso finalmente i conti tornano e riesco a risparmiare. Grazie davvero per il vostro aiuto.</em></p>
+          <div class="mf-review-name-light"><strong>Antonio</strong></div>
+        </div>
+
+        <div class="mf-review-card-light">
+          <div class="mf-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="mf-review-text-light"><em>Da quando ho iniziato a mettere in pratica il vostro metodo tutto è cambiato. Adesso ho soldi da parte per le emergenze e per tutte quelle spese che arrivano durante l'anno e prima mi mandavano in difficoltà. Finalmente respiro. Questo senso di leggerezza è impagabile e il merito è tutto vostro. Grazie davvero.</em></p>
+          <div class="mf-review-name-light"><strong>Laura</strong></div>
+        </div>
+
+        <div class="mf-review-card-light">
+          <div class="mf-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="mf-review-text-light"><em>Oggi finalmente ho finito di pagare il viaggio per il Giappone, siamo pronti a partire e contestualmente alla nostra partenza rifarem il nostro bagno. I due desideri che avevamo l'anno scorso prima di iniziare questo percorso sono adesso realtà. Sono davvero felice di avervi incontrato. Grazie ancora!</em></p>
+          <div class="mf-review-name-light"><strong>Giulia C.</strong></div>
+        </div>
+
+        <div class="mf-review-card-light">
+          <div class="mf-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="mf-review-text-light"><em>Vi ringrazio per il bellissimo percorso che avete preparato. Nessuno mi ha mai insegnato a gestire i soldi, come per il 98% della popolazione italiana, ma è una cosa di fondamentale importanza per la propria serenità emotiva.</em></p>
+          <div class="mf-review-name-light"><strong>Manuel</strong></div>
+        </div>
+
+        <div class="mf-review-card-light">
+          <div class="mf-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="mf-review-text-light"><em>Incontrarvi per me ha fatto davvero la differenza. Per la prima volta sto risparmiando qualcosa: ho un minuscolo fondo emergenze e un piccolo fondo risparmi. Questo mese pagherò le tasse universitarie di mio figlio senza intaccare lo stipendio, e farò il tagliando alla macchina senza dover contare i centesimi. Mi sembra già un grosso passo.</em></p>
+          <div class="mf-review-name-light"><strong>Corinna</strong></div>
+        </div>
+
+        <div class="mf-review-card-light">
+          <div class="mf-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="mf-review-text-light"><em>Grazie a voi faccio scelte più consapevoli e ho detto dei no, quando non potevo permettermi di fare certe cose, anziché sentirmi in costante affanno. Il vostro lavoro è molto importante.</em></p>
+          <div class="mf-review-name-light"><strong>Erika</strong></div>
+        </div>
+
+        <div class="mf-review-card-light">
+          <div class="mf-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="mf-review-text-light"><em>Nessuno mi ha mai insegnato a gestire i soldi. I miei genitori sono peggio di me, ma oggi ho aperto il mio primo fondo di investimento. Volevo ringraziarvi perché senza di voi non so se avrei mai pensato che fosse possibile.</em></p>
+          <div class="mf-review-name-light"><strong>Giulia B.</strong></div>
+        </div>
+
+        <div class="mf-review-card-light">
+          <div class="mf-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="mf-review-text-light"><em>Vi ringrazio infinitamente per i vostri preziosi suggerimenti. Grazie a voi negli ultimi mesi ho risparmiato più di quanto pensassi di poter fare. Adesso sto costruendo il mio fondo di emergenza. Non avrei mai pensato di potercela fare. Il merito è soprattutto vostro!</em></p>
+          <div class="mf-review-name-light"><strong>Bianca</strong></div>
+        </div>
+
       </div>
     </div>
   </section>
