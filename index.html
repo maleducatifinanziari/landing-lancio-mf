@@ -337,12 +337,7 @@
       gap: 20px;
     }
     .mf-review-quote {
-      font-family: Georgia, serif;
-      font-size: 56px;
-      line-height: 1;
-      color: var(--mf-blue);
-      opacity: 0.6;
-      margin-bottom: -12px;
+      display: none;
     }
     .mf-review-text {
       font-family: var(--mf-font-body);
@@ -351,13 +346,15 @@
       color: rgba(255, 255, 255, 0.88);
       line-height: 1.7;
       flex: 1;
+      order: 2;
     }
     .mf-review-author {
       display: flex;
       flex-direction: column;
-      gap: 3px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(169, 206, 232, 0.15);
+      gap: 6px;
+      order: 0;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(169, 206, 232, 0.15);
     }
     .mf-review-author strong {
       font-family: var(--mf-font-body);
@@ -369,6 +366,12 @@
       font-family: var(--mf-font-body);
       font-size: 13px;
       color: rgba(169, 206, 232, 0.7);
+    }
+    .mf-review-author-stars {
+      color: #f5a623;
+      font-size: 14px;
+      letter-spacing: 2px;
+      order: 1;
     }
 
     .mf-review-placeholder {
@@ -875,6 +878,7 @@
       color: #f5a623;
       font-size: 16px;
       letter-spacing: 2px;
+      order: 1;
     }
     .mf-review-text-light {
       font-family: var(--mf-font-body);
@@ -882,10 +886,12 @@
       color: #334e68;
       line-height: 1.7;
       flex: 1;
+      order: 2;
     }
     .mf-review-name-light {
-      padding-top: 12px;
-      border-top: 1px solid rgba(0, 58, 100, 0.08);
+      order: 0;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(0, 58, 100, 0.08);
     }
     .mf-review-name-light strong {
       font-family: var(--mf-font-body);
@@ -1163,6 +1169,7 @@
             <strong>Federica</strong>
             <span>48 anni · lavoratrice dipendente e mamma di 3 bambini</span>
           </div>
+          <div class="mf-review-author-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         </div>
         <div class="mf-review-card">
           <div class="mf-review-quote">&ldquo;</div>
@@ -1171,6 +1178,7 @@
             <strong>Veronica</strong>
             <span>32 anni · Partita IVA</span>
           </div>
+          <div class="mf-review-author-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         </div>
         <div class="mf-review-card">
           <div class="mf-review-quote">&ldquo;</div>
@@ -1179,6 +1187,7 @@
             <strong>Chiara</strong>
             <span>45 anni · lavoratrice dipendente</span>
           </div>
+          <div class="mf-review-author-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         </div>
       </div>
     </div>
