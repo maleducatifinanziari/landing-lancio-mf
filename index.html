@@ -1060,6 +1060,29 @@
     /* ============================================================
        RESPONSIVE — MOBILE
        ============================================================ */
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .mf-footer {
+      background: var(--mf-navy);
+      border-top: 1px solid rgba(169, 206, 232, 0.12);
+      padding: 32px 0;
+      text-align: center;
+    }
+    .mf-footer-brand {
+      font-family: var(--mf-font-title);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--mf-white);
+      margin-bottom: 8px;
+    }
+    .mf-footer p {
+      font-family: var(--mf-font-body);
+      font-size: 13px;
+      color: rgba(169, 206, 232, 0.6);
+      line-height: 1.8;
+    }
+
     @media (max-width: 900px) {
       .mf-storia-inner,
       .mf-chisiamo-inner {
@@ -1723,6 +1746,17 @@
       });
     }
   </script>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="mf-footer">
+    <div class="mf-container">
+      <p class="mf-footer-brand">Maleducati Finanziari</p>
+      <p>P. IVA: 13069380015</p>
+      <p>Via Cardinale Maurilio Fossati 20 &mdash; 10141 Torino (TO)</p>
+    </div>
+  </footer>
 
 </body>
 </html>
