@@ -31,74 +31,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   /* ============================================================
-     1. URGENCY BAR — creata e iniettata in cima al body
-     ============================================================ */
-  var bar = document.createElement('div');
-  bar.id = 'mf-urgency-bar';
-  bar.innerHTML =
-    '\u23F3 Le iscrizioni chiudono domenica 12 aprile alle 23:59' +
-    ' &mdash; <span class="mf-countdown"></span>' +
-    ' &mdash; <a href="https://esmerise.com/maleducatifinanziari/register?p=8274" id="mf-urgency-cta">Iscriviti ora &rarr;</a>';
-  document.body.insertBefore(bar, document.body.firstChild);
-
-  /* Aggiusta padding-top del body per non nascondere il contenuto */
-  function adjustPadding() {
-    document.body.style.paddingTop = bar.offsetHeight + 'px';
-  }
-  adjustPadding();
-  window.addEventListener('resize', adjustPadding);
-
-
-  /* ============================================================
-     2. COUNTDOWN TIMER
-     Scadenza: domenica 12 aprile 2026 ore 23:59
-     ============================================================ */
-  function pad(n) {
-    return String(n).padStart(2, '0');
-  }
-
-  function updateCountdown() {
-    var deadline = new Date('2026-04-12T23:59:00');
-    var now      = new Date();
-    var diff     = deadline - now;
-
-    /* Seleziona tutti gli elementi .mf-countdown nella pagina
-       (urgency bar + sezione urgenza finale) */
-    var els = document.querySelectorAll('.mf-countdown');
-
-    if (diff <= 0) {
-      els.forEach(function (el) {
-        el.textContent = 'Le iscrizioni sono chiuse';
-        el.classList.add('mf-countdown--expired');
-      });
-      var cta = document.getElementById('mf-urgency-cta');
-      if (cta) { cta.style.display = 'none'; }
-      return;
-    }
-
-    var days    = Math.floor(diff / (1000 * 60 * 60 * 24));
-    var hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-    var html =
-      '<span class="mf-cd-unit">' + days    + '<small>g</small></span>' +
-      '<span class="mf-cd-sep">:</span>' +
-      '<span class="mf-cd-unit">' + pad(hours)   + '<small>h</small></span>' +
-      '<span class="mf-cd-sep">:</span>' +
-      '<span class="mf-cd-unit">' + pad(minutes) + '<small>m</small></span>' +
-      '<span class="mf-cd-sep">:</span>' +
-      '<span class="mf-cd-unit">' + pad(seconds) + '<small>s</small></span>';
-
-    els.forEach(function (el) { el.innerHTML = html; });
-  }
-
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-
-
-  /* ============================================================
-     3. GSAP — Animazioni scroll fade-in dal basso
+     GSAP — Animazioni scroll fade-in dal basso
      Ogni elemento con classe .mf-animate entra nel viewport
      con opacity 0 -> 1 e translateY 30px -> 0
      ============================================================ */

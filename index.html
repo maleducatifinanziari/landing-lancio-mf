@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="format-detection" content="telephone=no, address=no, email=no">
   <title>Il Tuo Budget a Prova di Bomba — Maleducati Finanziari</title>
-  <meta name="description" content="Il sistema in 5 fasi per costruire la tua sicurezza economica. Iscrizioni aperte fino al 12 aprile alle 23:59.">
+  <meta name="description" content="Il sistema in 5 fasi per costruire la tua sicurezza economica, anche se parti da zero.">
   <meta property="og:title" content="Il Tuo Budget a Prova di Bomba — Maleducati Finanziari">
   <meta property="og:description" content="Il sistema in 5 fasi per costruire la tua sicurezza economica, anche se parti da zero.">
   <meta property="og:type" content="website">
@@ -1161,15 +1161,6 @@
 <body>
 
   <!-- ============================================================
-       URGENCY BAR FISSA
-       ============================================================ -->
-  <div id="mf-urgency-bar">
-    ⏳ Le iscrizioni chiudono domenica 12 aprile alle 23:59
-    &mdash; <span class="mf-countdown"></span>
-    &mdash; <a href="https://esmerise.com/maleducatifinanziari/register?p=8274" id="mf-urgency-cta">Iscriviti ora &rarr;</a>
-  </div>
-
-  <!-- ============================================================
        SEZIONE 1 — HERO (Rettiliano: minaccia + protezione)
        ============================================================ -->
   <section class="mf-hero">
@@ -1179,7 +1170,6 @@
       <a href="#mf-pricing" class="mf-btn mf-btn-large">
         Sì, voglio iniziare &rarr;
       </a>
-      <span class="mf-hero-sub">Iscrizioni aperte fino al 12 aprile alle 23:59. Poi si chiudono.</span>
     </div>
   </section>
 
@@ -1356,7 +1346,7 @@
     <div class="mf-container">
       <div class="mf-pricing-header">
         <h2>Scegli il percorso giusto per te</h2>
-        <p class="mf-pricing-subtitle">Iscrizioni aperte fino al 12 aprile alle 23:59</p>
+        <p class="mf-pricing-subtitle">Scegli il percorso più adatto a te</p>
       </div>
 
       <div class="mf-pricing-grid mf-animate-group">
@@ -1519,10 +1509,8 @@
        ============================================================ -->
   <section class="mf-urgenza-finale">
     <div class="mf-container">
-      <h2>Hai tempo fino a domenica 12 aprile alle 23:59</h2>
-      <div class="mf-countdown"></div>
+      <h2>Inizia oggi a costruire la tua serenità economica</h2>
       <p>
-        Dopo quella data le iscrizioni si chiudono e non riapriremo presto.<br>
         Se stai aspettando il momento giusto, <strong style="color:#fff;">questo è il momento giusto.</strong>
       </p>
       <a href="https://esmerise.com/maleducatifinanziari/register?p=8274" class="mf-btn mf-btn-large">
@@ -1657,7 +1645,6 @@
   <section class="mf-cta-finale">
     <div class="mf-container">
       <h2>Inizia oggi a costruire la tua sicurezza economica.</h2>
-      <p>Hai tempo fino a domenica 12 aprile alle 23:59. Poi si chiude.</p>
       <div class="mf-cta-buttons">
         <a href="https://esmerise.com/maleducatifinanziari/register?p=6185" class="mf-btn-secondary">
           Plus &mdash; 187&euro;
@@ -1677,50 +1664,6 @@
        JAVASCRIPT: Countdown + Body Padding + GSAP
        ============================================================ -->
   <script>
-    /* --- Aggiusta il padding-top del body per la urgency bar fissa --- */
-    function adjustBodyPadding() {
-      var bar = document.getElementById('mf-urgency-bar');
-      if (bar) document.body.style.paddingTop = bar.offsetHeight + 'px';
-    }
-    adjustBodyPadding();
-    window.addEventListener('resize', adjustBodyPadding);
-
-    /* --- Countdown Timer — scadenza 12 aprile 2026 ore 23:59 --- */
-    function pad(n) { return String(n).padStart(2, '0'); }
-
-    function updateCountdown() {
-      var deadline = new Date('2026-04-12T23:59:00');
-      var now      = new Date();
-      var diff     = deadline - now;
-      var els      = document.querySelectorAll('.mf-countdown');
-
-      if (diff <= 0) {
-        els.forEach(function(el) { el.textContent = 'Le iscrizioni sono chiuse'; });
-        var cta = document.getElementById('mf-urgency-cta');
-        if (cta) cta.style.display = 'none';
-        return;
-      }
-
-      var days    = Math.floor(diff / (1000 * 60 * 60 * 24));
-      var hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-      var html =
-        '<span class="mf-cd-unit">' + days + '<small>g</small></span>' +
-        '<span class="mf-cd-sep">:</span>' +
-        '<span class="mf-cd-unit">' + pad(hours) + '<small>h</small></span>' +
-        '<span class="mf-cd-sep">:</span>' +
-        '<span class="mf-cd-unit">' + pad(minutes) + '<small>m</small></span>' +
-        '<span class="mf-cd-sep">:</span>' +
-        '<span class="mf-cd-unit">' + pad(seconds) + '<small>s</small></span>';
-
-      els.forEach(function(el) { el.innerHTML = html; });
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-
     /* --- GSAP ScrollTrigger animations --- */
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       gsap.registerPlugin(ScrollTrigger);
