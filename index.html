@@ -168,20 +168,20 @@
     .mf-btn-secondary {
       display: inline-block;
       background: transparent;
-      color: var(--mf-white);
+      color: var(--mf-navy);
       font-family: var(--mf-font-body);
       font-size: 15px;
       font-weight: 600;
       padding: 15px 28px;
       border-radius: 6px;
-      border: 1px solid rgba(169, 206, 232, 0.4);
+      border: 1px solid rgba(0, 58, 100, 0.35);
       transition: all 0.3s ease;
     }
     .mf-btn-secondary:hover {
-      border-color: var(--mf-light);
-      background: rgba(169, 206, 232, 0.1);
+      border-color: var(--mf-navy);
+      background: rgba(0, 58, 100, 0.06);
       transform: scale(1.02);
-      color: var(--mf-white);
+      color: var(--mf-navy);
     }
 
     /* ============================================================
@@ -314,16 +314,14 @@
        RECENSIONI INTERMEDIE
        ============================================================ */
     .mf-recensioni-mid {
-      background:
-        radial-gradient(ellipse at 82% 78%, rgba(84, 162, 210, 0.13) 0%, transparent 48%),
-        var(--mf-navy);
+      background: var(--mf-white);
       padding: 90px 0;
     }
     .mf-recensioni-mid h2 {
       font-family: var(--mf-font-title);
       font-size: clamp(28px, 3.5vw, 44px);
       font-weight: 700;
-      color: var(--mf-white);
+      color: var(--mf-navy);
       text-align: center;
       margin-bottom: 52px;
     }
@@ -335,13 +333,14 @@
       margin: 0 auto;
     }
     .mf-review-card {
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(169, 206, 232, 0.15);
+      background: var(--mf-white);
+      border: 1px solid rgba(0, 58, 100, 0.12);
       border-radius: 16px;
       padding: 32px 28px;
       display: flex;
       flex-direction: column;
       gap: 20px;
+      box-shadow: 0 2px 16px rgba(0, 58, 100, 0.07);
     }
     .mf-review-quote {
       display: none;
@@ -350,7 +349,7 @@
       font-family: var(--mf-font-body);
       font-size: 15px;
       font-style: italic;
-      color: rgba(255, 255, 255, 0.88);
+      color: #334e68;
       line-height: 1.7;
       flex: 1;
       order: 2;
@@ -361,18 +360,18 @@
       gap: 6px;
       order: 0;
       padding-bottom: 16px;
-      border-bottom: 1px solid rgba(169, 206, 232, 0.15);
+      border-bottom: 1px solid rgba(0, 58, 100, 0.1);
     }
     .mf-review-author strong {
       font-family: var(--mf-font-body);
       font-size: 15px;
       font-weight: 700;
-      color: var(--mf-white);
+      color: var(--mf-navy);
     }
     .mf-review-author span {
       font-family: var(--mf-font-body);
       font-size: 13px;
-      color: rgba(169, 206, 232, 0.7);
+      color: #6b8296;
     }
     .mf-review-author-stars {
       color: #f5a623;
@@ -640,17 +639,17 @@
       box-shadow: 0 12px 40px rgba(0, 58, 100, 0.1);
     }
     .mf-card-premium {
-      background: var(--mf-navy);
-      border: 2px solid var(--mf-navy);
+      background: var(--mf-white);
+      border: 2px solid #0ac36a;
       border-radius: 16px;
       padding: 48px 36px;
       position: relative;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 16px 52px rgba(0, 58, 100, 0.28);
+      box-shadow: 0 16px 52px rgba(10, 195, 106, 0.18);
     }
     .mf-card-premium:hover {
       transform: translateY(-6px);
-      box-shadow: 0 24px 64px rgba(0, 58, 100, 0.38);
+      box-shadow: 0 24px 64px rgba(10, 195, 106, 0.28);
     }
     .mf-card-badge {
       position: absolute;
@@ -665,7 +664,7 @@
       white-space: nowrap;
       color: var(--mf-white);
     }
-    .mf-card-badge--blue   { background: var(--mf-blue); }
+    .mf-card-badge--blue   { background: #0ac36a; }
     .mf-card-badge--red    { background: #c0392b; font-size: 11px; }
 
     .mf-card-label {
@@ -678,7 +677,7 @@
       margin-bottom: 10px;
       display: block;
     }
-    .mf-card-premium .mf-card-label { color: var(--mf-light); }
+    .mf-card-premium .mf-card-label { color: var(--mf-navy); }
 
     .mf-card-title {
       font-family: var(--mf-font-title);
@@ -688,7 +687,7 @@
       line-height: 1.2;
       margin-bottom: 10px;
     }
-    .mf-card-premium .mf-card-title { color: var(--mf-white); font-size: 22px; }
+    .mf-card-premium .mf-card-title { color: var(--mf-navy); font-size: 22px; }
 
     .mf-card-target {
       font-family: var(--mf-font-body);
@@ -700,8 +699,8 @@
       border-bottom: 1px solid var(--mf-light);
     }
     .mf-card-premium .mf-card-target {
-      color: rgba(169, 206, 232, 0.75);
-      border-bottom-color: rgba(169, 206, 232, 0.2);
+      color: #6b8296;
+      border-bottom-color: var(--mf-light);
     }
 
     .mf-card-list {
@@ -728,10 +727,10 @@
       font-size: 13px;
     }
     .mf-card-premium .mf-card-list li {
-      color: rgba(255,255,255,0.88);
-      border-bottom-color: rgba(169, 206, 232, 0.15);
+      color: #2a4a60;
+      border-bottom-color: rgba(169, 206, 232, 0.3);
     }
-    .mf-card-premium .mf-card-list li::before { color: var(--mf-light); }
+    .mf-card-premium .mf-card-list li::before { color: var(--mf-blue); }
 
     .mf-price-old {
       font-family: var(--mf-font-body);
@@ -740,7 +739,7 @@
       text-decoration: line-through;
       margin-bottom: 2px;
     }
-    .mf-card-premium .mf-price-old { color: rgba(169, 206, 232, 0.45); }
+    .mf-card-premium .mf-price-old { color: #a0b4c0; }
 
     .mf-price {
       font-family: var(--mf-font-title);
@@ -750,7 +749,7 @@
       line-height: 1;
       margin-bottom: 6px;
     }
-    .mf-card-premium .mf-price { color: var(--mf-white); font-size: 60px; }
+    .mf-card-premium .mf-price { color: var(--mf-navy); font-size: 60px; }
 
     .mf-price-rate {
       font-family: var(--mf-font-body);
@@ -759,7 +758,7 @@
       margin-bottom: 28px;
       line-height: 1.4;
     }
-    .mf-card-premium .mf-price-rate { color: rgba(169, 206, 232, 0.65); }
+    .mf-card-premium .mf-price-rate { color: #8a9fac; }
 
     .mf-card-btn {
       display: block;
@@ -826,9 +825,7 @@
        URGENZA FINALE
        ============================================================ */
     .mf-urgenza-finale {
-      background:
-        radial-gradient(ellipse at 72% 18%, rgba(84, 162, 210, 0.16) 0%, transparent 52%),
-        var(--mf-navy);
+      background: var(--mf-white);
       padding: 110px 0;
       text-align: center;
     }
@@ -836,7 +833,7 @@
       font-family: var(--mf-font-title);
       font-size: clamp(30px, 5vw, 58px);
       font-weight: 700;
-      color: var(--mf-white);
+      color: var(--mf-navy);
       line-height: 1.08;
       max-width: 680px;
       margin: 0 auto 24px;
@@ -862,7 +859,7 @@
     .mf-urgenza-finale p {
       font-family: var(--mf-font-body);
       font-size: 17px;
-      color: var(--mf-light);
+      color: var(--mf-navy);
       max-width: 540px;
       margin: 0 auto 40px;
       line-height: 1.65;
@@ -961,9 +958,7 @@
        CTA FINALE
        ============================================================ */
     .mf-cta-finale {
-      background:
-        radial-gradient(ellipse at 18% 70%, rgba(84, 162, 210, 0.18) 0%, transparent 55%),
-        var(--mf-navy);
+      background: var(--mf-white);
       padding: 110px 0;
       text-align: center;
     }
@@ -971,7 +966,7 @@
       font-family: var(--mf-font-title);
       font-size: clamp(30px, 5vw, 58px);
       font-weight: 700;
-      color: var(--mf-white);
+      color: var(--mf-navy);
       line-height: 1.08;
       max-width: 680px;
       margin: 0 auto 16px;
@@ -979,7 +974,7 @@
     .mf-cta-finale p {
       font-family: var(--mf-font-body);
       font-size: 16px;
-      color: var(--mf-light);
+      color: var(--mf-navy);
       margin-bottom: 44px;
     }
     .mf-cta-buttons {
@@ -1497,7 +1492,7 @@
     <div class="mf-container">
       <h2>Inizia oggi a costruire la tua serenità economica</h2>
       <p>
-        Se stai aspettando il momento giusto, <strong style="color:#fff;">questo è il momento giusto.</strong>
+        Se stai aspettando il momento giusto, <strong>questo è il momento giusto.</strong>
       </p>
       <a href="https://esmerise.com/maleducatifinanziari/register?p=8274" class="mf-btn mf-btn-large">
         Iscriviti adesso &rarr;
