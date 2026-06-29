@@ -48,6 +48,7 @@
       --mf-blue:       #54a2d2;
       --mf-light:      #a9cee8;
       --mf-white:      #ffffff;
+      --mf-yellow:     #f5c518;
       --mf-font-title: 'Antonio', sans-serif;
       --mf-font-body:  'DM Sans', sans-serif;
     }
@@ -187,38 +188,27 @@
        HERO
        ============================================================ */
     .mf-hero {
-      background:
-        radial-gradient(ellipse at 15% 25%, rgba(84, 162, 210, 0.15) 0%, transparent 55%),
-        var(--mf-navy);
+      background: var(--mf-white);
       min-height: 88vh;
       display: flex;
       align-items: center;
       padding: 100px 0 80px;
     }
-    .mf-hero-label {
-      font-family: var(--mf-font-body);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--mf-blue);
-      margin-bottom: 20px;
-      display: block;
-    }
     .mf-hero h1 {
       font-family: var(--mf-font-title);
       font-size: clamp(40px, 6vw, 72px);
       font-weight: 700;
-      color: var(--mf-white);
+      color: var(--mf-navy);
       line-height: 1.08;
       letter-spacing: -0.5px;
       max-width: 820px;
       margin-bottom: 24px;
+      text-transform: uppercase;
     }
     .mf-hero p {
       font-family: var(--mf-font-body);
       font-size: 19px;
-      color: var(--mf-light);
+      color: var(--mf-navy);
       max-width: 600px;
       line-height: 1.65;
       margin-bottom: 36px;
@@ -227,7 +217,7 @@
       display: block;
       font-family: var(--mf-font-body);
       font-size: 13px;
-      color: rgba(169, 206, 232, 0.6);
+      color: rgba(0, 58, 100, 0.55);
       margin-top: 14px;
     }
 
@@ -268,9 +258,7 @@
        STORIA
        ============================================================ */
     .mf-storia {
-      background:
-        radial-gradient(ellipse at 88% 12%, rgba(84, 162, 210, 0.12) 0%, transparent 50%),
-        var(--mf-light);
+      background: var(--mf-white);
       padding: 90px 0;
     }
     .mf-storia-inner {
@@ -796,9 +784,7 @@
        CHI SIAMO
        ============================================================ */
     .mf-chisiamo {
-      background:
-        radial-gradient(ellipse at 8% 82%, rgba(84, 162, 210, 0.1) 0%, transparent 50%),
-        var(--mf-light);
+      background: var(--mf-navy);
       padding: 90px 0;
     }
     .mf-chisiamo-inner {
@@ -811,13 +797,13 @@
       font-family: var(--mf-font-title);
       font-size: clamp(28px, 4vw, 44px);
       font-weight: 700;
-      color: var(--mf-navy);
+      color: var(--mf-yellow);
       margin-bottom: 24px;
     }
     .mf-chisiamo p {
       font-family: var(--mf-font-body);
       font-size: 17px;
-      color: var(--mf-navy);
+      color: var(--mf-white);
       line-height: 1.75;
       max-width: 580px;
       margin-bottom: 14px;
@@ -826,11 +812,11 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--mf-navy);
-      color: var(--mf-light);
+      background: var(--mf-yellow);
+      color: var(--mf-navy);
       font-family: var(--mf-font-body);
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 700;
       padding: 8px 16px;
       border-radius: 20px;
       margin-top: 16px;
@@ -1430,7 +1416,7 @@
           <p>Siamo Dora e Davide, educatori finanziari certificati AIEF e autori del libro <em>"Maleducati Finanziari"</em>.</p>
           <p>Dieci anni fa eravamo esattamente dove sei tu ora. Senza un sistema per gestire i nostri soldi.</p>
           <p>Abbiamo studiato, sperimentato, sbagliato. E alla fine costruito un sistema che funziona davvero nella vita reale.</p>
-          <p>Poi abbiamo deciso di insegnarlo a chi ne aveva bisogno, perché purtroppo in Italia nessuno insegna educazione finanziaria davvero.</p>
+          <p>Poi abbiamo deciso di insegnare questo sistema a chi ne aveva bisogno, perché purtroppo in Italia nessuno insegna educazione finanziaria davvero.</p>
           <p>Oggi centinaia di persone stanno già usando questo sistema per costruire la loro serenità economica e vogliamo che anche tu abbia questa possibilità.</p>
           <span class="mf-chisiamo-badge">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
