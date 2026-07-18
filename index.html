@@ -417,6 +417,34 @@
       margin-left: 4px;
       vertical-align: middle;
     }
+    .mf-fase-file {
+      display: inline-block;
+      background: rgba(0, 58, 100, 0.08);
+      color: var(--mf-navy);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+    .mf-fase-img {
+      width: 100%;
+      display: block;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 16px rgba(0, 58, 100, 0.12);
+    }
+    .mf-bonus-img {
+      width: 100%;
+      max-width: 320px;
+      display: block;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 16px rgba(0, 58, 100, 0.12);
+    }
 
     /* ============================================================
        FA PER TE SE
@@ -1230,26 +1258,27 @@
   <section class="mf-programma mf-animate">
     <div class="mf-container">
       <h2>Programma completo per costruire il sistema in 5 fasi</h2>
-      <p class="mf-programma-intro">16 videolezioni + 3 bonus inclusi in tutte le opzioni</p>
+      <p class="mf-programma-intro">16 videolezioni + 2 bonus inclusi in tutte le opzioni</p>
 
       <div class="mf-fasi-grid">
         <div class="mf-fase-item">
           <div class="mf-fase-numero">Fase 1</div>
           <div class="mf-fase-titolo">Liquidità per le spese mensili</div>
           <div class="mf-fase-desc">
-            Metti le basi per organizzare le spese mensili e pagarle senza andare in difficoltà. <span class="mf-fase-video">3 video</span>
+            Metti le basi per organizzare le spese mensili e pagarle senza andare in difficoltà. <span class="mf-fase-video">3 video</span> + <span class="mf-fase-file">📄 Foglio di lavoro Traccia Spese</span>
             <ul>
               <li>Stana le spese e dividile in categorie</li>
               <li>Organizza le spese con calendario cartaceo</li>
               <li>Organizza le spese con calendario digitale</li>
             </ul>
           </div>
+          <img src="Fase1-Stana-le-tue-spese.png" alt="Foglio di lavoro Traccia Spese" class="mf-fase-img">
         </div>
         <div class="mf-fase-item">
           <div class="mf-fase-numero">Fase 2</div>
           <div class="mf-fase-titolo">Liquidità 2.0</div>
           <div class="mf-fase-desc">
-            Inizia a risparmiare per costruire la tua sicurezza oggi e domani, così da avere sempre i soldi per le emergenze, per le spese non ricorrenti e per realizzare i tuoi progetti. <span class="mf-fase-video">6 video</span>
+            Inizia a risparmiare per costruire la tua sicurezza oggi e domani, così da avere sempre i soldi per le emergenze, per le spese non ricorrenti e per realizzare i tuoi progetti. <span class="mf-fase-video">6 video</span> + <span class="mf-fase-file">📄 File Budget</span>
             <ul>
               <li>Primo Rituale di Ricchezza: Il Budget</li>
               <li>Crea il tuo Budget con il nostro file e inizia a risparmiare</li>
@@ -1259,22 +1288,24 @@
               <li>Fai la retrospettiva per migliorare mese dopo mese</li>
             </ul>
           </div>
+          <img src="Fase2-BUDGET.png" alt="File Budget" class="mf-fase-img">
         </div>
         <div class="mf-fase-item">
           <div class="mf-fase-numero">Fase 3</div>
           <div class="mf-fase-titolo">Liquidità per emergenze e imprevisti</div>
           <div class="mf-fase-desc">
-            Tutti i segreti per costruire il tuo salvagente finanziario. Quella riserva di soldi che puoi usare quando arriva un'emergenza o un imprevisto. <span class="mf-fase-video">1 video</span>
+            Tutti i segreti per costruire il tuo salvagente finanziario. Quella riserva di soldi che puoi usare quando arriva un'emergenza o un imprevisto. <span class="mf-fase-video">1 video</span> + <span class="mf-fase-file">📄 Foglio di lavoro Fondo di Emergenza</span>
             <ul>
               <li>Il fondo di emergenza — cos'è e come costruirlo</li>
             </ul>
           </div>
+          <img src="Fase3-Fondo-Emergenza.png" alt="Foglio di lavoro Fondo di Emergenza" class="mf-fase-img">
         </div>
         <div class="mf-fase-item">
           <div class="mf-fase-numero">Fase 4</div>
           <div class="mf-fase-titolo">Organizza i tuoi risparmi</div>
           <div class="mf-fase-desc">
-            Separali dai soldi delle spese, organizzali per obiettivi e scegli lo strumento migliore dove tenerli. <span class="mf-fase-video">4 video</span>
+            Separali dai soldi delle spese, organizzali per obiettivi e scegli lo strumento migliore dove tenerli. <span class="mf-fase-video">4 video</span> + <span class="mf-fase-file">📄 File Traccia Obiettivi di Risparmio</span>
             <ul>
               <li>Stabilisci i tuoi obiettivi di risparmio e raggiungili</li>
               <li>Separa il risparmio dai soldi delle spese</li>
@@ -1282,26 +1313,33 @@
               <li>Scegli lo strumento migliore dove tenere i tuoi risparmi</li>
             </ul>
           </div>
+          <img src="Fase4-Accantonamenti.png" alt="File Traccia Obiettivi di Risparmio" class="mf-fase-img">
         </div>
         <div class="mf-fase-item" style="grid-column: 1 / -1; max-width: 560px;">
           <div class="mf-fase-numero">Fase 5</div>
           <div class="mf-fase-titolo">Raggiungi i tuoi obiettivi nel tempo</div>
           <div class="mf-fase-desc">
-            Scopri come prendere decisioni finanziarie migliori nella vita di tutti i giorni per costruire la tua sicurezza economica nel tempo e superare i pensieri e le credenze limitanti che ti bloccano. <span class="mf-fase-video">2 video</span>
+            Scopri come prendere decisioni finanziarie migliori nella vita di tutti i giorni per costruire la tua sicurezza economica nel tempo e superare i pensieri e le credenze limitanti che ti bloccano. <span class="mf-fase-video">2 video</span> + <span class="mf-fase-file">📄 Foglio di lavoro Pensieri ed Emozioni</span>
             <ul>
               <li>Riconosci i pensieri e le emozioni che ti fanno spendere</li>
               <li>Il tuo primo ricordo legato ai soldi</li>
             </ul>
           </div>
+          <img src="Fase5-Mindset.png" alt="Foglio di lavoro Pensieri ed Emozioni" class="mf-fase-img">
         </div>
       </div>
 
       <div class="mf-bonus-box">
-        <h3>🎁 3 Bonus inclusi in tutte le opzioni</h3>
+        <h3>🎁 2 Bonus inclusi in tutte le opzioni</h3>
         <ul class="mf-bonus-list">
-          <li><strong>Il Budget delle Vacanze</strong>Calcola i costi di ogni vacanza con un file dedicato e parti senza brutte sorprese al ritorno.</li>
-          <li><strong>Banca Non Ti Temo</strong>Trucchi e strategie per scegliere il conto e la carta migliore per la tua situazione.</li>
-          <li><strong>Consulenza gratuita di 30 minuti sulle bollette</strong>Una sessione con noi per scoprire se stai spendendo troppo di bollette. In 30 minuti ti aiutiamo a risparmiare davvero fin da subito.</li>
+          <li>
+            <strong>Il Budget delle Vacanze</strong>Calcola i costi di ogni vacanza con un file dedicato e parti senza brutte sorprese al ritorno. <span class="mf-fase-video">3 video</span>
+            <img src="Bonus1-Budget-Vacanze.png" alt="File Budget delle Vacanze" class="mf-bonus-img">
+          </li>
+          <li>
+            <strong>Comparatore Bollette</strong>Il nostro strumento per confrontare le offerte di luce, gas e internet e scoprire se stai spendendo troppo. Te lo consegniamo appena ti iscrivi.
+            <img src="Bonus2-Comparatore-Bollette.png" alt="Comparatore Bollette" class="mf-bonus-img">
+          </li>
         </ul>
       </div>
 
@@ -1330,9 +1368,8 @@
             <li>File Budget e Traccia Spese</li>
             <li>File obiettivi di risparmio e salvadanai digitali</li>
             <li>File budget vacanze</li>
-            <li>Fogli di lavoro stampabili</li>
-            <li>Strategia anti-acquisti impulsivi</li>
-            <li>3 bonus inclusi</li>
+            <li>5 fogli di lavoro pratici, uno per ogni fase</li>
+            <li>2 bonus inclusi</li>
             <li>Assistenza email 3 mesi</li>
           </ul>
           <div class="mf-price-old">287&euro;</div>
@@ -1353,9 +1390,8 @@
             <li>File Budget e Traccia Spese personalizzato</li>
             <li>File obiettivi e salvadanai personalizzati</li>
             <li>File budget vacanze</li>
-            <li>Fogli di lavoro stampabili</li>
-            <li>Strategia anti-acquisti impulsivi</li>
-            <li>3 bonus inclusi</li>
+            <li>5 fogli di lavoro pratici, uno per ogni fase</li>
+            <li>2 bonus inclusi</li>
             <li>Assistenza WhatsApp + email 6 mesi</li>
           </ul>
           <div class="mf-price-old">497&euro;</div>
@@ -1376,9 +1412,8 @@
             <li>File Budget e Traccia Spese personalizzato</li>
             <li>File obiettivi e salvadanai personalizzati</li>
             <li>File budget vacanze</li>
-            <li>Fogli di lavoro stampabili</li>
-            <li>Strategia anti-acquisti impulsivi</li>
-            <li>3 bonus inclusi</li>
+            <li>5 fogli di lavoro pratici, uno per ogni fase</li>
+            <li>2 bonus inclusi</li>
             <li>Assistenza WhatsApp + email 12 mesi</li>
           </ul>
           <div class="mf-price-old">1.297&euro;</div>
