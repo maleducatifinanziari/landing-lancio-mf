@@ -432,6 +432,9 @@
     }
     .mf-fase-img {
       width: 100%;
+      height: 260px;
+      object-fit: contain;
+      background: var(--mf-white);
       display: block;
       border-radius: 12px;
       margin-bottom: 16px;
@@ -440,6 +443,9 @@
     .mf-bonus-img {
       width: 100%;
       max-width: 320px;
+      height: 180px;
+      object-fit: contain;
+      background: var(--mf-white);
       display: block;
       border-radius: 10px;
       margin-bottom: 12px;
@@ -1150,6 +1156,9 @@
 
       .mf-recensioni-grid { grid-template-columns: repeat(2, 1fr); }
       .mf-recensioni-mid-grid { grid-template-columns: 1fr; }
+
+      .mf-fase-img { height: 200px; }
+      .mf-bonus-img { height: 150px; }
 
       .mf-cta-buttons { flex-direction: column; align-items: stretch; }
       .mf-cta-buttons .mf-btn,
