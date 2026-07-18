@@ -430,9 +430,18 @@
       margin-left: 4px;
       vertical-align: middle;
     }
+    .mf-bonus-list .mf-fase-video,
+    .mf-bonus-list .mf-fase-file {
+      background: var(--mf-white);
+    }
+    .mf-fase-meta {
+      display: block;
+      margin-top: 14px;
+      margin-bottom: 22px;
+    }
     .mf-fase-img {
       width: 100%;
-      height: 260px;
+      height: 320px;
       object-fit: contain;
       background: var(--mf-white);
       display: block;
@@ -448,6 +457,7 @@
       background: var(--mf-white);
       display: block;
       border-radius: 10px;
+      margin-top: 12px;
       margin-bottom: 12px;
       box-shadow: 0 4px 16px rgba(0, 58, 100, 0.12);
     }
@@ -1157,7 +1167,7 @@
       .mf-recensioni-grid { grid-template-columns: repeat(2, 1fr); }
       .mf-recensioni-mid-grid { grid-template-columns: 1fr; }
 
-      .mf-fase-img { height: 200px; }
+      .mf-fase-img { height: 240px; }
       .mf-bonus-img { height: 150px; }
 
       .mf-cta-buttons { flex-direction: column; align-items: stretch; }
@@ -1183,7 +1193,7 @@
   <section class="mf-hero">
     <div class="mf-container">
       <h1>Costruisci la tua serenità economica e liberati dall'ansia per i soldi</h1>
-      <p>Il tuo budget a prova di bomba è il percorso che ti porta a creare il sistema in 5 fasi per costruire sicurezza economica anche quando intorno a te tutto è incerto.</p>
+      <p>Il tuo budget a prova di bomba è il percorso che ti dà il sistema in 5 fasi e gli strumenti per costruire la tua serenità economica, oggi e domani.</p>
       <a href="#mf-pricing" class="mf-btn mf-btn-large">
         Sì, voglio iniziare &rarr;
       </a>
@@ -1212,7 +1222,7 @@
        ============================================================ -->
   <section class="mf-recensioni-mid mf-animate">
     <div class="mf-container">
-      <h2>Noi ci siamo riusciti e oltre a noi tante altre persone.</h2>
+      <h2>Noi ci siamo riusciti e insieme a noi più di 200 persone.</h2>
       <div class="mf-recensioni-mid-grid">
         <!-- Sostituisci questi placeholder con gli screenshot reali delle recensioni -->
         <div class="mf-review-card">
@@ -1257,6 +1267,7 @@
         <li>Senti di non avere controllo sulle tue spese o vorresti controllarle ancora meglio</li>
         <li>Vuoi costruire un fondo di emergenza o rinforzare quello che hai</li>
         <li>Vuoi vivere con più tranquillità economica e soprattutto mentale</li>
+        <li>Vuoi un metodo spiegato in modo semplice, senza tecnicismi, che puoi applicare da subito</li>
       </ul>
     </div>
   </section>
@@ -1274,12 +1285,8 @@
           <div class="mf-fase-numero">Fase 1</div>
           <div class="mf-fase-titolo">Liquidità per le spese mensili</div>
           <div class="mf-fase-desc">
-            Metti le basi per organizzare le spese mensili e pagarle senza andare in difficoltà. <span class="mf-fase-video">3 video</span> + <span class="mf-fase-file">📄 Foglio di lavoro Traccia Spese</span>
-            <ul>
-              <li>Stana le spese e dividile in categorie</li>
-              <li>Organizza le spese con calendario cartaceo</li>
-              <li>Organizza le spese con calendario digitale</li>
-            </ul>
+            Metti le basi per organizzare le spese mensili e pagarle senza andare in difficoltà.
+            <div class="mf-fase-meta"><span class="mf-fase-video">3 videolezioni</span> + <span class="mf-fase-file">📄 Foglio di lavoro Traccia Spese</span></div>
           </div>
           <img src="Fase1-Stana-le-tue-spese.png" alt="Foglio di lavoro Traccia Spese" class="mf-fase-img">
         </div>
@@ -1287,15 +1294,8 @@
           <div class="mf-fase-numero">Fase 2</div>
           <div class="mf-fase-titolo">Liquidità 2.0</div>
           <div class="mf-fase-desc">
-            Inizia a risparmiare per costruire la tua sicurezza oggi e domani, così da avere sempre i soldi per le emergenze, per le spese non ricorrenti e per realizzare i tuoi progetti. <span class="mf-fase-video">6 video</span> + <span class="mf-fase-file">📄 File Budget</span>
-            <ul>
-              <li>Primo Rituale di Ricchezza: Il Budget</li>
-              <li>Crea il tuo Budget con il nostro file e inizia a risparmiare</li>
-              <li>Crea il budget con carta e penna (perfetto se non ami la tecnologia)</li>
-              <li>Come gestire la carta di credito nel budget</li>
-              <li>Traccia le spese per rispettare il budget</li>
-              <li>Fai la retrospettiva per migliorare mese dopo mese</li>
-            </ul>
+            Risparmia in modo costante per le spese future, per gli imprevisti e per i tuoi progetti di vita grazie al nostro metodo e ai nostri strumenti.
+            <div class="mf-fase-meta"><span class="mf-fase-video">6 videolezioni</span> + <span class="mf-fase-file">📄 File Budget</span></div>
           </div>
           <img src="Fase2-BUDGET.png" alt="File Budget" class="mf-fase-img">
         </div>
@@ -1303,10 +1303,8 @@
           <div class="mf-fase-numero">Fase 3</div>
           <div class="mf-fase-titolo">Liquidità per emergenze e imprevisti</div>
           <div class="mf-fase-desc">
-            Tutti i segreti per costruire il tuo salvagente finanziario. Quella riserva di soldi che puoi usare quando arriva un'emergenza o un imprevisto. <span class="mf-fase-video">1 video</span> + <span class="mf-fase-file">📄 Foglio di lavoro Fondo di Emergenza</span>
-            <ul>
-              <li>Il fondo di emergenza — cos'è e come costruirlo</li>
-            </ul>
+            Scopri come costruire il tuo fondo di emergenza: quella base di risparmi per le spese impreviste che ti fa dormire sonni tranquilli.
+            <div class="mf-fase-meta"><span class="mf-fase-video">1 videolezione</span> + <span class="mf-fase-file">📄 Foglio di lavoro Fondo di Emergenza</span></div>
           </div>
           <img src="Fase3-Fondo-Emergenza.png" alt="Foglio di lavoro Fondo di Emergenza" class="mf-fase-img">
         </div>
@@ -1314,25 +1312,17 @@
           <div class="mf-fase-numero">Fase 4</div>
           <div class="mf-fase-titolo">Organizza i tuoi risparmi</div>
           <div class="mf-fase-desc">
-            Separali dai soldi delle spese, organizzali per obiettivi e scegli lo strumento migliore dove tenerli. <span class="mf-fase-video">4 video</span> + <span class="mf-fase-file">📄 File Traccia Obiettivi di Risparmio</span>
-            <ul>
-              <li>Stabilisci i tuoi obiettivi di risparmio e raggiungili</li>
-              <li>Separa il risparmio dai soldi delle spese</li>
-              <li>Organizza il risparmio e tieni traccia dei progressi (file incluso)</li>
-              <li>Scegli lo strumento migliore dove tenere i tuoi risparmi</li>
-            </ul>
+            Separa i risparmi dai soldi delle spese quotidiane, organizzali per obiettivi, tieni traccia dei tuoi progressi e scegli lo strumento migliore dove tenerli.
+            <div class="mf-fase-meta"><span class="mf-fase-video">4 videolezioni</span> + <span class="mf-fase-file">📄 File Traccia Obiettivi di Risparmio</span></div>
           </div>
           <img src="Fase4-Accantonamenti.png" alt="File Traccia Obiettivi di Risparmio" class="mf-fase-img">
         </div>
         <div class="mf-fase-item" style="grid-column: 1 / -1; max-width: 560px;">
           <div class="mf-fase-numero">Fase 5</div>
-          <div class="mf-fase-titolo">Raggiungi i tuoi obiettivi nel tempo</div>
+          <div class="mf-fase-titolo">Costruisci la mentalità per raggiungere i tuoi obiettivi</div>
           <div class="mf-fase-desc">
-            Scopri come prendere decisioni finanziarie migliori nella vita di tutti i giorni per costruire la tua sicurezza economica nel tempo e superare i pensieri e le credenze limitanti che ti bloccano. <span class="mf-fase-video">2 video</span> + <span class="mf-fase-file">📄 Foglio di lavoro Pensieri ed Emozioni</span>
-            <ul>
-              <li>Riconosci i pensieri e le emozioni che ti fanno spendere</li>
-              <li>Il tuo primo ricordo legato ai soldi</li>
-            </ul>
+            Il metodo e gli strumenti sono fondamentali. Ma lo è altrettanto la mentalità. Con il nostro metodo RPEAR impari a capire come funziona la tua mente quando prendi decisioni sui soldi, per fare scelte migliori e raggiungere davvero i tuoi obiettivi.
+            <div class="mf-fase-meta"><span class="mf-fase-video">2 videolezioni</span> + <span class="mf-fase-file">📄 Foglio di lavoro Pensieri ed Emozioni</span></div>
           </div>
           <img src="Fase5-Mindset.png" alt="Foglio di lavoro Pensieri ed Emozioni" class="mf-fase-img">
         </div>
@@ -1342,7 +1332,7 @@
         <h3>🎁 2 Bonus inclusi in tutte le opzioni</h3>
         <ul class="mf-bonus-list">
           <li>
-            <strong>Il Budget delle Vacanze</strong>Calcola i costi di ogni vacanza con un file dedicato e parti senza brutte sorprese al ritorno. <span class="mf-fase-video">3 video</span>
+            <strong>Il Budget delle Vacanze</strong>Calcola i costi di ogni vacanza con un file dedicato e parti senza brutte sorprese al ritorno. <span class="mf-fase-video">3 videolezioni</span>
             <img src="Bonus1-Budget-Vacanze.png" alt="File Budget delle Vacanze" class="mf-bonus-img">
           </li>
           <li>
@@ -1394,7 +1384,7 @@
           <div class="mf-card-title">Il Tuo Budget a Prova di Bomba</div>
           <p class="mf-card-target">La scelta pi&ugrave; equilibrata tra autonomia e affiancamento</p>
           <ul class="mf-card-list">
-            <li>2 incontri personalizzati di 1 ora con noi (online)</li>
+            <li>2 incontri personalizzati di 1 ora con noi (online) per creare insieme il tuo budget e i tuoi piani di risparmio</li>
             <li>16 videolezioni</li>
             <li>File Budget e Traccia Spese personalizzato</li>
             <li>File obiettivi e salvadanai personalizzati</li>
@@ -1416,7 +1406,7 @@
           <div class="mf-card-title">Il Tuo Budget a Prova di Bomba</div>
           <p class="mf-card-target">Per chi vuole il nostro affiancamento in ogni singola fase</p>
           <ul class="mf-card-list">
-            <li>6 incontri personalizzati di 1 ora con noi (online)</li>
+            <li>6 incontri personalizzati di 1 ora con noi (online) per accompagnarti passo passo in ogni fase del percorso</li>
             <li>16 videolezioni</li>
             <li>File Budget e Traccia Spese personalizzato</li>
             <li>File obiettivi e salvadanai personalizzati</li>
