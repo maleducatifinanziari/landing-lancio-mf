@@ -798,10 +798,18 @@
       font-family: var(--mf-font-body);
       font-size: 12px;
       color: #8a9fac;
-      margin-bottom: 28px;
+      margin-bottom: 10px;
       line-height: 1.4;
     }
     .mf-card-premium .mf-price-rate { color: #8a9fac; }
+    .mf-price-increase {
+      font-family: var(--mf-font-body);
+      font-size: 12px;
+      font-weight: 700;
+      color: #c0392b;
+      margin-bottom: 18px;
+      line-height: 1.4;
+    }
 
     .mf-card-btn {
       display: block;
@@ -887,18 +895,18 @@
       justify-content: center;
       flex-wrap: wrap;
       margin: 28px auto;
-      color: var(--mf-white);
+      color: var(--mf-navy);
       display: flex;
     }
     .mf-urgenza-finale .mf-cd-unit {
-      background: rgba(255,255,255,0.1);
+      background: rgba(0, 58, 100, 0.06);
       border-radius: 10px;
       padding: 10px 16px;
       min-width: 64px;
       gap: 4px;
     }
     .mf-urgenza-finale .mf-cd-unit small { font-size: 11px; opacity: 0.6; }
-    .mf-urgenza-finale .mf-cd-sep { font-size: 32px; margin-top: 4px; opacity: 0.3; }
+    .mf-urgenza-finale .mf-cd-sep { font-size: 32px; margin-top: 4px; opacity: 0.3; color: var(--mf-navy); }
     .mf-urgenza-finale p {
       font-family: var(--mf-font-body);
       font-size: 17px;
@@ -1188,6 +1196,15 @@
 <body>
 
   <!-- ============================================================
+       URGENCY BAR FISSA
+       ============================================================ -->
+  <div id="mf-urgency-bar">
+    ⏳ I prezzi aumentano lunedì 27 luglio alle 23:59
+    &mdash; <span class="mf-countdown"></span>
+    &mdash; <a href="https://esmerise.com/maleducatifinanziari/register?p=8274" id="mf-urgency-cta">Iscriviti ora &rarr;</a>
+  </div>
+
+  <!-- ============================================================
        SEZIONE 1 — HERO (Rettiliano: minaccia + protezione)
        ============================================================ -->
   <section class="mf-hero">
@@ -1374,6 +1391,7 @@
           <div class="mf-price-old">287&euro;</div>
           <div class="mf-price">187&euro;</div>
           <div class="mf-price-rate">Oppure 3 rate da 62,33&euro; &mdash; meno di 2&euro; al giorno</div>
+          <div class="mf-price-increase">Dal 28 luglio: 247&euro;</div>
           <a href="https://esmerise.com/maleducatifinanziari/register?p=6185" class="mf-card-btn">Inizia con Plus &rarr;</a>
         </div>
 
@@ -1396,6 +1414,7 @@
           <div class="mf-price-old">497&euro;</div>
           <div class="mf-price">337&euro;</div>
           <div class="mf-price-rate">Oppure 3 rate da 112,33&euro; &mdash; meno di 4&euro; al giorno</div>
+          <div class="mf-price-increase">Dal 28 luglio: 427&euro;</div>
           <a href="https://esmerise.com/maleducatifinanziari/register?p=8274" class="mf-card-btn">Scegli Premium &rarr;</a>
         </div>
 
@@ -1418,6 +1437,7 @@
           <div class="mf-price-old">1.297&euro;</div>
           <div class="mf-price">947&euro;</div>
           <div class="mf-price-rate">Oppure 3 rate da 315,66&euro; &mdash; 10,5&euro; al giorno</div>
+          <div class="mf-price-increase">Dal 28 luglio: 1.097&euro;</div>
           <a href="https://esmerise.com/maleducatifinanziari/register?p=8275" class="mf-card-btn">Prenota Exclusive &rarr;</a>
         </div>
 
@@ -1515,8 +1535,10 @@
        ============================================================ -->
   <section class="mf-urgenza-finale">
     <div class="mf-container">
-      <h2>Inizia oggi a costruire la tua serenità economica</h2>
+      <h2>I prezzi aumentano lunedì 27 luglio alle 23:59</h2>
+      <div class="mf-countdown"></div>
       <p>
+        Dopo quella data i prezzi di tutti i percorsi aumentano.<br>
         Se stai aspettando il momento giusto, <strong>questo è il momento giusto.</strong>
       </p>
       <a href="https://esmerise.com/maleducatifinanziari/register?p=8274" class="mf-btn mf-btn-large">
@@ -1700,6 +1722,54 @@
        JAVASCRIPT: Countdown + Body Padding + GSAP
        ============================================================ -->
   <script>
+    /* --- Aggiusta il padding-top del body per la urgency bar fissa --- */
+    function adjustBodyPadding() {
+      var bar = document.getElementById('mf-urgency-bar');
+      if (bar && bar.style.display !== 'none') document.body.style.paddingTop = bar.offsetHeight + 'px';
+    }
+    adjustBodyPadding();
+    window.addEventListener('resize', adjustBodyPadding);
+
+    /* --- Countdown Timer — aumento prezzi 27 luglio 2026 ore 23:59 --- */
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function updateCountdown() {
+      var deadline = new Date('2026-07-27T23:59:00');
+      var now      = new Date();
+      var diff     = deadline - now;
+      var els      = document.querySelectorAll('.mf-countdown');
+
+      if (diff <= 0) {
+        var bar = document.getElementById('mf-urgency-bar');
+        if (bar) { bar.style.display = 'none'; adjustBodyPadding(); }
+        els.forEach(function(el) {
+          var section = el.closest('.mf-urgenza-finale');
+          if (section) section.style.display = 'none';
+        });
+        return;
+      }
+
+      var days    = Math.floor(diff / (1000 * 60 * 60 * 24));
+      var hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      var html =
+        '<span class="mf-cd-unit">' + days + '<small>g</small></span>' +
+        '<span class="mf-cd-sep">:</span>' +
+        '<span class="mf-cd-unit">' + pad(hours) + '<small>h</small></span>' +
+        '<span class="mf-cd-sep">:</span>' +
+        '<span class="mf-cd-unit">' + pad(minutes) + '<small>m</small></span>' +
+        '<span class="mf-cd-sep">:</span>' +
+        '<span class="mf-cd-unit">' + pad(seconds) + '<small>s</small></span>';
+
+      els.forEach(function(el) { el.innerHTML = html; });
+      adjustBodyPadding();
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
     /* --- GSAP ScrollTrigger animations --- */
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       gsap.registerPlugin(ScrollTrigger);
