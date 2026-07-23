@@ -461,6 +461,76 @@
       margin-bottom: 12px;
       box-shadow: 0 4px 16px rgba(0, 58, 100, 0.12);
     }
+    .mf-fase-media {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      height: 320px;
+      background: var(--mf-white);
+      border-radius: 12px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 16px rgba(0, 58, 100, 0.12);
+      padding: 12px;
+      box-sizing: border-box;
+    }
+    .mf-fase-media-col {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .mf-fase-media-col img {
+      width: 52px;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0, 58, 100, 0.18);
+      display: block;
+    }
+    .mf-fase-media-main {
+      flex: 1 1 auto;
+      max-width: 100%;
+      height: 100%;
+      object-fit: contain;
+      min-width: 0;
+      display: block;
+    }
+    .mf-fase-media-vertical {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      width: 100%;
+      height: 320px;
+      background: var(--mf-white);
+      border-radius: 12px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 16px rgba(0, 58, 100, 0.12);
+      padding: 12px;
+      box-sizing: border-box;
+    }
+    .mf-fase-media-row {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .mf-fase-media-row img {
+      width: 52px;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0, 58, 100, 0.18);
+      display: block;
+    }
+    .mf-fase-media-main-v {
+      flex: 1 1 auto;
+      width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      min-height: 0;
+      display: block;
+    }
 
     /* ============================================================
        FA PER TE SE
@@ -1305,7 +1375,14 @@
             Metti le basi per organizzare le spese mensili e pagarle senza andare in difficoltà.
             <div class="mf-fase-meta"><span class="mf-fase-video">3 videolezioni</span> + <span class="mf-fase-file">📄 Foglio di lavoro Traccia Spese</span></div>
           </div>
-          <img src="Fase1-Stana-le-tue-spese.png" alt="Foglio di lavoro Traccia Spese" class="mf-fase-img">
+          <div class="mf-fase-media">
+            <div class="mf-fase-media-col">
+              <img src="Fase1-Video-1.png" alt="Video 1">
+              <img src="Fase1-Video-2.png" alt="Video 2">
+              <img src="Fase1-Video-3.png" alt="Video 3">
+            </div>
+            <img src="Fase1-Stana-le-tue-spese.png" alt="Foglio di lavoro Traccia Spese" class="mf-fase-media-main">
+          </div>
         </div>
         <div class="mf-fase-item">
           <div class="mf-fase-numero">Fase 2</div>
@@ -1314,7 +1391,19 @@
             Risparmia in modo costante per le spese future, per gli imprevisti e per i tuoi progetti di vita grazie al nostro metodo e ai nostri strumenti.
             <div class="mf-fase-meta"><span class="mf-fase-video">6 videolezioni</span> + <span class="mf-fase-file">📄 File Budget</span></div>
           </div>
-          <img src="Fase2-BUDGET.png" alt="File Budget" class="mf-fase-img">
+          <div class="mf-fase-media">
+            <div class="mf-fase-media-col">
+              <img src="Fase2-Video-1.png" alt="Video 1">
+              <img src="Fase2-Video-2.png" alt="Video 2">
+              <img src="Fase2-Video-3.png" alt="Video 3">
+            </div>
+            <img src="Fase2-BUDGET.png" alt="File Budget" class="mf-fase-media-main">
+            <div class="mf-fase-media-col">
+              <img src="Fase2-Video-4.png" alt="Video 4">
+              <img src="Fase2-Video-5.png" alt="Video 5">
+              <img src="Fase2-Video-6.png" alt="Video 6">
+            </div>
+          </div>
         </div>
         <div class="mf-fase-item">
           <div class="mf-fase-numero">Fase 3</div>
@@ -1323,7 +1412,10 @@
             Scopri come costruire il tuo fondo di emergenza: quella base di risparmi per le spese impreviste che ti fa dormire sonni tranquilli.
             <div class="mf-fase-meta"><span class="mf-fase-video">1 videolezione</span> + <span class="mf-fase-file">📄 Foglio di lavoro Fondo di Emergenza</span></div>
           </div>
-          <img src="Fase3-Fondo-Emergenza.png" alt="Foglio di lavoro Fondo di Emergenza" class="mf-fase-img">
+          <div class="mf-fase-media">
+            <img src="Fase3-Video-1.png" alt="Video 1" class="mf-fase-media-main">
+            <img src="Fase3-Fondo-Emergenza.png" alt="Foglio di lavoro Fondo di Emergenza" class="mf-fase-media-main">
+          </div>
         </div>
         <div class="mf-fase-item">
           <div class="mf-fase-numero">Fase 4</div>
@@ -1332,7 +1424,15 @@
             Separa i risparmi dai soldi delle spese quotidiane, organizzali per obiettivi, tieni traccia dei tuoi progressi e scegli lo strumento migliore dove tenerli.
             <div class="mf-fase-meta"><span class="mf-fase-video">4 videolezioni</span> + <span class="mf-fase-file">📄 File Traccia Obiettivi di Risparmio</span></div>
           </div>
-          <img src="Fase4-Accantonamenti.png" alt="File Traccia Obiettivi di Risparmio" class="mf-fase-img">
+          <div class="mf-fase-media-vertical">
+            <div class="mf-fase-media-row">
+              <img src="Fase4-Video-1.png" alt="Video 1">
+              <img src="Fase4-Video-2.png" alt="Video 2">
+              <img src="Fase4-Video-3.png" alt="Video 3">
+              <img src="Fase4-Video-4.png" alt="Video 4">
+            </div>
+            <img src="Fase4-Accantonamenti.png" alt="File Traccia Obiettivi di Risparmio" class="mf-fase-media-main-v">
+          </div>
         </div>
         <div class="mf-fase-item" style="grid-column: 1 / -1; max-width: 560px;">
           <div class="mf-fase-numero">Fase 5</div>
@@ -1341,7 +1441,13 @@
             Il metodo e gli strumenti sono fondamentali. Ma lo è altrettanto la mentalità. Con il nostro metodo RPEAR impari a capire come funziona la tua mente quando prendi decisioni sui soldi, per fare scelte migliori e raggiungere davvero i tuoi obiettivi.
             <div class="mf-fase-meta"><span class="mf-fase-video">2 videolezioni</span> + <span class="mf-fase-file">📄 Foglio di lavoro Pensieri ed Emozioni</span></div>
           </div>
-          <img src="Fase5-Mindset.png" alt="Foglio di lavoro Pensieri ed Emozioni" class="mf-fase-img">
+          <div class="mf-fase-media">
+            <div class="mf-fase-media-col">
+              <img src="Fase5-Video-1.png" alt="Video 1">
+              <img src="Fase5-Video-2.png" alt="Video 2">
+            </div>
+            <img src="Fase5-Mindset.png" alt="Foglio di lavoro Pensieri ed Emozioni" class="mf-fase-media-main">
+          </div>
         </div>
       </div>
 
