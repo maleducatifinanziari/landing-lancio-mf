@@ -407,7 +407,7 @@
     .mf-fase-video {
       display: inline-block;
       background: rgba(84, 162, 210, 0.15);
-      color: var(--mf-blue);
+      color: var(--mf-navy);
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
@@ -463,21 +463,24 @@
     }
     .mf-fase-media {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 8px;
       width: 100%;
-      height: 320px;
+      height: auto;
       background: var(--mf-white);
       border-radius: 12px;
       margin-bottom: 16px;
       box-shadow: 0 4px 16px rgba(0, 58, 100, 0.12);
-      padding: 12px;
+      padding: 8px;
       box-sizing: border-box;
     }
+    .mf-fase-media-side { flex-direction: row; }
     .mf-fase-media-col {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      justify-content: center;
       gap: 8px;
       flex-shrink: 0;
     }
@@ -489,32 +492,40 @@
       display: block;
     }
     .mf-fase-media-main {
-      flex: 1 1 auto;
+      width: 100%;
       max-width: 100%;
-      height: 100%;
+      height: auto;
+      max-height: 280px;
       object-fit: contain;
       min-width: 0;
       display: block;
+    }
+    .mf-fase-media-side .mf-fase-media-main {
+      width: auto;
+      height: 220px;
+      max-height: none;
+      flex: 1 1 0;
     }
     .mf-fase-media-vertical {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 14px;
+      gap: 10px;
       width: 100%;
-      height: 320px;
+      height: auto;
       background: var(--mf-white);
       border-radius: 12px;
       margin-bottom: 16px;
       box-shadow: 0 4px 16px rgba(0, 58, 100, 0.12);
-      padding: 12px;
+      padding: 8px;
       box-sizing: border-box;
     }
     .mf-fase-media-row {
       display: flex;
       gap: 8px;
       flex-shrink: 0;
+      justify-content: center;
     }
     .mf-fase-media-row img {
       width: 52px;
@@ -526,7 +537,7 @@
     .mf-fase-media-main-v {
       flex: 1 1 auto;
       width: 100%;
-      max-height: 100%;
+      max-height: 280px;
       object-fit: contain;
       min-height: 0;
       display: block;
@@ -1248,31 +1259,10 @@
       .mf-fase-img { height: 240px; }
       .mf-bonus-img { height: 150px; }
 
-      /* Quadranti fase: meno spazio bianco, miniature video sopra l'immagine */
-      .mf-fase-media,
-      .mf-fase-media-vertical {
-        height: auto;
-        padding: 6px;
-        gap: 6px;
-      }
-      .mf-fase-media { flex-direction: column; }
-      .mf-fase-media-side { flex-direction: row; }
-      .mf-fase-media-col {
-        flex-direction: row;
-        justify-content: center;
-      }
-      .mf-fase-media-main {
-        width: 100%;
-        height: auto;
-        max-height: 220px;
-      }
-      .mf-fase-media-side .mf-fase-media-main {
-        width: auto;
-        height: 180px;
-        max-height: none;
-        flex: 1 1 0;
-      }
-      .mf-fase-media-row { justify-content: center; }
+      /* Quadranti fase: immagini leggermente più compatte su mobile */
+      .mf-fase-media, .mf-fase-media-vertical { padding: 6px; gap: 6px; }
+      .mf-fase-media-main { max-height: 220px; }
+      .mf-fase-media-side .mf-fase-media-main { height: 180px; }
       .mf-fase-media-main-v { max-height: 220px; }
 
       .mf-cta-buttons { flex-direction: column; align-items: stretch; }
