@@ -1248,6 +1248,33 @@
       .mf-fase-img { height: 240px; }
       .mf-bonus-img { height: 150px; }
 
+      /* Quadranti fase: meno spazio bianco, miniature video sopra l'immagine */
+      .mf-fase-media,
+      .mf-fase-media-vertical {
+        height: auto;
+        padding: 6px;
+        gap: 6px;
+      }
+      .mf-fase-media { flex-direction: column; }
+      .mf-fase-media-side { flex-direction: row; }
+      .mf-fase-media-col {
+        flex-direction: row;
+        justify-content: center;
+      }
+      .mf-fase-media-main {
+        width: 100%;
+        height: auto;
+        max-height: 220px;
+      }
+      .mf-fase-media-side .mf-fase-media-main {
+        width: auto;
+        height: 180px;
+        max-height: none;
+        flex: 1 1 0;
+      }
+      .mf-fase-media-row { justify-content: center; }
+      .mf-fase-media-main-v { max-height: 220px; }
+
       .mf-cta-buttons { flex-direction: column; align-items: stretch; }
       .mf-cta-buttons .mf-btn,
       .mf-cta-buttons .mf-btn-secondary { text-align: center; }
@@ -1412,7 +1439,7 @@
             Scopri come costruire il tuo fondo di emergenza: quella base di risparmi per le spese impreviste che ti fa dormire sonni tranquilli.
             <div class="mf-fase-meta"><span class="mf-fase-video">1 videolezione</span> + <span class="mf-fase-file">📄 Foglio di lavoro Fondo di Emergenza</span></div>
           </div>
-          <div class="mf-fase-media">
+          <div class="mf-fase-media mf-fase-media-side">
             <img src="Fase3-Video-1.png" alt="Video 1" class="mf-fase-media-main">
             <img src="Fase3-Fondo-Emergenza.png" alt="Foglio di lavoro Fondo di Emergenza" class="mf-fase-media-main">
           </div>
