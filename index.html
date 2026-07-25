@@ -772,16 +772,16 @@
     }
     .mf-card-premium {
       background: var(--mf-white);
-      border: 2px solid #0ac36a;
+      border: 1px solid var(--mf-light);
       border-radius: 16px;
-      padding: 48px 36px;
+      padding: 36px 28px 40px;
       position: relative;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 16px 52px rgba(10, 195, 106, 0.18);
+      margin-top: 16px;
     }
     .mf-card-premium:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 24px 64px rgba(10, 195, 106, 0.28);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 58, 100, 0.1);
     }
     .mf-card-badge {
       position: absolute;
@@ -819,7 +819,7 @@
       line-height: 1.2;
       margin-bottom: 10px;
     }
-    .mf-card-premium .mf-card-title { color: var(--mf-navy); font-size: 22px; }
+    .mf-card-premium .mf-card-title { color: var(--mf-navy); }
 
     .mf-card-target {
       font-family: var(--mf-font-body);
@@ -881,7 +881,7 @@
       line-height: 1;
       margin-bottom: 6px;
     }
-    .mf-card-premium .mf-price { color: var(--mf-navy); font-size: 60px; }
+    .mf-card-premium .mf-price { color: var(--mf-navy); }
 
     .mf-price-rate {
       font-family: var(--mf-font-body);
@@ -917,7 +917,6 @@
       transform: scale(1.02);
       color: var(--mf-white);
     }
-    .mf-card-premium .mf-card-btn { font-size: 16px; padding: 16px; }
 
     /* ============================================================
        CHI SIAMO
@@ -1255,8 +1254,7 @@
       .mf-recensioni-finali, .mf-recensioni-mid { padding: 64px 0; }
 
       .mf-pricing-grid { grid-template-columns: 1fr; gap: 32px; }
-      .mf-card-premium { order: -1; }
-      .mf-card-plus, .mf-card-exclusive { margin-top: 0; }
+      .mf-card-plus, .mf-card-exclusive, .mf-card-premium { margin-top: 0; }
 
       .mf-urgenza-finale .mf-countdown { font-size: 24px; }
       .mf-urgenza-finale .mf-cd-unit { min-width: 48px; padding: 8px 10px; }
@@ -1534,7 +1532,6 @@
 
         <!-- CARD PREMIUM — in evidenza -->
         <div class="mf-card-premium mf-animate-child">
-          <span class="mf-card-badge mf-card-badge--blue">&#11088; Il pi&ugrave; scelto</span>
           <span class="mf-card-label">PREMIUM</span>
           <div class="mf-card-title">Il Tuo Budget a Prova di Bomba</div>
           <p class="mf-card-target">La scelta pi&ugrave; equilibrata tra autonomia e affiancamento</p>
@@ -1556,7 +1553,7 @@
 
         <!-- CARD EXCLUSIVE -->
         <div class="mf-card-exclusive mf-animate-child">
-          <span class="mf-card-badge mf-card-badge--red">&#128308; Solo 5 posti disponibili</span>
+          <span class="mf-card-badge mf-card-badge--red">&#128308; Solo 3 posti ancora disponibili</span>
           <span class="mf-card-label">EXCLUSIVE</span>
           <div class="mf-card-title">Il Tuo Budget a Prova di Bomba</div>
           <p class="mf-card-target">Per chi vuole il nostro affiancamento in ogni singola fase</p>
@@ -1839,11 +1836,11 @@
     <div class="mf-container">
       <h2>Inizia oggi a costruire la tua sicurezza economica.</h2>
       <div class="mf-cta-buttons">
-        <a href="https://esmerise.com/maleducatifinanziari/register?p=6185" class="mf-btn-secondary">
-          Plus &mdash; 187&euro;
+        <a href="https://esmerise.com/maleducatifinanziari/register?p=6185" class="mf-btn mf-btn-large">
+          Plus &mdash; 187&euro; &nbsp;&#11088;
         </a>
-        <a href="https://esmerise.com/maleducatifinanziari/register?p=8274" class="mf-btn mf-btn-large">
-          Premium &mdash; 337&euro; &nbsp;&#11088;
+        <a href="https://esmerise.com/maleducatifinanziari/register?p=8274" class="mf-btn-secondary">
+          Premium &mdash; 337&euro;
         </a>
         <a href="https://esmerise.com/maleducatifinanziari/register?p=8275" class="mf-btn-secondary">
           Exclusive &mdash; 947&euro;
