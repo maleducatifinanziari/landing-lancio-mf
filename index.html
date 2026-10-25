@@ -874,6 +874,25 @@
     }
     .mf-card-premium .mf-price-old { color: #c0392b; }
 
+    /* Prezzo di listino: primo barrato, più piccolo e grigio */
+    .mf-price-old.mf-price-listino {
+      font-size: 18px;
+      color: #8a96a3;
+    }
+    .mf-card-premium .mf-price-old.mf-price-listino { color: #8a96a3; }
+
+    /* Scadenza del prezzo di lancio, sotto il prezzo */
+    .mf-price-scadenza {
+      font-family: var(--mf-font-body);
+      font-size: 14px;
+      font-weight: 600;
+      color: #c0392b;
+      margin-bottom: 6px;
+    }
+
+    /* Fasi del lancio: si vede solo il contenuto della fase in corso (lo decide lo script in fondo) */
+    [data-fase]:not(.mf-fase-attiva) { display: none !important; }
+
     .mf-price {
       font-family: var(--mf-font-title);
       font-size: 52px;
@@ -1285,9 +1304,11 @@
        URGENCY BAR FISSA
        ============================================================ -->
   <div id="mf-urgency-bar">
-    ⏳ Le iscrizioni chiudono domenica 9 agosto alle 23:59
+    <span data-fase="prima">⏳ Le iscrizioni aprono domenica 1 novembre</span>
+    <span data-fase="vantaggio">⏳ Condizioni vantaggiose fino a lunedì 2 novembre alle 23:59</span>
+    <span data-fase="pieno">⏳ Le iscrizioni chiudono giovedì 5 novembre alle 23:59</span>
     &mdash; <span class="mf-countdown"></span>
-    &mdash; <a href="#mf-pricing" id="mf-urgency-cta">Iscriviti ora &rarr;</a>
+    &mdash; <a href="#mf-pricing" id="mf-urgency-cta"><span data-fase="prima">Scopri le opzioni &rarr;</span><span data-fase="vantaggio pieno">Iscriviti ora &rarr;</span></a>
   </div>
 
   <!-- ============================================================
@@ -1348,10 +1369,10 @@
         </div>
         <div class="mf-review-card">
           <div class="mf-review-quote">&ldquo;</div>
-          <p class="mf-review-text">Il metodo di Dora e Davide è stato la mia salvezza finanziaria. In pochi mesi grazie al loro metodo ho eliminato lo stress da stipendio: prima prosciugavo il conto entro la seconda settimana, ora arrivo al mese successivo con serenità. E poi c'è il budget delle vacanze. Per anni ho vissuto il paradosso di viaggiare e tornare a casa con il conto prosciugato. Quest'anno, grazie al loro file, tutto è cambiato: ho creato un piano dettagliato e, per la prima volta, non ho sforato di un centesimo.</p>
+          <p class="mf-review-text">Incontrarvi per me ha fatto davvero la differenza. Per la prima volta sto risparmiando qualcosa: ho un minuscolo fondo emergenze e un piccolo fondo risparmi. Questo mese pagherò le tasse universitarie di mio figlio senza intaccare lo stipendio, e farò il tagliando alla macchina senza dover contare i centesimi. Mi sembra già un grosso passo.</p>
           <div class="mf-review-author">
-            <strong>Chiara</strong>
-            <span>45 anni · lavoratrice dipendente</span>
+            <strong>Corinna</strong>
+            <span>mamma di un figlio universitario</span>
           </div>
           <div class="mf-review-author-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         </div>
@@ -1381,7 +1402,7 @@
   <section class="mf-programma mf-animate">
     <div class="mf-container">
       <h2>Programma completo per costruire il sistema in 5 fasi</h2>
-      <p class="mf-programma-intro">16 videolezioni + 2 bonus inclusi in tutte le opzioni</p>
+      <p class="mf-programma-intro">16 videolezioni incluse in tutte le opzioni</p>
 
       <div class="mf-fasi-grid">
         <div class="mf-fase-item">
@@ -1467,27 +1488,6 @@
         </div>
       </div>
 
-      <div class="mf-bonus-box">
-        <h3>🎁 2 Bonus inclusi in tutte le opzioni</h3>
-        <ul class="mf-bonus-list">
-          <li>
-            <strong>Il Budget delle Vacanze</strong>Calcola i costi di ogni vacanza con un file dedicato e parti senza brutte sorprese al ritorno. <span class="mf-fase-video">3 videolezioni</span>
-            <div class="mf-bonus-media">
-              <div class="mf-fase-media-row">
-                <img src="Bonus1-Video-1.png" alt="Video 1">
-                <img src="Bonus1-Video-2.png" alt="Video 2">
-                <img src="Bonus1-Video-3.png" alt="Video 3">
-              </div>
-              <img src="Bonus1-Budget-Vacanze.png" alt="File Budget delle Vacanze" class="mf-bonus-img">
-            </div>
-          </li>
-          <li>
-            <strong>Comparatore Bollette</strong>La nostra app per risparmiare sulle bollette di luce, gas e internet. Chi l'ha già provata ha risparmiato anche più di 400€ all'anno.
-            <img src="Bonus2-Comparatore-Bollette.png" alt="Comparatore Bollette" class="mf-bonus-img">
-          </li>
-        </ul>
-      </div>
-
     </div>
   </section>
 
@@ -1498,7 +1498,9 @@
     <div class="mf-container">
       <div class="mf-pricing-header">
         <h2>Scegli il percorso giusto per te</h2>
-        <p class="mf-pricing-subtitle">Le iscrizioni chiudono domenica 9 agosto alle 23:59 e non riapriranno a breve.</p>
+        <p class="mf-pricing-subtitle" data-fase="prima">Le iscrizioni aprono domenica 1 novembre. Fino alle 23:59 di lunedì 2 novembre trovi le condizioni vantaggiose.</p>
+        <p class="mf-pricing-subtitle" data-fase="vantaggio">Condizioni vantaggiose fino alle 23:59 di lunedì 2 novembre. Le iscrizioni chiudono giovedì 5 novembre alle 23:59 e non riapriranno a breve.</p>
+        <p class="mf-pricing-subtitle" data-fase="pieno chiuso">Le iscrizioni chiudono giovedì 5 novembre alle 23:59 e non riapriranno a breve.</p>
       </div>
 
       <div class="mf-pricing-grid mf-animate-group">
@@ -1512,14 +1514,21 @@
             <li>16 videolezioni semplici, da seguire quando vuoi</li>
             <li>File Budget e Traccia Spese</li>
             <li>File Salvadanai Personalizzabile</li>
-            <li>File budget vacanze</li>
             <li>5 fogli di lavoro pratici, uno per ogni fase</li>
-            <li>2 bonus inclusi</li>
             <li>Assistenza email 3 mesi</li>
           </ul>
-          <div class="mf-price-old">287&euro;</div>
-          <div class="mf-price">187&euro;</div>
-          <div class="mf-price-rate">Oppure 3 rate da 62,33&euro; &mdash; meno di 2&euro; al giorno</div>
+          <div data-fase="prima vantaggio">
+            <div class="mf-price-old mf-price-listino">287&euro;</div>
+            <div class="mf-price-old">187&euro;</div>
+            <div class="mf-price">147&euro;</div>
+            <div class="mf-price-scadenza">Prezzo valido solo fino a lunedì 2 novembre alle 23:59</div>
+            <div class="mf-price-rate">Oppure 3 rate da 49&euro; &mdash; meno di 2&euro; al giorno</div>
+          </div>
+          <div data-fase="pieno chiuso">
+            <div class="mf-price-old">287&euro;</div>
+            <div class="mf-price">187&euro;</div>
+            <div class="mf-price-rate">Oppure 3 rate da 62,33&euro; &mdash; circa 2&euro; al giorno</div>
+          </div>
           <a href="https://esmerise.com/maleducatifinanziari/register?p=6185" class="mf-card-btn">Inizia con Plus &rarr;</a>
         </div>
 
@@ -1533,14 +1542,21 @@
             <li>16 videolezioni semplici, da seguire quando vuoi</li>
             <li>File Budget e Traccia Spese</li>
             <li>File Salvadanai Personalizzabile</li>
-            <li>File budget vacanze</li>
             <li>5 fogli di lavoro pratici, uno per ogni fase</li>
-            <li>2 bonus inclusi</li>
             <li>Assistenza email 4 mesi</li>
           </ul>
-          <div class="mf-price-old">347&euro;</div>
-          <div class="mf-price">247&euro;</div>
-          <div class="mf-price-rate">Oppure 3 rate da 82,33&euro; &mdash; meno di 3&euro; al giorno</div>
+          <div data-fase="prima vantaggio">
+            <div class="mf-price-old mf-price-listino">347&euro;</div>
+            <div class="mf-price-old">277&euro;</div>
+            <div class="mf-price">237&euro;</div>
+            <div class="mf-price-scadenza">Prezzo valido solo fino a lunedì 2 novembre alle 23:59</div>
+            <div class="mf-price-rate">Oppure 3 rate da 79&euro; &mdash; meno di 3&euro; al giorno</div>
+          </div>
+          <div data-fase="pieno chiuso">
+            <div class="mf-price-old">347&euro;</div>
+            <div class="mf-price">277&euro;</div>
+            <div class="mf-price-rate">Oppure 3 rate da 92,33&euro; &mdash; circa 3&euro; al giorno</div>
+          </div>
           <a href="https://esmerise.com/maleducatifinanziari/register?p=12652" class="mf-card-btn">Scegli Extra &rarr;</a>
         </div>
 
@@ -1554,14 +1570,21 @@
             <li>16 videolezioni semplici, da seguire quando vuoi</li>
             <li>File Budget e Traccia Spese personalizzato</li>
             <li>File Salvadanai Personalizzabile</li>
-            <li>File budget vacanze</li>
             <li>5 fogli di lavoro pratici, uno per ogni fase</li>
-            <li>2 bonus inclusi</li>
             <li>Assistenza WhatsApp + email 6 mesi</li>
           </ul>
-          <div class="mf-price-old">447&euro;</div>
-          <div class="mf-price">337&euro;</div>
-          <div class="mf-price-rate">Oppure 3 rate da 112,33&euro; &mdash; meno di 4&euro; al giorno</div>
+          <div data-fase="prima vantaggio">
+            <div class="mf-price-old mf-price-listino">447&euro;</div>
+            <div class="mf-price-old">337&euro;</div>
+            <div class="mf-price">297&euro;</div>
+            <div class="mf-price-scadenza">Prezzo valido solo fino a lunedì 2 novembre alle 23:59</div>
+            <div class="mf-price-rate">Oppure 3 rate da 99&euro; &mdash; meno di 4&euro; al giorno</div>
+          </div>
+          <div data-fase="pieno chiuso">
+            <div class="mf-price-old">447&euro;</div>
+            <div class="mf-price">337&euro;</div>
+            <div class="mf-price-rate">Oppure 3 rate da 112,33&euro; &mdash; meno di 4&euro; al giorno</div>
+          </div>
           <a href="https://esmerise.com/maleducatifinanziari/register?p=8274" class="mf-card-btn">Scegli Premium &rarr;</a>
         </div>
 
@@ -1632,7 +1655,7 @@
 
         <details class="mf-faq-item">
           <summary>Faccio mille cose e non so se riesco a seguire il percorso adesso.</summary>
-          <p class="mf-faq-answer">Allora è perfetto per te, perché le video lezioni sono di soli 10/15 minuti, quindi anche con poco tempo puoi mettere in pratica subito quello che impari. Il file per fare il budget e tracciare le spese è già pronto all'uso. Lo stesso vale per il manuale e i fogli di lavoro, qualora preferissi fare il budget con carta e penna. E se scegli la formula Premium o Exclusive puoi fissare gli incontri con noi in base alle tue disponibilità.</p>
+          <p class="mf-faq-answer">Allora è perfetto per te, perché le video lezioni sono di soli 10/15 minuti, quindi anche con poco tempo puoi mettere in pratica subito quello che impari. Il file per fare il budget e tracciare le spese è già pronto all'uso. Lo stesso vale per il manuale e i fogli di lavoro, qualora preferissi fare il budget con carta e penna. E se scegli la formula Extra o Premium puoi fissare gli incontri con noi in base alle tue disponibilità.</p>
         </details>
 
         <details class="mf-faq-item">
@@ -1659,9 +1682,18 @@
        ============================================================ -->
   <section class="mf-urgenza-finale">
     <div class="mf-container">
-      <h2>Le iscrizioni chiudono domenica 9 agosto alle 23:59</h2>
+      <h2 data-fase="prima">Le iscrizioni aprono domenica 1 novembre</h2>
+      <h2 data-fase="vantaggio">Le condizioni vantaggiose scadono lunedì 2 novembre alle 23:59</h2>
+      <h2 data-fase="pieno">Le iscrizioni chiudono giovedì 5 novembre alle 23:59</h2>
       <div class="mf-countdown"></div>
-      <p>
+      <p data-fase="prima">
+        Da domenica puoi iscriverti e fino alle 23:59 di lunedì 2 novembre trovi le condizioni vantaggiose.
+      </p>
+      <p data-fase="vantaggio">
+        Dopo quella data i prezzi tornano pieni: 187&euro;, 277&euro; e 337&euro;.<br>
+        Se stai aspettando il momento giusto, <strong>questo è il momento giusto.</strong>
+      </p>
+      <p data-fase="pieno">
         Dopo quella data le iscrizioni chiudono e non riapriranno a breve.<br>
         Se stai aspettando il momento giusto, <strong>questo è il momento giusto.</strong>
       </p>
@@ -1765,12 +1797,6 @@
 
         <div class="mf-review-card-light">
           <div class="mf-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="mf-review-text-light"><em>Incontrarvi per me ha fatto davvero la differenza. Per la prima volta sto risparmiando qualcosa: ho un minuscolo fondo emergenze e un piccolo fondo risparmi. Questo mese pagherò le tasse universitarie di mio figlio senza intaccare lo stipendio, e farò il tagliando alla macchina senza dover contare i centesimi. Mi sembra già un grosso passo.</em></p>
-          <div class="mf-review-name-light"><strong>Corinna</strong></div>
-        </div>
-
-        <div class="mf-review-card-light">
-          <div class="mf-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p class="mf-review-text-light"><em>Grazie a voi faccio scelte più consapevoli e ho detto dei no, quando non potevo permettermi di fare certe cose, anziché sentirmi in costante affanno. Il vostro lavoro è molto importante.</em></p>
           <div class="mf-review-name-light"><strong>Erika</strong></div>
         </div>
@@ -1829,13 +1855,13 @@
       <h2>Inizia oggi a costruire la tua sicurezza economica.</h2>
       <div class="mf-cta-buttons">
         <a href="https://esmerise.com/maleducatifinanziari/register?p=6185" class="mf-btn mf-btn-large">
-          Plus &mdash; 187&euro; &nbsp;&#11088;
+          Plus &mdash; <span data-fase="prima vantaggio">147&euro;</span><span data-fase="pieno chiuso">187&euro;</span> &nbsp;&#11088;
         </a>
         <a href="https://esmerise.com/maleducatifinanziari/register?p=12652" class="mf-btn-secondary">
-          Extra &mdash; 247&euro;
+          Extra &mdash; <span data-fase="prima vantaggio">237&euro;</span><span data-fase="pieno chiuso">277&euro;</span>
         </a>
         <a href="https://esmerise.com/maleducatifinanziari/register?p=8274" class="mf-btn-secondary">
-          Premium &mdash; 337&euro;
+          Premium &mdash; <span data-fase="prima vantaggio">297&euro;</span><span data-fase="pieno chiuso">337&euro;</span>
         </a>
       </div>
     </div>
@@ -1854,14 +1880,46 @@
     adjustBodyPadding();
     window.addEventListener('resize', adjustBodyPadding);
 
-    /* --- Countdown Timer — aumento prezzi 9 agosto 2026 ore 23:59 --- */
+    /* --- Fasi del lancio di novembre 2026 (ora italiana) ---
+       prima     → fino a sabato 31 ottobre: iscrizioni non ancora aperte, prezzi vantaggiosi in vetrina
+       vantaggio → 1-2 novembre: condizioni vantaggiose 147/237/297
+       pieno     → 3-5 novembre: prezzi pieni 187/277/337
+       chiuso    → dal 6 novembre: barra e urgenza finale spariscono */
+    var APERTURA       = new Date('2026-11-01T00:00:00+01:00');
+    var FINE_VANTAGGIO = new Date('2026-11-03T00:00:00+01:00');
+    var CHIUSURA       = new Date('2026-11-06T00:00:00+01:00');
+
+    // Per provare la pagina in un'altra fase: dalla console, oraSimulata = new Date('2026-11-03T10:00:00+01:00')
+    var oraSimulata = null;
+    var faseMostrata = null;
+
+    function faseCorrente(now) {
+      if (now < APERTURA) return 'prima';
+      if (now < FINE_VANTAGGIO) return 'vantaggio';
+      if (now < CHIUSURA) return 'pieno';
+      return 'chiuso';
+    }
+
+    // Mostra solo gli elementi della fase in corso
+    function mostraFase(fase) {
+      if (fase === faseMostrata) return;
+      faseMostrata = fase;
+      document.querySelectorAll('[data-fase]').forEach(function(el) {
+        el.classList.toggle('mf-fase-attiva', el.getAttribute('data-fase').split(' ').indexOf(fase) !== -1);
+      });
+    }
+
+    /* --- Countdown Timer — punta alla prossima scadenza della fase in corso --- */
     function pad(n) { return String(n).padStart(2, '0'); }
 
     function updateCountdown() {
-      var deadline = new Date('2026-08-09T23:59:00');
-      var now      = new Date();
+      var now      = oraSimulata || new Date();
+      var fase     = faseCorrente(now);
+      var deadline = { prima: APERTURA, vantaggio: FINE_VANTAGGIO, pieno: CHIUSURA, chiuso: CHIUSURA }[fase];
       var diff     = deadline - now;
       var els      = document.querySelectorAll('.mf-countdown');
+
+      mostraFase(fase);
 
       if (diff <= 0) {
         var bar = document.getElementById('mf-urgency-bar');
