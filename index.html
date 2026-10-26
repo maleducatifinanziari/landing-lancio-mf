@@ -1239,15 +1239,19 @@
       font-weight: 500;
       border-left: 3px solid var(--mf-blue);
     }
+    /* Intestazioni "Oggi" / "Dopo il percorso": grandi e ben visibili */
+    .mf-cambia-intestazione { background: rgba(169, 206, 232, 0.3); }
     .mf-cambia-intestazione > div {
-      font-size: 12px;
+      font-family: var(--mf-font-title);
+      font-size: 26px;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
       padding-top: 18px;
       padding-bottom: 18px;
     }
-    .mf-cambia-intestazione .mf-cambia-dopo { color: var(--mf-blue); }
+    .mf-cambia-intestazione .mf-cambia-oggi { color: #4a6578; }
+    .mf-cambia-intestazione .mf-cambia-dopo { color: var(--mf-navy); }
     .mf-cambia-chiusura {
       font-family: var(--mf-font-title);
       font-size: clamp(22px, 2.6vw, 30px);
@@ -1348,14 +1352,15 @@
       .mf-cambia-oggi::before,
       .mf-cambia-dopo::before {
         display: block;
-        font-size: 11px;
+        font-family: var(--mf-font-title);
+        font-size: 18px;
         font-weight: 700;
-        letter-spacing: 0.12em;
+        letter-spacing: 0.04em;
         text-transform: uppercase;
         margin-bottom: 4px;
       }
-      .mf-cambia-oggi::before { content: 'Oggi'; color: #8a96a3; }
-      .mf-cambia-dopo::before { content: 'Con il metodo'; color: var(--mf-blue); }
+      .mf-cambia-oggi::before { content: 'Oggi'; color: #4a6578; }
+      .mf-cambia-dopo::before { content: 'Dopo il percorso'; color: var(--mf-navy); }
       .mf-cambia-dopo { margin: 0 20px 14px; padding: 10px 14px !important; border-left: 3px solid var(--mf-blue); }
       .mf-obiezioni-grid { grid-template-columns: 1fr; }
     }
@@ -1516,7 +1521,7 @@
       <div class="mf-cambia-tabella">
         <div class="mf-cambia-riga mf-cambia-intestazione">
           <div class="mf-cambia-oggi">Oggi</div>
-          <div class="mf-cambia-dopo">Con Il Tuo Budget a Prova di Bomba</div>
+          <div class="mf-cambia-dopo">Dopo il percorso</div>
         </div>
         <div class="mf-cambia-riga">
           <div class="mf-cambia-oggi">A fine mese ti chiedi dove sono finiti i soldi.</div>
