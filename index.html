@@ -1199,6 +1199,175 @@
     }
 
     /* ============================================================
+       COSA CAMBIA (prima / dopo)
+       ============================================================ */
+    .mf-cambia {
+      background:
+        radial-gradient(ellipse at 15% 20%, rgba(84, 162, 210, 0.12) 0%, transparent 55%),
+        rgba(169, 206, 232, 0.18);
+      padding: 90px 0;
+    }
+    .mf-cambia h2 {
+      font-family: var(--mf-font-title);
+      font-size: clamp(30px, 4vw, 46px);
+      font-weight: 700;
+      color: var(--mf-navy);
+      line-height: 1.12;
+      margin-bottom: 12px;
+    }
+    .mf-cambia-sottotitolo {
+      font-family: var(--mf-font-body);
+      font-size: 18px;
+      color: var(--mf-navy);
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+    .mf-cambia-tabella {
+      background: var(--mf-white);
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(0, 58, 100, 0.07);
+      overflow: hidden;
+    }
+    .mf-cambia-riga {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid rgba(0, 58, 100, 0.08);
+    }
+    .mf-cambia-riga:last-child { border-bottom: none; }
+    .mf-cambia-riga > div {
+      font-family: var(--mf-font-body);
+      font-size: 16px;
+      line-height: 1.55;
+      padding: 20px 28px;
+    }
+    .mf-cambia-oggi { color: #6b8296; }
+    .mf-cambia-dopo {
+      color: var(--mf-navy);
+      font-weight: 500;
+      border-left: 3px solid var(--mf-blue);
+    }
+    .mf-cambia-intestazione > div {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding-top: 18px;
+      padding-bottom: 18px;
+    }
+    .mf-cambia-intestazione .mf-cambia-dopo { color: var(--mf-blue); }
+    .mf-cambia-chiusura {
+      font-family: var(--mf-font-title);
+      font-size: clamp(22px, 2.6vw, 30px);
+      font-weight: 700;
+      color: var(--mf-navy);
+      text-align: center;
+      margin-top: 44px;
+    }
+
+    /* ============================================================
+       OBIEZIONI
+       ============================================================ */
+    .mf-obiezioni {
+      background: var(--mf-white);
+      padding: 90px 0;
+    }
+    .mf-obiezioni h2 {
+      font-family: var(--mf-font-title);
+      font-size: clamp(30px, 4vw, 46px);
+      font-weight: 700;
+      color: var(--mf-navy);
+      text-align: center;
+      margin-bottom: 52px;
+    }
+    .mf-obiezioni-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .mf-obiezione {
+      border: 1px solid rgba(0, 58, 100, 0.12);
+      border-radius: 16px;
+      padding: 32px 28px;
+      box-shadow: 0 2px 16px rgba(0, 58, 100, 0.07);
+      display: flex;
+      flex-direction: column;
+    }
+    .mf-obiezione h3 {
+      font-family: var(--mf-font-title);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--mf-navy);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .mf-obiezione p {
+      font-family: var(--mf-font-body);
+      font-size: 16px;
+      color: var(--mf-navy);
+      line-height: 1.65;
+      margin-bottom: 10px;
+    }
+    .mf-obiezione blockquote {
+      margin-top: auto;
+      padding: 16px 0 0 16px;
+      border-left: 3px solid var(--mf-blue);
+      font-family: var(--mf-font-body);
+      font-size: 15px;
+      font-style: italic;
+      color: #334e68;
+      line-height: 1.6;
+    }
+    .mf-obiezione blockquote cite {
+      display: block;
+      margin-top: 8px;
+      font-style: normal;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--mf-navy);
+    }
+
+    /* Riga "Non fa per te se" sotto l'elenco */
+    .mf-pertete-no {
+      font-family: var(--mf-font-body);
+      font-size: 15px;
+      color: #6b8296;
+      line-height: 1.6;
+      max-width: 680px;
+      margin-top: 28px;
+    }
+
+    /* Risultato di ogni modulo del programma */
+    .mf-fase-risultato {
+      font-family: var(--mf-font-body);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--mf-navy);
+      line-height: 1.55;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .mf-cambia, .mf-obiezioni { padding: 64px 0; }
+      .mf-cambia-intestazione { display: none !important; }
+      .mf-cambia-riga { grid-template-columns: 1fr; }
+      .mf-cambia-riga > div { padding: 14px 20px; }
+      .mf-cambia-oggi { padding-bottom: 4px !important; }
+      .mf-cambia-oggi::before,
+      .mf-cambia-dopo::before {
+        display: block;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+      }
+      .mf-cambia-oggi::before { content: 'Oggi'; color: #8a96a3; }
+      .mf-cambia-dopo::before { content: 'Con il metodo'; color: var(--mf-blue); }
+      .mf-cambia-dopo { margin: 0 20px 14px; padding: 10px 14px !important; border-left: 3px solid var(--mf-blue); }
+      .mf-obiezioni-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================================
        DIVIDER
        ============================================================ */
     .mf-divider {
@@ -1332,12 +1501,57 @@
       <div class="mf-storia-inner">
         <div>
           <h2>Sai qual è il problema?</h2>
-          <p>Gli stipendi non crescono mai, i prezzi aumentano di continuo e c'è sempre un imprevisto che rovina tutto.</p>
-          <p>Non è colpa tua. Nessuno ti ha mai insegnato a gestire i soldi che guadagni, né a scuola né in famiglia.</p>
-          <p>Ci siamo passati anche noi tanti anni fa. Poi abbiamo capito che quello che succede intorno a noi non possiamo controllarlo, ma il modo in cui gestiamo i soldi sì. E con il sistema giusto la sicurezza economica si può costruire.</p>
+          <p>Gli stipendi non crescono mai e i prezzi aumentano di continuo.</p>
+          <p>Provi a stare dietro alle spese ma ti perdi i pezzi.<br>
+          Non riesci mai a risparmiare quanto vorresti.<br>
+          E basta un imprevisto per mandare tutto all'aria.</p>
+          <p class="mf-quote">Non ti manca la volontà. Ti manca un metodo.</p>
+          <p>E non è colpa tua. Nessuno te l'ha mai insegnato.</p>
+          <p>Ci siamo passati anche noi, poi abbiamo capito che quello che succede intorno a noi non possiamo controllarlo, ma il modo in cui gestiamo i soldi sì.</p>
         </div>
         <img src="foto-storia.jpg" alt="Dora e Davide" style="width:100%;border-radius:16px;display:block;">
       </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEZIONE 3b — COSA CAMBIA (Limbico: il "dopo" desiderato)
+       ============================================================ -->
+  <section class="mf-cambia mf-animate">
+    <div class="mf-container">
+      <h2>Ecco cosa cambia quando hai un metodo</h2>
+      <p class="mf-cambia-sottotitolo">Non devi guadagnare di più. Devi sapere dove vanno i tuoi soldi.</p>
+      <div class="mf-cambia-tabella">
+        <div class="mf-cambia-riga mf-cambia-intestazione">
+          <div class="mf-cambia-oggi">Oggi</div>
+          <div class="mf-cambia-dopo">Con Il Tuo Budget a Prova di Bomba</div>
+        </div>
+        <div class="mf-cambia-riga">
+          <div class="mf-cambia-oggi">A fine mese ti chiedi dove sono finiti i soldi.</div>
+          <div class="mf-cambia-dopo">Sai dove va ogni euro. Prima ancora che esca dal conto.</div>
+        </div>
+        <div class="mf-cambia-riga">
+          <div class="mf-cambia-oggi">Provi a segnarti le spese ma ti perdi i pezzi.</div>
+          <div class="mf-cambia-dopo">Ti bastano pochi minuti a settimana per avere tutto sotto controllo.</div>
+        </div>
+        <div class="mf-cambia-riga">
+          <div class="mf-cambia-oggi">Basta un imprevisto e salta tutto.</div>
+          <div class="mf-cambia-dopo">Hai un fondo di emergenza che ti protegge. L'imprevisto resta un fastidio. Non diventa un dramma.</div>
+        </div>
+        <div class="mf-cambia-riga">
+          <div class="mf-cambia-oggi">Assicurazione, tasse e regali di Natale ti mandano in difficoltà.</div>
+          <div class="mf-cambia-dopo">Li hai già messi da parte. Un po' alla volta, mese dopo mese.</div>
+        </div>
+        <div class="mf-cambia-riga">
+          <div class="mf-cambia-oggi">I tuoi progetti restano un "prima o poi".</div>
+          <div class="mf-cambia-dopo">Hanno un salvadanaio, una cifra e una data.</div>
+        </div>
+        <div class="mf-cambia-riga">
+          <div class="mf-cambia-oggi">Ogni sfizio ti fa sentire in colpa.</div>
+          <div class="mf-cambia-dopo">Spendi per le cose che ami. Senza sensi di colpa, perché sono già nel budget.</div>
+        </div>
+      </div>
+      <p class="mf-cambia-chiusura">Non è una vita di rinunce. È una vita in cui decidi tu.</p>
     </div>
   </section>
 
@@ -1388,11 +1602,14 @@
       <h2>Questo percorso fa per te se:</h2>
       <ul class="mf-pertete-list">
         <li>Fai fatica a risparmiare o vorresti risparmiare di più</li>
-        <li>Senti di non avere controllo sulle tue spese o vorresti controllarle ancora meglio</li>
+        <li>A fine mese non sai dove sono finiti i soldi</li>
+        <li>Hai già provato con app, quaderni o file Excel ma ti perdi sempre qualcosa</li>
         <li>Vuoi costruire un fondo di emergenza o rinforzare quello che hai</li>
+        <li>Vuoi realizzare i tuoi progetti, come una casa, un viaggio o un cambiamento, senza rimandarli sempre</li>
         <li>Vuoi vivere con più tranquillità economica e soprattutto mentale</li>
-        <li>Vuoi un metodo spiegato in modo semplice, senza tecnicismi, che puoi applicare da subito</li>
+        <li>Vuoi un metodo semplice, senza tecnicismi, che puoi applicare da subito</li>
       </ul>
+      <p class="mf-pertete-no">Non fa per te se cerchi consigli su investimenti o trading. Qui impari a gestire i soldi di tutti i giorni.</p>
     </div>
   </section>
 
@@ -1407,9 +1624,10 @@
       <div class="mf-fasi-grid">
         <div class="mf-fase-item">
           <div class="mf-fase-numero">Modulo 1</div>
-          <div class="mf-fase-titolo">Liquidità per le spese mensili</div>
+          <div class="mf-fase-titolo">Scopri dove vanno i tuoi soldi</div>
           <div class="mf-fase-desc">
-            Metti le basi per organizzare le spese mensili e pagarle senza andare in difficoltà.
+            <p class="mf-fase-risultato">Alla fine di questo modulo sai quanto ti costa davvero vivere ogni mese e paghi le spese senza andare in affanno.</p>
+            Metti le basi per organizzare le spese mensili.
             <div class="mf-fase-meta"><span class="mf-fase-video">3 videolezioni</span> + <span class="mf-fase-file">📄 Foglio di lavoro Traccia Spese</span></div>
           </div>
           <div class="mf-fase-media">
@@ -1423,9 +1641,10 @@
         </div>
         <div class="mf-fase-item">
           <div class="mf-fase-numero">Modulo 2</div>
-          <div class="mf-fase-titolo">Liquidità 2.0</div>
+          <div class="mf-fase-titolo">Costruisci il tuo budget a prova di bomba</div>
           <div class="mf-fase-desc">
-            Risparmia in modo costante per le spese future, per gli imprevisti e per i tuoi progetti di vita grazie al nostro metodo e ai nostri strumenti.
+            <p class="mf-fase-risultato">Alla fine di questo modulo hai il tuo primo budget e sai già quanto mettere da parte per spese future, imprevisti e progetti.</p>
+            Impari a risparmiare in modo costante, mese dopo mese, con il nostro metodo e i nostri strumenti.
             <div class="mf-fase-meta"><span class="mf-fase-video">6 videolezioni</span> + <span class="mf-fase-file">📄 File Budget</span></div>
           </div>
           <div class="mf-fase-media">
@@ -1444,9 +1663,10 @@
         </div>
         <div class="mf-fase-item">
           <div class="mf-fase-numero">Modulo 3</div>
-          <div class="mf-fase-titolo">Liquidità per emergenze e imprevisti</div>
+          <div class="mf-fase-titolo">Il tuo scudo contro gli imprevisti</div>
           <div class="mf-fase-desc">
-            Scopri come costruire il tuo fondo di emergenza: quella base di risparmi per le spese impreviste che ti fa dormire sonni tranquilli.
+            <p class="mf-fase-risultato">Alla fine di questo modulo sai di quanto hai bisogno per il tuo fondo di emergenza e hai un piano per costruirlo.</p>
+            Quella base di risparmi per le spese impreviste che ti fa dormire sonni tranquilli.
             <div class="mf-fase-meta"><span class="mf-fase-video">1 videolezione</span> + <span class="mf-fase-file">📄 Foglio di lavoro Fondo di Emergenza</span></div>
           </div>
           <div class="mf-fase-media mf-fase-media-side">
@@ -1456,9 +1676,10 @@
         </div>
         <div class="mf-fase-item">
           <div class="mf-fase-numero">Modulo 4</div>
-          <div class="mf-fase-titolo">Organizza i tuoi risparmi</div>
+          <div class="mf-fase-titolo">Dai un salvadanaio a ogni progetto</div>
           <div class="mf-fase-desc">
-            Separa i risparmi dai soldi delle spese quotidiane, organizzali per obiettivi con il nostro metodo dei salvadanai digitali, tieni traccia dei tuoi progressi e impara a scegliere lo strumento migliore dove tenerli.
+            <p class="mf-fase-risultato">Alla fine di questo modulo i tuoi risparmi sono separati dai soldi di tutti i giorni, divisi per obiettivi e sai dove tenerli.</p>
+            Con il nostro metodo dei salvadanai digitali tieni traccia dei tuoi progressi e scegli lo strumento migliore dove tenere i risparmi.
             <div class="mf-fase-meta"><span class="mf-fase-video">4 videolezioni</span> + <span class="mf-fase-file">📄 File Salvadanai Personalizzabile</span></div>
           </div>
           <div class="mf-fase-media-vertical">
@@ -1473,9 +1694,10 @@
         </div>
         <div class="mf-fase-item" style="grid-column: 1 / -1; max-width: 560px;">
           <div class="mf-fase-numero">Modulo 5</div>
-          <div class="mf-fase-titolo">Costruisci la mentalità per raggiungere i tuoi obiettivi</div>
+          <div class="mf-fase-titolo">Allena la testa a scegliere meglio</div>
           <div class="mf-fase-desc">
-            Il metodo e gli strumenti sono fondamentali. Ma lo è altrettanto la mentalità. Con il nostro metodo RPEAR impari a capire come funziona la tua mente quando prendi decisioni sui soldi, per fare scelte migliori e raggiungere davvero i tuoi obiettivi.
+            <p class="mf-fase-risultato">Alla fine di questo modulo capisci cosa succede nella tua mente quando decidi di spendere e sai fare scelte che ti avvicinano ai tuoi obiettivi.</p>
+            Il metodo e gli strumenti sono fondamentali. Ma lo è altrettanto la mentalità. Per questo ti insegniamo il nostro metodo RPEAR.
             <div class="mf-fase-meta"><span class="mf-fase-video">2 videolezioni</span> + <span class="mf-fase-file">📄 Foglio di lavoro Pensieri ed Emozioni</span></div>
           </div>
           <div class="mf-fase-media">
@@ -1488,6 +1710,41 @@
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEZIONE 5b — OBIEZIONI (Neocorteccia: risposte + prove reali)
+       ============================================================ -->
+  <section class="mf-obiezioni mf-animate">
+    <div class="mf-container">
+      <h2>Lo so, magari stai pensando che&hellip;</h2>
+      <div class="mf-obiezioni-grid">
+        <div class="mf-obiezione">
+          <h3>&ldquo;Non ho tempo. Ho già mille cose da fare.&rdquo;</h3>
+          <p>Ti bastano meno di 20 minuti a settimana.</p>
+          <p>Le videolezioni durano 10-15 minuti e il file è già pronto da usare. E hai un anno intero per seguire il percorso con i tuoi tempi.</p>
+          <blockquote>&ldquo;È stato come una serie tv. Un video dietro l'altro.&rdquo;<cite>Una persona che ha seguito il percorso</cite></blockquote>
+        </div>
+        <div class="mf-obiezione">
+          <h3>&ldquo;Non voglio fare una vita di rinunce.&rdquo;</h3>
+          <p>Nemmeno noi.</p>
+          <p>Il budget non serve a toglierti le cose che ami. <strong>Serve a farci andare i soldi.</strong></p>
+          <blockquote>&ldquo;Oggi finalmente ho finito di pagare il viaggio per il Giappone. I due desideri che avevamo l'anno scorso sono adesso realtà.&rdquo;<cite>Giulia C.</cite></blockquote>
+        </div>
+        <div class="mf-obiezione">
+          <h3>&ldquo;Il problema è lo stipendio, non come lo gestisco.&rdquo;</h3>
+          <p>Chi guadagna tanto senza un metodo resta comunque senza soldi.</p>
+          <p>Chi guadagna il giusto con il metodo giusto costruisce la sua serenità.</p>
+          <blockquote>&ldquo;Vivo sola con due figlie e ho uno stipendio nella media. Finalmente riesco a risparmiare e a rimanere in carreggiata.&rdquo;<cite>Lorena</cite></blockquote>
+        </div>
+        <div class="mf-obiezione">
+          <h3>&ldquo;Mi piacerebbe, ma adesso non posso spendere questa cifra.&rdquo;</h3>
+          <p>Un metodo non è una spesa. <strong>È il modo in cui ritrovi i soldi che oggi ti sfuggono senza che te ne accorga.</strong></p>
+          <p>Se ti fa ritrovare anche solo 50&euro; al mese, in pochi mesi si è già ripagato. E puoi pagarlo in 3 rate senza interessi.</p>
+          <blockquote>&ldquo;Ci siamo resi conto di quanti soldi sfuggivano al nostro controllo.&rdquo;<cite>Elisa</cite></blockquote>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1509,7 +1766,7 @@
         <div class="mf-card-plus mf-animate-child">
           <span class="mf-card-label">PLUS</span>
           <div class="mf-card-title">Il Tuo Budget a Prova di Bomba</div>
-          <p class="mf-card-target">Per chi vuole partire in autonomia con metodo e strumenti giusti</p>
+          <p class="mf-card-target">Per chi vuole mettere ordine nei suoi soldi in autonomia, con i suoi tempi</p>
           <ul class="mf-card-list">
             <li>16 videolezioni semplici, da seguire quando vuoi</li>
             <li>File Budget e Traccia Spese</li>
@@ -1536,7 +1793,7 @@
         <div class="mf-card-exclusive mf-animate-child">
           <span class="mf-card-label">EXTRA</span>
           <div class="mf-card-title">Il Tuo Budget a Prova di Bomba</div>
-          <p class="mf-card-target">Per chi vuole un aiuto in più per partire con il piede giusto</p>
+          <p class="mf-card-target">Per chi vuole uscire dall'incontro con il suo primo budget già fatto</p>
           <ul class="mf-card-list">
             <li>1 incontro personalizzato di 1 ora con noi (online) per creare insieme il tuo primo budget</li>
             <li>16 videolezioni semplici, da seguire quando vuoi</li>
@@ -1564,7 +1821,7 @@
         <div class="mf-card-premium mf-animate-child">
           <span class="mf-card-label">PREMIUM</span>
           <div class="mf-card-title">Il Tuo Budget a Prova di Bomba</div>
-          <p class="mf-card-target">La scelta pi&ugrave; equilibrata tra autonomia e affiancamento</p>
+          <p class="mf-card-target">Per chi vuole costruire budget e salvadanai insieme a noi, sulla sua situazione</p>
           <ul class="mf-card-list">
             <li>2 incontri personalizzati di 1 ora con noi (online) per creare insieme il tuo budget e i tuoi salvadanai</li>
             <li>16 videolezioni semplici, da seguire quando vuoi</li>
@@ -1624,23 +1881,18 @@
       <div class="mf-faq-list">
 
         <details class="mf-faq-item">
-          <summary>E se ho uno stipendio basso oppure ho troppe spese?</summary>
-          <p class="mf-faq-answer">Il nostro metodo ti permette di ottimizzare i soldi che hai a disposizione e risparmiare indipendentemente da quanto guadagni e dalle spese che hai.</p>
-        </details>
-
-        <details class="mf-faq-item">
           <summary>Funziona anche per chi parte da zero?</summary>
           <p class="mf-faq-answer">Sì, perché "Il Tuo Budget a Prova di Bomba" è un percorso che parte dalle basi e ti guida passo passo finché il metodo non diventa parte di te.</p>
         </details>
 
         <details class="mf-faq-item">
-          <summary>E se già traccio le mie spese e/o faccio il budget ma cerco un metodo per migliorare?</summary>
-          <p class="mf-faq-answer">Gli strumenti e il metodo che mettiamo a tua disposizione non si trovano gratis online e ti aiutano a fare quel salto di qualità che stai cercando.</p>
+          <summary>E se ho già un mio metodo?</summary>
+          <p class="mf-faq-answer">Se il tuo metodo funziona, tienilo. Ma se usi un'app, un quaderno o un file Excel e ti perdi sempre qualcosa, qui trovi un metodo completo che regge nel tempo. Dal budget al risparmio per obiettivi.<br><br><em>"Avevo provato tante app, il Kakebo, ma alla fine mi perdevo sempre qualcosa. Adesso finalmente i conti tornano."</em> (Antonio)</p>
         </details>
 
         <details class="mf-faq-item">
           <summary>Quanto tempo ho per concludere il percorso?</summary>
-          <p class="mf-faq-answer">Hai a disposizione un intero anno.</p>
+          <p class="mf-faq-answer">Hai a disposizione un anno intero. Le videolezioni durano 10-15 minuti e puoi seguirle quando vuoi. Se scegli Extra o Premium fissi gli incontri con noi in base alle tue disponibilità.</p>
         </details>
 
         <details class="mf-faq-item">
@@ -1650,12 +1902,7 @@
 
         <details class="mf-faq-item">
           <summary>Posso pagare a rate?</summary>
-          <p class="mf-faq-answer">Sì, puoi farlo selezionando l'opzione di pagamento KLARNA. Anche in questo caso puoi pagare con carta, ma NON con carta prepagata.</p>
-        </details>
-
-        <details class="mf-faq-item">
-          <summary>Faccio mille cose e non so se riesco a seguire il percorso adesso.</summary>
-          <p class="mf-faq-answer">Allora è perfetto per te, perché le video lezioni sono di soli 10/15 minuti, quindi anche con poco tempo puoi mettere in pratica subito quello che impari. Il file per fare il budget e tracciare le spese è già pronto all'uso. Lo stesso vale per il manuale e i fogli di lavoro, qualora preferissi fare il budget con carta e penna. E se scegli la formula Extra o Premium puoi fissare gli incontri con noi in base alle tue disponibilità.</p>
+          <p class="mf-faq-answer">Sì, in 3 rate senza interessi con Klarna. Puoi pagare con carta, ma non con carta prepagata.</p>
         </details>
 
         <details class="mf-faq-item">
