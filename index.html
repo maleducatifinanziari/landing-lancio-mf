@@ -1454,7 +1454,7 @@
        ============================================================ -->
   <div id="mf-urgency-bar">
     <span data-fase="prima">⏳ Le iscrizioni aprono domenica 1 novembre</span>
-    <span data-fase="vantaggio">⏳ Miglior prezzo di sempre fino a lunedì 2 novembre alle 23:59</span>
+    <span data-fase="vantaggio">⏳ Miglior prezzo di sempre fino a martedì 3 novembre alle 23:59</span>
     <span data-fase="pieno">⏳ Le iscrizioni chiudono giovedì 5 novembre alle 23:59</span>
     &mdash; <span class="mf-countdown"></span>
     &mdash; <a href="#mf-pricing" id="mf-urgency-cta"><span data-fase="prima">Scopri le opzioni &rarr;</span><span data-fase="vantaggio pieno">Iscriviti ora &rarr;</span></a>
@@ -1722,8 +1722,8 @@
     <div class="mf-container">
       <div class="mf-pricing-header">
         <h2>Scegli il percorso giusto per te</h2>
-        <p class="mf-pricing-subtitle" data-fase="prima">Le iscrizioni aprono domenica 1 novembre. Fino alle 23:59 di lunedì 2 novembre puoi iscriverti al miglior prezzo di sempre.</p>
-        <p class="mf-pricing-subtitle" data-fase="vantaggio">Miglior prezzo di sempre fino alle 23:59 di lunedì 2 novembre. Le iscrizioni chiudono giovedì 5 novembre alle 23:59 e non riapriranno a breve.</p>
+        <p class="mf-pricing-subtitle" data-fase="prima">Le iscrizioni aprono domenica 1 novembre. Fino alle 23:59 di martedì 3 novembre puoi iscriverti al miglior prezzo di sempre.</p>
+        <p class="mf-pricing-subtitle" data-fase="vantaggio">Miglior prezzo di sempre fino alle 23:59 di martedì 3 novembre. Le iscrizioni chiudono giovedì 5 novembre alle 23:59 e non riapriranno a breve.</p>
         <p class="mf-pricing-subtitle" data-fase="pieno chiuso">Le iscrizioni chiudono giovedì 5 novembre alle 23:59 e non riapriranno a breve.</p>
       </div>
 
@@ -1745,7 +1745,7 @@
             <div class="mf-price-old mf-price-listino">287&euro;</div>
             <div class="mf-price-old">187&euro;</div>
             <div class="mf-price">147&euro;</div>
-            <div class="mf-price-scadenza">Prezzo valido solo fino a lunedì 2 novembre alle 23:59</div>
+            <div class="mf-price-scadenza">Prezzo valido solo fino a martedì 3 novembre alle 23:59</div>
             <div class="mf-price-rate">Oppure 3 rate da 49&euro; &mdash; meno di 2&euro; al giorno</div>
           </div>
           <div data-fase="pieno chiuso">
@@ -1773,7 +1773,7 @@
             <div class="mf-price-old mf-price-listino">347&euro;</div>
             <div class="mf-price-old">277&euro;</div>
             <div class="mf-price">237&euro;</div>
-            <div class="mf-price-scadenza">Prezzo valido solo fino a lunedì 2 novembre alle 23:59</div>
+            <div class="mf-price-scadenza">Prezzo valido solo fino a martedì 3 novembre alle 23:59</div>
             <div class="mf-price-rate">Oppure 3 rate da 79&euro; &mdash; meno di 3&euro; al giorno</div>
           </div>
           <div data-fase="pieno chiuso">
@@ -1801,7 +1801,7 @@
             <div class="mf-price-old mf-price-listino">447&euro;</div>
             <div class="mf-price-old">337&euro;</div>
             <div class="mf-price">297&euro;</div>
-            <div class="mf-price-scadenza">Prezzo valido solo fino a lunedì 2 novembre alle 23:59</div>
+            <div class="mf-price-scadenza">Prezzo valido solo fino a martedì 3 novembre alle 23:59</div>
             <div class="mf-price-rate">Oppure 3 rate da 99&euro; &mdash; meno di 4&euro; al giorno</div>
           </div>
           <div data-fase="pieno chiuso">
@@ -1897,11 +1897,11 @@
   <section class="mf-urgenza-finale">
     <div class="mf-container">
       <h2 data-fase="prima">Le iscrizioni aprono domenica 1 novembre</h2>
-      <h2 data-fase="vantaggio">Il miglior prezzo di sempre scade lunedì 2 novembre alle 23:59</h2>
+      <h2 data-fase="vantaggio">Il miglior prezzo di sempre scade martedì 3 novembre alle 23:59</h2>
       <h2 data-fase="pieno">Le iscrizioni chiudono giovedì 5 novembre alle 23:59</h2>
       <div class="mf-countdown"></div>
       <p data-fase="prima">
-        Da domenica puoi iscriverti e fino alle 23:59 di lunedì 2 novembre trovi il miglior prezzo di sempre.
+        Da domenica puoi iscriverti e fino alle 23:59 di martedì 3 novembre trovi il miglior prezzo di sempre.
       </p>
       <p data-fase="vantaggio">
         Dopo quella data i prezzi tornano pieni: 187&euro;, 277&euro; e 337&euro;.<br>
@@ -2096,14 +2096,14 @@
 
     /* --- Fasi del lancio di novembre 2026 (ora italiana) ---
        prima     → fino a sabato 31 ottobre: iscrizioni non ancora aperte, prezzi vantaggiosi in vetrina
-       vantaggio → 1-2 novembre: condizioni vantaggiose 147/237/297
-       pieno     → 3-5 novembre: prezzi pieni 187/277/337
+       vantaggio → 1-3 novembre: condizioni vantaggiose 147/237/297
+       pieno     → 4-5 novembre: prezzi pieni 187/277/337
        chiuso    → dal 6 novembre: barra e urgenza finale spariscono */
     var APERTURA       = new Date('2026-11-01T00:00:00+01:00');
-    var FINE_VANTAGGIO = new Date('2026-11-03T00:00:00+01:00');
+    var FINE_VANTAGGIO = new Date('2026-11-04T00:00:00+01:00');
     var CHIUSURA       = new Date('2026-11-06T00:00:00+01:00');
 
-    // Per provare la pagina in un'altra fase: dalla console, oraSimulata = new Date('2026-11-03T10:00:00+01:00')
+    // Per provare la pagina in un'altra fase: dalla console, oraSimulata = new Date('2026-11-04T10:00:00+01:00')
     var oraSimulata = null;
     var faseMostrata = null;
 
