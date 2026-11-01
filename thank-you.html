@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Grazie! Il tuo corso ti aspetta — Maleducati Finanziari</title>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window,document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1484404588815255');
+  fbq('track', 'PageView');
+
+  // Evento Purchase: l'opzione arriva dall'indirizzo (?piano=plus, extra o premium).
+  // Senza indicazione si conta come Plus, il valore più basso.
+  (function () {
+    // Prezzi di ogni lancio: da aggiornare insieme a quelli di Esmerise
+    var FINE_VANTAGGIO = new Date('2026-11-04T00:00:00+01:00');
+    var PREZZI = {
+      plus:    { vantaggio: 147, pieno: 187 },
+      extra:   { vantaggio: 237, pieno: 277 },
+      premium: { vantaggio: 297, pieno: 337 }
+    };
+
+    // Le prove in locale non devono finire tra le vendite su Meta
+    if (location.hostname !== 'budget.maleducatifinanziari.com') return;
+
+    var piano = new URLSearchParams(location.search).get('piano');
+    if (!PREZZI[piano]) piano = 'plus';
+
+    // Se la pagina viene ricaricata la vendita non si conta due volte
+    var chiave = 'mf-purchase-' + piano;
+    try {
+      if (localStorage.getItem(chiave)) return;
+      localStorage.setItem(chiave, '1');
+    } catch (e) {}
+
+    var fascia = new Date() < FINE_VANTAGGIO ? 'vantaggio' : 'pieno';
+    fbq('track', 'Purchase', {
+      value: PREZZI[piano][fascia],
+      currency: 'EUR',
+      content_name: 'Il Tuo Budget a Prova di Bomba - ' + piano
+    });
+  })();
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1484404588815255&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- Fine Meta Pixel Code -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --mf-navy:       #003a64;
+      --mf-blue:       #54a2d2;
+      --mf-light:      #a9cee8;
+      --mf-white:      #ffffff;
+      --mf-font-title: 'Antonio', sans-serif;
+      --mf-font-body:  'DM Sans', sans-serif;
+    }
+
+    body {
+      font-family: var(--mf-font-body);
+      color: var(--mf-navy);
+      background: var(--mf-white);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .mf-hero {
+      flex: 1;
+      background:
+        radial-gradient(ellipse at 10% 20%, rgba(84, 162, 210, 0.18) 0%, transparent 55%),
+        radial-gradient(ellipse at 90% 85%, rgba(84, 162, 210, 0.08) 0%, transparent 50%),
+        var(--mf-navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px;
+      text-align: center;
+    }
+
+    .mf-hero-inner {
+      max-width: 640px;
+      width: 100%;
+    }
+
+    .mf-checkmark {
+      width: 72px;
+      height: 72px;
+      background: rgba(84, 162, 210, 0.15);
+      border: 2px solid var(--mf-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 32px;
+      font-size: 32px;
+      color: var(--mf-white);
+    }
+
+    .mf-hero-label {
+      font-family: var(--mf-font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--mf-blue);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .mf-hero h1 {
+      font-family: var(--mf-font-title);
+      font-size: clamp(36px, 5vw, 58px);
+      font-weight: 700;
+      color: var(--mf-white);
+      line-height: 1.08;
+      margin-bottom: 20px;
+    }
+
+    .mf-hero h1 em {
+      font-style: normal;
+      color: var(--mf-blue);
+    }
+
+    .mf-hero-subtitle {
+      font-size: 18px;
+      color: var(--mf-light);
+      line-height: 1.65;
+      margin-bottom: 32px;
+    }
+
+    .mf-btn {
+      display: inline-block;
+      background: var(--mf-blue);
+      color: var(--mf-white);
+      font-family: var(--mf-font-body);
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 32px;
+      border-radius: 8px;
+      letter-spacing: 0.3px;
+      margin-bottom: 48px;
+      transition: background 0.2s ease;
+    }
+
+    .mf-btn:hover { background: #3d8ab8; }
+
+    /* ============================================================
+       CARD PRIMI PASSI
+       ============================================================ */
+    .mf-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(169, 206, 232, 0.2);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: left;
+      margin-bottom: 24px;
+    }
+
+    .mf-card-title {
+      font-family: var(--mf-font-title);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--mf-white);
+      margin-bottom: 20px;
+    }
+
+    .mf-card p {
+      font-size: 15px;
+      color: var(--mf-light);
+      line-height: 1.6;
+    }
+
+    .mf-card p + p { margin-top: 10px; }
+
+    .mf-steps {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .mf-steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 15px;
+      color: var(--mf-light);
+      line-height: 1.6;
+    }
+
+    .mf-step-num {
+      min-width: 28px;
+      height: 28px;
+      background: var(--mf-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mf-font-title);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--mf-white);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .mf-steps li strong { color: var(--mf-white); }
+    .mf-steps a { color: var(--mf-white); text-decoration: underline; }
+
+    /* ============================================================
+       FIRMA
+       ============================================================ */
+    .mf-firma {
+      background: rgba(84, 162, 210, 0.12);
+      border: 1px solid rgba(84, 162, 210, 0.3);
+      border-radius: 16px;
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      text-align: left;
+    }
+
+    .mf-firma img {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: 50% 25%;
+      display: block;
+      border: 2px solid var(--mf-blue);
+      flex-shrink: 0;
+    }
+
+    .mf-firma p {
+      font-size: 15px;
+      color: var(--mf-light);
+      line-height: 1.6;
+    }
+
+    .mf-firma p + p { margin-top: 8px; }
+    .mf-firma strong { color: var(--mf-white); }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .mf-footer {
+      background: var(--mf-navy);
+      border-top: 1px solid rgba(169, 206, 232, 0.15);
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .mf-footer p {
+      font-family: var(--mf-font-body);
+      font-size: 12px;
+      color: rgba(169, 206, 232, 0.55);
+      line-height: 2;
+    }
+    .mf-footer strong {
+      color: rgba(169, 206, 232, 0.8);
+      font-size: 13px;
+    }
+
+    @media (max-width: 560px) {
+      .mf-firma { flex-direction: column; gap: 12px; }
+      .mf-card { padding: 24px 20px; }
+      .mf-hero { padding: 60px 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="mf-hero">
+    <div class="mf-hero-inner">
+
+      <div class="mf-checkmark">✓</div>
+      <span class="mf-hero-label">Acquisto completato</span>
+      <h1>Grazie. Ora sei <em>dentro!</em></h1>
+      <p class="mf-hero-subtitle">Il Tuo Budget a Prova di Bomba è pronto e ti sta aspettando.</p>
+
+      <a href="https://esmerise.com/maleducatifinanziari/home" class="mf-btn">Vai al corso &rarr;</a>
+
+      <div class="mf-card">
+        <div class="mf-card-title">Da dove iniziare</div>
+        <ul class="mf-steps">
+          <li>
+            <span class="mf-step-num">1</span>
+            <span>Entra su <strong>Esmerise</strong> con la mail e la password che hai usato per registrarti.</span>
+          </li>
+          <li>
+            <span class="mf-step-num">2</span>
+            <span>Parti dalla <strong>prima lezione</strong>. Le video lezioni durano 10-15 minuti e hai un anno intero per seguirle.</span>
+          </li>
+          <li>
+            <span class="mf-step-num">3</span>
+            <span>Hai un dubbio? Scrivici a <a href="mailto:info@maleducatifinanziari.com">info@maleducatifinanziari.com</a></span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mf-card">
+        <div class="mf-card-title">Hai scelto un'opzione con gli incontri inclusi?</div>
+        <p>Ti contatteremo nei prossimi giorni per pianificare il primo incontro.</p>
+        <p>Intanto puoi iniziare a seguire le video lezioni.</p>
+      </div>
+
+      <div class="mf-firma">
+        <img src="foto-chisiamo.jpg" alt="Dora e Davide">
+        <div>
+          <p>Anche noi siamo stati dei maleducati finanziari. Sappiamo quanto conta il passo che hai appena fatto.</p>
+          <p><strong>A presto, Dora e Davide</strong></p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="mf-footer">
+    <p>
+      <strong>Maleducati Finanziari</strong><br>
+      Partita IVA: 13069380015 &mdash; Via Cardinale Maurilio Fossati 20, 10141 Torino (TO)
+    </p>
+  </footer>
+
+</body>
+</html>
