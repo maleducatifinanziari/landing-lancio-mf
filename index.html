@@ -1350,6 +1350,17 @@
       .mf-obiezioni-grid { grid-template-columns: 1fr; }
     }
 
+    /* Bottoni a carrello chiuso: grigi e non cliccabili */
+    .mf-btn-chiuso,
+    .mf-btn-chiuso:hover {
+      background: #d5dde3 !important;
+      border-color: #d5dde3 !important;
+      color: #5a6b78 !important;
+      cursor: not-allowed;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+
     /* ============================================================
        DIVIDER
        ============================================================ */
@@ -1727,7 +1738,8 @@
         <h2>Scegli il percorso giusto per te</h2>
         <p class="mf-pricing-subtitle" data-fase="prima">Le iscrizioni aprono domenica 1 novembre. Fino alle 23:59 di martedì 3 novembre puoi iscriverti al miglior prezzo di sempre.</p>
         <p class="mf-pricing-subtitle" data-fase="vantaggio">Miglior prezzo di sempre fino alle 23:59 di martedì 3 novembre. Le iscrizioni chiudono giovedì 5 novembre alle 23:59 e non riapriranno a breve.</p>
-        <p class="mf-pricing-subtitle" data-fase="pieno chiuso">Le iscrizioni chiudono giovedì 5 novembre alle 23:59 e non riapriranno a breve.</p>
+        <p class="mf-pricing-subtitle" data-fase="pieno">Le iscrizioni chiudono giovedì 5 novembre alle 23:59 e non riapriranno a breve.</p>
+        <p class="mf-pricing-subtitle" data-fase="chiuso">Le iscrizioni sono chiuse. Riapriranno a gennaio 2027.</p>
       </div>
 
       <div class="mf-pricing-grid mf-animate-group">
@@ -1756,7 +1768,7 @@
             <div class="mf-price">187&euro;</div>
             <div class="mf-price-rate">Oppure <strong>3 rate da 62,33&euro; senza interessi</strong><br>Circa 2&euro; al giorno</div>
           </div>
-          <a href="https://esmerise.com/maleducatifinanziari/register?p=6185" class="mf-card-btn">Inizia con Plus &rarr;</a>
+          <span class="mf-card-btn mf-btn-chiuso">Iscrizioni chiuse</span>
         </div>
 
         <!-- CARD EXTRA -->
@@ -1784,7 +1796,7 @@
             <div class="mf-price">277&euro;</div>
             <div class="mf-price-rate">Oppure <strong>3 rate da 92,33&euro; senza interessi</strong><br>Circa 3&euro; al giorno</div>
           </div>
-          <a href="https://esmerise.com/maleducatifinanziari/register?p=12652" class="mf-card-btn">Scegli Extra &rarr;</a>
+          <span class="mf-card-btn mf-btn-chiuso">Iscrizioni chiuse</span>
         </div>
 
         <!-- CARD PREMIUM — in evidenza -->
@@ -1812,7 +1824,7 @@
             <div class="mf-price">337&euro;</div>
             <div class="mf-price-rate">Oppure <strong>3 rate da 112,33&euro; senza interessi</strong><br>Meno di 4&euro; al giorno</div>
           </div>
-          <a href="https://esmerise.com/maleducatifinanziari/register?p=8274" class="mf-card-btn">Scegli Premium &rarr;</a>
+          <span class="mf-card-btn mf-btn-chiuso">Iscrizioni chiuse</span>
         </div>
 
       </div>
@@ -1914,9 +1926,9 @@
         Dopo quella data le iscrizioni chiudono e non riapriranno a breve.<br>
         Se stai aspettando il momento giusto, <strong>questo è il momento giusto.</strong>
       </p>
-      <a href="https://esmerise.com/maleducatifinanziari/register?p=8274" class="mf-btn mf-btn-large">
-        Iscriviti adesso &rarr;
-      </a>
+      <span class="mf-btn mf-btn-large mf-btn-chiuso">
+        Iscrizioni chiuse
+      </span>
     </div>
   </section>
 
@@ -2071,15 +2083,15 @@
     <div class="mf-container">
       <h2>Inizia oggi a costruire la tua serenità economica.</h2>
       <div class="mf-cta-buttons">
-        <a href="https://esmerise.com/maleducatifinanziari/register?p=6185" class="mf-btn mf-btn-large">
-          Plus &mdash; <span data-fase="prima vantaggio">147&euro;</span><span data-fase="pieno chiuso">187&euro;</span> &nbsp;&#11088;
-        </a>
-        <a href="https://esmerise.com/maleducatifinanziari/register?p=12652" class="mf-btn-secondary">
-          Extra &mdash; <span data-fase="prima vantaggio">237&euro;</span><span data-fase="pieno chiuso">277&euro;</span>
-        </a>
-        <a href="https://esmerise.com/maleducatifinanziari/register?p=8274" class="mf-btn-secondary">
-          Premium &mdash; <span data-fase="prima vantaggio">297&euro;</span><span data-fase="pieno chiuso">337&euro;</span>
-        </a>
+        <span class="mf-btn mf-btn-large mf-btn-chiuso">
+          Plus &mdash; iscrizioni chiuse
+        </span>
+        <span class="mf-btn-secondary mf-btn-chiuso">
+          Extra &mdash; iscrizioni chiuse
+        </span>
+        <span class="mf-btn-secondary mf-btn-chiuso">
+          Premium &mdash; iscrizioni chiuse
+        </span>
       </div>
     </div>
   </section>
